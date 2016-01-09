@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4886451E5CFA7FCAE9F5F65B /* Pods_Expense.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB5A0B512B9A5AEDEF5B2D5 /* Pods_Expense.framework */; };
 		DD3F4C991C3E9F2D00F9980E /* SummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F4C981C3E9F2D00F9980E /* SummaryTableViewController.swift */; };
 		DD3F4CA41C3EA5BA00F9980E /* Comfortaa_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD3F4CA11C3EA5BA00F9980E /* Comfortaa_Bold.ttf */; };
 		DD3F4CA51C3EA5BA00F9980E /* Comfortaa_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD3F4CA21C3EA5BA00F9980E /* Comfortaa_Regular.ttf */; };
@@ -46,8 +45,6 @@
 
 /* Begin PBXFileReference section */
 		0FB5A0B512B9A5AEDEF5B2D5 /* Pods_Expense.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expense.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A39F7D31DA47A5F7F387B08 /* Pods-Expense.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Expense/Pods-Expense.debug.xcconfig"; sourceTree = "<group>"; };
-		A2564FC106B57F6715C81193 /* Pods-Expense.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense.release.xcconfig"; path = "Pods/Target Support Files/Pods-Expense/Pods-Expense.release.xcconfig"; sourceTree = "<group>"; };
 		DD3F4C981C3E9F2D00F9980E /* SummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryTableViewController.swift; sourceTree = "<group>"; };
 		DD3F4CA11C3EA5BA00F9980E /* Comfortaa_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa_Bold.ttf; path = Expense/Resources/Comfortaa_Bold.ttf; sourceTree = "<group>"; };
 		DD3F4CA21C3EA5BA00F9980E /* Comfortaa_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa_Regular.ttf; path = Expense/Resources/Comfortaa_Regular.ttf; sourceTree = "<group>"; };
@@ -78,7 +75,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4886451E5CFA7FCAE9F5F65B /* Pods_Expense.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,8 +106,6 @@
 		896BB3D1AFB5A5FEC01820BE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3A39F7D31DA47A5F7F387B08 /* Pods-Expense.debug.xcconfig */,
-				A2564FC106B57F6715C81193 /* Pods-Expense.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -210,12 +204,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD75ABE81C3E992500457005 /* Build configuration list for PBXNativeTarget "Expense" */;
 			buildPhases = (
-				957CC6627F7F79AEE564DEF7 /* Check Pods Manifest.lock */,
 				DD75ABB91C3E992400457005 /* Sources */,
 				DD75ABBA1C3E992400457005 /* Frameworks */,
 				DD75ABBB1C3E992400457005 /* Resources */,
-				27977998D9EBF35637FD0D56 /* Embed Pods Frameworks */,
-				2EDCDC0FB81A550D1863572D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -339,54 +330,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		27977998D9EBF35637FD0D56 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Expense/Pods-Expense-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2EDCDC0FB81A550D1863572D /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Expense/Pods-Expense-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		957CC6627F7F79AEE564DEF7 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DD75ABB91C3E992400457005 /* Sources */ = {
@@ -537,7 +480,6 @@
 		};
 		DD75ABE91C3E992500457005 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A39F7D31DA47A5F7F387B08 /* Pods-Expense.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Expense/Info.plist;
@@ -550,7 +492,6 @@
 		};
 		DD75ABEA1C3E992500457005 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2564FC106B57F6715C81193 /* Pods-Expense.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Expense/Info.plist;

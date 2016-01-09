@@ -82,7 +82,6 @@ class SummaryTableViewController:  UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
         
         if indexPath.row == lastCellIndex{
             let cell = tableView.dequeueReusableCellWithIdentifier("allExpenseCell", forIndexPath: indexPath) as! AllExpenseCell
@@ -105,9 +104,6 @@ class SummaryTableViewController:  UITableViewController {
             cell.selectionStyle = .None
             return cell
         }
-        
-        cell.selectionStyle = .None
-        return cell
 
     }
 

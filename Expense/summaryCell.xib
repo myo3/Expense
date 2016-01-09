@@ -38,7 +38,7 @@
                                 <rect key="frame" x="82" y="0.0" width="339" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$10.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZA4-Ae-iBv">
-                                        <rect key="frame" x="232" y="7.5" width="92" height="35"/>
+                                        <rect key="frame" x="249" y="8" width="75" height="34"/>
                                         <color key="backgroundColor" red="0.47058823704719543" green="0.83529412746429443" blue="0.18431372940540314" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="30"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
