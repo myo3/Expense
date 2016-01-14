@@ -8,45 +8,54 @@
 
 import UIKit
 
-enum Function{
+enum Function: String{
     case Personal, Social, Work, Family
 }
-enum HeadCategory{
-    case General, Personal, House, FoodDrink, Transport, Clothes, Fun, Misc
+enum Category: String{
+    case General, Personal, House, Food, Transport, Clothes, Fun, Misc
 }
-enum Subcategory{
+enum Subcategory: String{
     //General = none
     
-    case /*Personal*/Mobile, Medical, Taxes, Insurance, PersonalCare, Gadgets, Pets, Education, Laundry, Fitness, Loan, Vouchers, Subscriptions, /*House*/Groceries, Rent, Phone, Electricity, Internet, Cable, Water, Repairs, Plants, Mortgage, Electronics, Furniture, Heating, /*Food&Drink*/Takeout, Fastfood, DiningOut, Cafe, Drinks, /*Transport also has insurance*/ Gas, Maintenance, PublicTransport, Taxi, CarLoan, Penalty, Flight, Parking, CarRentals, /*Clothes*/Shoes, Clothes, Accessories, Underwear, Bags, /*Fun*/Events, Movies, Recreation, Cultural, Sports, Books, Magazines, Music, Apps, Software, TVShows, /*Misc*/Gift, Office, Charity, Lodging, Service, Toy
-}
-struct Category {
-    var category: HeadCategory
-    var subcategory: Subcategory
+    case /*General*/None, /*Personal*/Mobile, Medical, Taxes, Insurance, PersonalCare, Gadgets, Pets, Education, Laundry, Fitness, Loan, Vouchers, Subscriptions, /*House*/Groceries, Rent, Phone, Electricity, Internet, Cable, Water, Repairs, Plants, Mortgage, Electronics, Furniture, Heating, /*Food&Drink*/Takeout, Fastfood, DiningOut, Cafe, Drinks, /*Transport also has insurance*/ Gas, Maintenance, PublicTransport, Taxi, CarLoan, Penalty, Flight, Parking, CarRentals, /*Clothes*/Shoes, Clothes, Accessories, Underwear, Bags, /*Fun*/Events, Movies, Recreation, Cultural, Sports, Books, Magazines, Music, Apps, Software, TVShows, /*Misc*/Gift, Office, Charity, Lodging, Service, Toy
 }
 
 class Expense: NSObject {
-    var amountSpent: Double
-    
+    var cost: Double
     var date: NSDateComponents
     
-//    var function: Function
-//    var category: Category
-//    
+    var function: Function
+    var category: Category
+    var subcategory: Subcategory
+
 //    var note: String
 //    var location: String
 //    var receipt: UIImage
     
-    init(amountSpent: Double){
-        self.amountSpent = amountSpent
+
+    init(amountSpent: Double, date: NSDate){
+        self.cost = amountSpent
+        //set date
         let calendar = NSCalendar.currentCalendar()
-        let date = NSDate()
         self.date = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond], fromDate: date)
+        //set organization
+        self.function = .Personal
+        self.category = .General
+        self.subcategory = .None
     }
     
-    init(amountSpent: Double, date: NSDate){
-        self.amountSpent = amountSpent
+    convenience init(amountSpent: Double){
+        self.init(amountSpent: amountSpent, date: NSDate()) //set to today's date
+    }
+    
+    init(amountSpent: Double, date: NSDate, function: Function, category: Category, subcategory: Subcategory){
+        self.cost = amountSpent
+        //set date
         let calendar = NSCalendar.currentCalendar()
-                self.date = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond], fromDate: date)
-
+        self.date = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond], fromDate: date)
+        //set organization
+        self.function = function
+        self.category = category
+        self.subcategory = subcategory
     }
 }

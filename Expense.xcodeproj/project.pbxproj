@@ -11,8 +11,6 @@
 		DD3F4CA41C3EA5BA00F9980E /* Comfortaa_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD3F4CA11C3EA5BA00F9980E /* Comfortaa_Bold.ttf */; };
 		DD3F4CA51C3EA5BA00F9980E /* Comfortaa_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD3F4CA21C3EA5BA00F9980E /* Comfortaa_Regular.ttf */; };
 		DD3F4CA61C3EA5BA00F9980E /* Comfortaa_Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD3F4CA31C3EA5BA00F9980E /* Comfortaa_Thin.ttf */; };
-		DD3F4CAA1C3EB19D00F9980E /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F4CA91C3EB19D00F9980E /* SummaryCell.swift */; };
-		DD3F4CAC1C3EB4CB00F9980E /* summaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD3F4CAB1C3EB4CB00F9980E /* summaryCell.xib */; };
 		DD3F4CAE1C3EC27400F9980E /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F4CAD1C3EC27400F9980E /* Expense.swift */; };
 		DD75ABC11C3E992400457005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75ABC01C3E992400457005 /* AppDelegate.swift */; };
 		DD75ABC31C3E992400457005 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75ABC21C3E992400457005 /* ViewController.swift */; };
@@ -22,8 +20,9 @@
 		DD75ABCE1C3E992400457005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD75ABCC1C3E992400457005 /* LaunchScreen.storyboard */; };
 		DD75ABD91C3E992500457005 /* ExpenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75ABD81C3E992500457005 /* ExpenseTests.swift */; };
 		DD75ABE41C3E992500457005 /* ExpenseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75ABE31C3E992500457005 /* ExpenseUITests.swift */; };
-		DDC58D521C40D67200757D3F /* AllExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC58D511C40D67200757D3F /* AllExpenseCell.swift */; };
-		DDC58D541C40D68500757D3F /* allExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDC58D531C40D68500757D3F /* allExpenseCell.xib */; };
+		DDB591001C47E98800D08FEF /* SummaryHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */; };
+		DDB591021C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */; };
+		DDC58D521C40D67200757D3F /* AllExpensesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC58D511C40D67200757D3F /* AllExpensesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +48,6 @@
 		DD3F4CA11C3EA5BA00F9980E /* Comfortaa_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa_Bold.ttf; path = Expense/Resources/Comfortaa_Bold.ttf; sourceTree = "<group>"; };
 		DD3F4CA21C3EA5BA00F9980E /* Comfortaa_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa_Regular.ttf; path = Expense/Resources/Comfortaa_Regular.ttf; sourceTree = "<group>"; };
 		DD3F4CA31C3EA5BA00F9980E /* Comfortaa_Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa_Thin.ttf; path = Expense/Resources/Comfortaa_Thin.ttf; sourceTree = "<group>"; };
-		DD3F4CA91C3EB19D00F9980E /* SummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
-		DD3F4CAB1C3EB4CB00F9980E /* summaryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = summaryCell.xib; sourceTree = "<group>"; };
 		DD3F4CAD1C3EC27400F9980E /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		DD75ABBD1C3E992400457005 /* Expense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD75ABC01C3E992400457005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,8 +63,9 @@
 		DD75ABDF1C3E992500457005 /* ExpenseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpenseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD75ABE31C3E992500457005 /* ExpenseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseUITests.swift; sourceTree = "<group>"; };
 		DD75ABE51C3E992500457005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DDC58D511C40D67200757D3F /* AllExpenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllExpenseCell.swift; sourceTree = "<group>"; };
-		DDC58D531C40D68500757D3F /* allExpenseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = allExpenseCell.xib; sourceTree = "<group>"; };
+		DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryDetailTableViewCell.swift; sourceTree = "<group>"; };
+		DDC58D511C40D67200757D3F /* AllExpensesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllExpensesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,10 +187,9 @@
 			isa = PBXGroup;
 			children = (
 				DD3F4C981C3E9F2D00F9980E /* SummaryTableViewController.swift */,
-				DD3F4CAB1C3EB4CB00F9980E /* summaryCell.xib */,
-				DD3F4CA91C3EB19D00F9980E /* SummaryCell.swift */,
-				DDC58D511C40D67200757D3F /* AllExpenseCell.swift */,
-				DDC58D531C40D68500757D3F /* allExpenseCell.xib */,
+				DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */,
+				DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */,
+				DDC58D511C40D67200757D3F /* AllExpensesCell.swift */,
 			);
 			name = SummaryTableView;
 			sourceTree = "<group>";
@@ -304,11 +301,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD3F4CAC1C3EB4CB00F9980E /* summaryCell.xib in Resources */,
 				DD75ABCE1C3E992400457005 /* LaunchScreen.storyboard in Resources */,
 				DD75ABCB1C3E992400457005 /* Assets.xcassets in Resources */,
 				DD3F4CA41C3EA5BA00F9980E /* Comfortaa_Bold.ttf in Resources */,
-				DDC58D541C40D68500757D3F /* allExpenseCell.xib in Resources */,
 				DD75ABC61C3E992400457005 /* Main.storyboard in Resources */,
 				DD3F4CA61C3EA5BA00F9980E /* Comfortaa_Thin.ttf in Resources */,
 				DD3F4CA51C3EA5BA00F9980E /* Comfortaa_Regular.ttf in Resources */,
@@ -336,9 +331,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDC58D521C40D67200757D3F /* AllExpenseCell.swift in Sources */,
+				DDC58D521C40D67200757D3F /* AllExpensesCell.swift in Sources */,
 				DD3F4CAE1C3EC27400F9980E /* Expense.swift in Sources */,
-				DD3F4CAA1C3EB19D00F9980E /* SummaryCell.swift in Sources */,
+				DDB591021C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift in Sources */,
+				DDB591001C47E98800D08FEF /* SummaryHeaderTableViewCell.swift in Sources */,
 				DD3F4C991C3E9F2D00F9980E /* SummaryTableViewController.swift in Sources */,
 				DD75ABC31C3E992400457005 /* ViewController.swift in Sources */,
 				DD75ABC11C3E992400457005 /* AppDelegate.swift in Sources */,
