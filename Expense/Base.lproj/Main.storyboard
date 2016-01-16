@@ -13,7 +13,6 @@
             <string>Comfortaa</string>
             <string>Comfortaa</string>
             <string>Comfortaa</string>
-            <string>Comfortaa</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -35,10 +34,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNj-BU-0V1" userLabel="cellHighlight">
-                                            <rect key="frame" x="0.0" y="0.0" width="3" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="5" height="74.5"/>
                                             <color key="backgroundColor" red="0.027450980392156862" green="0.54509803921568623" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="3" id="Vd7-sn-Qgr"/>
+                                                <constraint firstAttribute="width" constant="5" id="Vd7-sn-Qgr"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pg4-JZ-ttl">
@@ -48,25 +47,25 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PERSONAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNZ-c8-Igi">
-                                            <rect key="frame" x="65" y="25" width="66.5" height="17"/>
+                                            <rect key="frame" x="67" y="25" width="66.5" height="17"/>
                                             <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="15"/>
                                             <color key="textColor" red="0.14901961386203766" green="0.70196080207824707" blue="0.66274511814117432" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pG1-j4-fa0">
-                                            <rect key="frame" x="13" y="25" width="42" height="42.5"/>
+                                            <rect key="frame" x="15" y="25" width="42" height="42.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="42" id="dah-LF-U6L"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes blah blah blah..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvo-rz-85x">
-                                            <rect key="frame" x="65" y="45.5" width="201.5" height="22.5"/>
+                                            <rect key="frame" x="67" y="45.5" width="201.5" height="22.5"/>
                                             <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="20"/>
                                             <color key="textColor" red="0.36078431372549019" green="0.32549019607843138" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="hvo-rz-85x" firstAttribute="bottom" secondItem="nNj-BU-0V1" secondAttribute="bottom" id="11c-pn-oFt"/>
                                         <constraint firstItem="nNZ-c8-Igi" firstAttribute="top" secondItem="nNj-BU-0V1" secondAttribute="top" id="1LC-ot-9pA"/>
@@ -107,7 +106,6 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.88235294117647056" green="0.83529411764705885" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="category" destination="pG1-j4-fa0" id="O08-22-xm5"/>
@@ -117,28 +115,28 @@
                                     <outlet property="note" destination="hvo-rz-85x" id="OOg-3C-UUm"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="50" id="EGk-Db-JoG" customClass="SummaryHeaderTableViewCell" customModule="Expense" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="167" width="600" height="50"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="76" id="EGk-Db-JoG" customClass="SummaryHeaderTableViewCell" customModule="Expense" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="167" width="600" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EGk-Db-JoG" id="9Gx-nm-yR7">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="75.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZb-oS-M1v">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="70" height="75.5"/>
                                             <color key="backgroundColor" red="0.4117647111415863" green="0.81568628549575806" blue="0.14117647707462311" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="CBa-Ia-Wji"/>
+                                                <constraint firstAttribute="width" constant="70" id="CBa-Ia-Wji"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="25"/>
                                             <color key="textColor" red="0.88235294818878174" green="0.83529412746429443" blue="0.7921568751335144" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kS0-km-DqV">
-                                            <rect key="frame" x="82" y="0.0" width="518" height="49.5"/>
+                                            <rect key="frame" x="72" y="0.0" width="528" height="75.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLo-Oj-FAs">
-                                                    <rect key="frame" x="436" y="8" width="75" height="34"/>
+                                                    <rect key="frame" x="446" y="21" width="75" height="34"/>
                                                     <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="30"/>
                                                     <color key="textColor" red="0.88235294818878174" green="0.83529412746429443" blue="0.7921568751335144" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -149,29 +147,15 @@
                                                 <constraint firstAttribute="trailing" secondItem="XLo-Oj-FAs" secondAttribute="trailing" constant="7" id="Hnu-HW-Epb"/>
                                             </constraints>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HP-aT-Kic">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
-                                            <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="25"/>
-                                            <state key="normal" title="expandHeader">
-                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="headerSelected:" destination="EGk-Db-JoG" eventType="touchUpInside" id="TfY-Rt-f9U"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.88235294819999999" green="0.83529412749999998" blue="0.79215687509999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="RZb-oS-M1v" secondAttribute="bottom" constant="-8" id="1fA-Eg-39O"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="8HP-aT-Kic" secondAttribute="trailing" constant="-8" id="9bD-4P-2rt"/>
                                         <constraint firstItem="kS0-km-DqV" firstAttribute="top" secondItem="9Gx-nm-yR7" secondAttribute="topMargin" constant="-8" id="AjI-g5-34a"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="8HP-aT-Kic" secondAttribute="bottom" constant="-8" id="DGM-UO-Wio"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="kS0-km-DqV" secondAttribute="trailing" constant="-8" id="Gji-hk-rrl"/>
                                         <constraint firstItem="RZb-oS-M1v" firstAttribute="top" secondItem="9Gx-nm-yR7" secondAttribute="topMargin" constant="-8" id="PzF-OI-qfi"/>
                                         <constraint firstItem="XLo-Oj-FAs" firstAttribute="centerY" secondItem="RZb-oS-M1v" secondAttribute="centerY" id="Rf4-Yz-bO3"/>
                                         <constraint firstItem="RZb-oS-M1v" firstAttribute="leading" secondItem="9Gx-nm-yR7" secondAttribute="leadingMargin" constant="-8" id="U1q-Bl-8xl"/>
-                                        <constraint firstItem="8HP-aT-Kic" firstAttribute="leading" secondItem="9Gx-nm-yR7" secondAttribute="leadingMargin" constant="-8" id="XXj-yM-zOo"/>
-                                        <constraint firstItem="8HP-aT-Kic" firstAttribute="top" secondItem="9Gx-nm-yR7" secondAttribute="topMargin" constant="-8" id="ky6-rp-FSV"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="kS0-km-DqV" secondAttribute="bottom" constant="-8" id="tSS-TY-l5I"/>
                                         <constraint firstItem="kS0-km-DqV" firstAttribute="leading" secondItem="RZb-oS-M1v" secondAttribute="trailing" constant="2" id="whD-mZ-Lqc"/>
                                     </constraints>
@@ -182,16 +166,16 @@
                                     <outlet property="totalCostView" destination="kS0-km-DqV" id="4dy-bW-bSv"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="allExpenseCell" rowHeight="82" id="Zfi-ZV-eRu" customClass="allExpenseCell">
-                                <rect key="frame" x="0.0" y="217" width="600" height="82"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="allExpensesCell" rowHeight="76" id="Zfi-ZV-eRu" customClass="AllExpensesCell" customModule="Expense" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="243" width="600" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zfi-ZV-eRu" id="Re2-Kt-8Ur">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="81.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="75.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKX-5J-hRS">
-                                            <rect key="frame" x="189.5" y="12.5" width="222" height="57"/>
-                                            <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="40"/>
+                                            <rect key="frame" x="217" y="15" width="167" height="46"/>
+                                            <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="30"/>
                                             <state key="normal" title="All Expenses">
                                                 <color key="titleColor" red="0.88235294819999999" green="0.83529412749999998" blue="0.79215687509999999" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>

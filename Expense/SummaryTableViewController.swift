@@ -26,25 +26,31 @@ extension UIColor {
     }
 }
 
-class SummaryTableViewController:  UITableViewController, SummaryHeaderTableViewCellDelegate {
+class SummaryTableViewController:  UITableViewController {
     
     var dayOfWeek: [Day] = [Day]()
     var totalSpentPerDay: [Double] = [Double]()
     var colorOfDay: [Day: UIColor] = [ .Mon: UIColor(netHex:0x7BD33E), .Tue: UIColor(netHex: 0x3DCDCC), .Wed: UIColor(netHex: 0xFD8E62), .Thu: UIColor(netHex: 0xA364D8), .Fri: UIColor(netHex: 0xE2679A), .Sat: UIColor(netHex: 0xF2DA5E), .Sun: UIColor(netHex: 0xEE6E5D)]
+    var backgroundColor: UIColor = UIColor(netHex: 0xE7DDD4)
+    var fontColor: UIColor = UIColor(netHex: 0x6F6559)
+    var fontHightlightColor: UIColor = UIColor(netHex: 0xAB9D89)
     
     var expandedCellPaths: [NSIndexPath] = [NSIndexPath]()
-    var normalCellHeight: CGFloat = 70
-    var lastCellIndex: Int = 0
+    var normalCellHeight: CGFloat = 76
+    var lastSectionIndex: Int = 0
+    var sectionSelected: [Bool] = [Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dayOfWeek = [ .Mon, .Tue, .Wed, .Thu, .Fri, .Sat, .Sun]
+        sectionSelected = [Bool](count: dayOfWeek.count, repeatedValue: false)
+        lastSectionIndex = self.dayOfWeek.count
         totalSpentPerDay = [0, 7.27, 0, 40, 39, 0, 0]
         
         //Set up format
-        normalCellHeight = (view.bounds.height - self.navigationController!.navigationBar.bounds.height - 15)/(CGFloat(self.dayOfWeek.count) + 1)
-        lastCellIndex = self.dayOfWeek.count
+        let headersHeight = CGFloat(dayOfWeek.count*10)
+        normalCellHeight = (view.bounds.height - self.navigationController!.navigationBar.bounds.height - 15 - headersHeight)/(CGFloat(self.dayOfWeek.count) + 1)
         
         //Register nibs
 //        let summaryCellNib = UINib(nibName: "summaryCell", bundle: nil)
@@ -52,11 +58,10 @@ class SummaryTableViewController:  UITableViewController, SummaryHeaderTableView
 //        let allExpenseNib = UINib(nibName: "allExpenseCell", bundle: nil)
 //        tableView.registerNib(allExpenseNib, forCellReuseIdentifier: "allExpenseCell")
         
-        //Make seperator white & skinny
+        //Make seperator brown & skinny
         tableView.separatorInset = UIEdgeInsetsZero
         tableView.layoutMargins = UIEdgeInsetsZero
-        self.tableView.separatorColor = UIColor.whiteColor()
-        
+        self.tableView.separatorColor = backgroundColor
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -73,68 +78,79 @@ class SummaryTableViewController:  UITableViewController, SummaryHeaderTableView
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 7
+        return dayOfWeek.count + 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
-    }
-    
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableCellWithIdentifier("headerCell") as! 
-        SummaryHeaderTableViewCell
-        header.delegate = self
-        header.index = section
-        let day = dayOfWeek[section]
-        header.dayOfWeek.text = day.rawValue.uppercaseString
-        header.dayOfWeek.backgroundColor = colorOfDay[day]
-        header.totalCost.text = "$\(totalSpentPerDay[section])"
-        header.totalCostView.backgroundColor = colorOfDay[day]
-//        header.selectionStyle = .None
-        return header
+        if section == lastSectionIndex{
+            return 1
+        }
+        else if (sectionSelected[section]) {
+            ///we want the number of people plus the header cell
+            return 2 + 1;
+        } else {
+            ///we just want the header cell
+            return 1;
+        }
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if section == 0{
+            return 0
+        } else{
+            return 10
+        }
     }
     
-    func didSelectUserHeaderTableViewCell(Selected: Bool, header: SummaryHeaderTableViewCell) {
-        print("Header \(header.index) Selected!")
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = backgroundColor
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let detail = tableView.dequeueReusableCellWithIdentifier("detailCell") as! SummaryDetailTableViewCell
-        let day = dayOfWeek[indexPath.row]
-        detail.color.backgroundColor = colorOfDay[day]
-        
-        detail.category.image = UIImage(named: "General")
-        detail.category.contentMode = .ScaleAspectFit
-        detail.function.text = "Social"
-        detail.cost.text = "$5"
-        detail.note.text = "noting down stuff okay done blah blah blah..."
-        detail.selectionStyle = .None
-        return detail
-
+        if indexPath.section == lastSectionIndex{
+            let lastSectionCell = tableView.dequeueReusableCellWithIdentifier("allExpensesCell") as! AllExpensesCell
+            return lastSectionCell
+        }
+        else if indexPath.row == 0{
+            let header = tableView.dequeueReusableCellWithIdentifier("headerCell") as!
+            SummaryHeaderTableViewCell
+            let day = dayOfWeek[indexPath.section]
+            header.dayOfWeek.text = day.rawValue.uppercaseString
+            header.dayOfWeek.backgroundColor = colorOfDay[day]
+            header.totalCost.text = "$\(totalSpentPerDay[indexPath.section])"
+            header.totalCostView.backgroundColor = colorOfDay[day]
+            return header
+        } else{
+            let detail = tableView.dequeueReusableCellWithIdentifier("detailCell") as! SummaryDetailTableViewCell
+            let day = dayOfWeek[indexPath.row]
+            detail.color.backgroundColor = colorOfDay[day]
+            detail.selectedBackgroundView = UIView(frame: CGRect.zero)
+            detail.selectedBackgroundView?.backgroundColor = colorOfDay[day]
+            detail.category.image = UIImage(named: "General")
+            detail.category.tintColor = fontHightlightColor
+            detail.category.contentMode = .ScaleAspectFit
+            detail.function.text = "Social"
+            detail.cost.text = "$5"
+            detail.note.text = "noting down stuff okay done blah blah blah..."
+            
+            return detail
+        }
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        if indexPath.row != lastCellIndex{
-//            if expandedCellPaths.contains(indexPath){
-//                let index = expandedCellPaths.indexOf(indexPath)
-//                expandedCellPaths.removeAtIndex(index!)
-//            }else{
-//                expandedCellPaths.append(indexPath)
-//            }
-//            
-//            //old trick to animate cell expand/collapse
-//            tableView.beginUpdates()
-//            tableView.endUpdates()
-//        }
-
-
-        print("Row \(indexPath.row) selected")
-        
+        if indexPath.section == lastSectionIndex{
+            
+        }
+        else if (indexPath.row == 0) {
+            ///it's the first row of any section so it would be your custom section header
+            
+            ///put in your code to toggle your boolean value here
+            sectionSelected[indexPath.section] = !sectionSelected[indexPath.section];
+            
+            ///reload this section
+            tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Fade)
+        }
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -142,17 +158,7 @@ class SummaryTableViewController:  UITableViewController, SummaryHeaderTableView
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        if indexPath.row != lastCellIndex{
-//            let expandedCellHeight = normalCellHeight*2
-//            if expandedCellPaths.contains(indexPath){
-//                return expandedCellHeight
-//            }else{
-//                return normalCellHeight
-//            }
-//        } else{
-//            return normalCellHeight
-//        }
-        return 75
+        return normalCellHeight
     }
     
     /*
