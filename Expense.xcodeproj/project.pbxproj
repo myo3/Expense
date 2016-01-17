@@ -23,6 +23,7 @@
 		DDB591001C47E98800D08FEF /* SummaryHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */; };
 		DDB591021C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */; };
 		DDC58D521C40D67200757D3F /* AllExpensesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC58D511C40D67200757D3F /* AllExpensesCell.swift */; };
+		DDFB320F1C4A0C0C0089C649 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFB320E1C4A0C0C0089C649 /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryDetailTableViewCell.swift; sourceTree = "<group>"; };
 		DDC58D511C40D67200757D3F /* AllExpensesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllExpensesCell.swift; sourceTree = "<group>"; };
+		DDFB320E1C4A0C0C0089C649 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,9 +146,11 @@
 		DD75ABBF1C3E992400457005 /* Expense */ = {
 			isa = PBXGroup;
 			children = (
+				DDFB320D1C4A0BEB0089C649 /* AddViewController */,
 				DD8F08E81C403CA4002DC80E /* SummaryTableView */,
 				DD75ABC41C3E992400457005 /* Main.storyboard */,
 				DD3F4CAD1C3EC27400F9980E /* Expense.swift */,
+				DD75ABCA1C3E992400457005 /* Assets.xcassets */,
 				DD8F08E71C403C85002DC80E /* Not Using */,
 			);
 			path = Expense;
@@ -175,7 +179,6 @@
 			children = (
 				DD75ABC01C3E992400457005 /* AppDelegate.swift */,
 				DD75ABC21C3E992400457005 /* ViewController.swift */,
-				DD75ABCA1C3E992400457005 /* Assets.xcassets */,
 				DD75ABCC1C3E992400457005 /* LaunchScreen.storyboard */,
 				DD75ABCF1C3E992400457005 /* Info.plist */,
 				DD75ABC71C3E992400457005 /* Expense.xcdatamodeld */,
@@ -192,6 +195,14 @@
 				DDC58D511C40D67200757D3F /* AllExpensesCell.swift */,
 			);
 			name = SummaryTableView;
+			sourceTree = "<group>";
+		};
+		DDFB320D1C4A0BEB0089C649 /* AddViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDFB320E1C4A0C0C0089C649 /* AddViewController.swift */,
+			);
+			name = AddViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +344,7 @@
 			files = (
 				DDC58D521C40D67200757D3F /* AllExpensesCell.swift in Sources */,
 				DD3F4CAE1C3EC27400F9980E /* Expense.swift in Sources */,
+				DDFB320F1C4A0C0C0089C649 /* AddViewController.swift in Sources */,
 				DDB591021C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift in Sources */,
 				DDB591001C47E98800D08FEF /* SummaryHeaderTableViewCell.swift in Sources */,
 				DD3F4C991C3E9F2D00F9980E /* SummaryTableViewController.swift in Sources */,

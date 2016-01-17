@@ -31,6 +31,7 @@ class SummaryTableViewController:  UITableViewController {
     var dayOfWeek: [Day] = [Day]()
     var totalSpentPerDay: [Double] = [Double]()
     var colorOfDay: [Day: UIColor] = [ .Mon: UIColor(netHex:0x7BD33E), .Tue: UIColor(netHex: 0x3DCDCC), .Wed: UIColor(netHex: 0xFD8E62), .Thu: UIColor(netHex: 0xA364D8), .Fri: UIColor(netHex: 0xE2679A), .Sat: UIColor(netHex: 0xF2DA5E), .Sun: UIColor(netHex: 0xEE6E5D)]
+    var themeColor: UIColor = UIColor(netHex: 0x1CCCAC)
     var backgroundColor: UIColor = UIColor(netHex: 0xE7DDD4)
     var fontColor: UIColor = UIColor(netHex: 0x6F6559)
     var fontHightlightColor: UIColor = UIColor(netHex: 0xAB9D89)
@@ -68,6 +69,10 @@ class SummaryTableViewController:  UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        //Set navigation bar tite font, size, & color
+        let attributes = [NSFontAttributeName : UIFont(name: "Comfortaa", size: 38)!, NSForegroundColorAttributeName : themeColor]
+        self.navigationController!.navigationBar.titleTextAttributes = attributes
     }
 
     override func didReceiveMemoryWarning() {
@@ -110,6 +115,7 @@ class SummaryTableViewController:  UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == lastSectionIndex{
             let lastSectionCell = tableView.dequeueReusableCellWithIdentifier("allExpensesCell") as! AllExpensesCell
+            lastSectionCell.selectionStyle = .None
             return lastSectionCell
         }
         else if indexPath.row == 0{
@@ -120,6 +126,7 @@ class SummaryTableViewController:  UITableViewController {
             header.dayOfWeek.backgroundColor = colorOfDay[day]
             header.totalCost.text = "$\(totalSpentPerDay[indexPath.section])"
             header.totalCostView.backgroundColor = colorOfDay[day]
+            header.selectionStyle = .None
             return header
         } else{
             let detail = tableView.dequeueReusableCellWithIdentifier("detailCell") as! SummaryDetailTableViewCell
@@ -161,6 +168,24 @@ class SummaryTableViewController:  UITableViewController {
         return normalCellHeight
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "addExpense" {
+            let destinationVC = segue.destinationViewController as! AddViewController
+            //Pass on theme colors
+            destinationVC.themeColor = self.themeColor
+            destinationVC.backgroundColor = self.backgroundColor
+            destinationVC.fontColor = self.fontColor
+            destinationVC.fontHightlightColor = self.fontHightlightColor
+        }
+    }
+    
+    @IBAction func cancelAddExpense(unwindSegue: UIStoryboardSegue){
+        
+    }
+    
+    @IBAction func addExpense(unwindSegue: UIStoryboardSegue){
+        
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
