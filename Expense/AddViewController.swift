@@ -63,8 +63,8 @@ class AddViewController: UIViewController {
             case 10:
                 button.setTitle(".", forState: .Normal)
             case 11:
-                button.setImage(UIImage(named: "Delete"), forState: .Normal)
-                button.tintColor = fontHightlightColor
+                button.setImage(UIImage(named: "delete-Normal"), forState: .Normal)
+                button.setImage(UIImage(named: "delete-Highlighted"), forState: .Highlighted)
             default:
                 button.setTitle("\(i)", forState: .Normal)
             }
