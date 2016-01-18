@@ -7,7 +7,12 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Comfortaa_Bold.ttf">
+            <string>Comfortaa-Bold</string>
+        </mutableArray>
         <mutableArray key="Comfortaa_Regular.ttf">
+            <string>Comfortaa</string>
+            <string>Comfortaa</string>
             <string>Comfortaa</string>
             <string>Comfortaa</string>
             <string>Comfortaa</string>
@@ -274,7 +279,7 @@
                                 <rect key="frame" x="10" y="264" width="590" height="84"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVq-KX-wvb" userLabel="cost">
-                                        <rect key="frame" x="557.5" y="8" width="24.5" height="68"/>
+                                        <rect key="frame" x="557" y="8" width="24.5" height="68"/>
                                         <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="50"/>
                                         <color key="textColor" red="0.60784316062927246" green="0.54901963472366333" blue="0.45882353186607361" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -311,6 +316,72 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgF-1U-peV" userLabel="NoteView">
+                                <rect key="frame" x="10" y="219" width="465" height="45"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Note" translatesAutoresizingMaskIntoConstraints="NO" id="Wc3-6a-MxU">
+                                        <rect key="frame" x="8" y="8" width="29" height="29"/>
+                                        <color key="tintColor" red="0.60784316062927246" green="0.54901963472366333" blue="0.45882353186607361" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Wc3-6a-MxU" secondAttribute="height" multiplier="1:1" id="FP3-4m-HYA"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a note..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Crh-yE-9xg">
+                                        <rect key="frame" x="45" y="8" width="420" height="29"/>
+                                        <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="20"/>
+                                        <color key="textColor" red="0.60784316062927246" green="0.54901963472366333" blue="0.45882353186607361" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Crh-yE-9xg" firstAttribute="top" secondItem="zgF-1U-peV" secondAttribute="top" constant="8" id="5vm-p7-daO"/>
+                                    <constraint firstAttribute="trailing" secondItem="Crh-yE-9xg" secondAttribute="trailing" id="60I-OI-VwA"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wc3-6a-MxU" secondAttribute="bottom" constant="8" id="Ehp-Zd-fcX"/>
+                                    <constraint firstItem="Wc3-6a-MxU" firstAttribute="leading" secondItem="zgF-1U-peV" secondAttribute="leading" constant="8" id="drc-8G-f2m"/>
+                                    <constraint firstItem="Wc3-6a-MxU" firstAttribute="top" secondItem="zgF-1U-peV" secondAttribute="top" constant="8" id="htg-U5-377"/>
+                                    <constraint firstAttribute="bottom" secondItem="Crh-yE-9xg" secondAttribute="bottom" constant="8" id="n4I-ig-A7Y"/>
+                                    <constraint firstItem="Crh-yE-9xg" firstAttribute="leading" secondItem="Wc3-6a-MxU" secondAttribute="trailing" constant="8" id="tAi-Wf-tGp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWk-mp-uYO" userLabel="DateView">
+                                <rect key="frame" x="475" y="219" width="125" height="45"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="GVB-Q1-4hP">
+                                        <rect key="frame" x="88" y="8" width="29" height="29"/>
+                                        <color key="tintColor" red="0.60784316062927246" green="0.54901963472366333" blue="0.45882353186607361" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="GVB-Q1-4hP" secondAttribute="height" multiplier="1:1" id="IYQ-mi-0xR"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jY-AO-QWZ">
+                                        <rect key="frame" x="93.5" y="16" width="17.5" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="21"/>
+                                        <color key="textColor" red="0.60784316062927246" green="0.54901963472366333" blue="0.45882353186607361" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:14 AM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgm-82-mQq">
+                                        <rect key="frame" x="8" y="8" width="76" height="29"/>
+                                        <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="21"/>
+                                        <color key="textColor" red="0.60784316062927246" green="0.54901963472366333" blue="0.45882353186607361" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="GVB-Q1-4hP" secondAttribute="bottom" constant="8" id="2yH-wB-wOb"/>
+                                    <constraint firstItem="GVB-Q1-4hP" firstAttribute="top" secondItem="mWk-mp-uYO" secondAttribute="top" constant="8" id="EBN-ch-PXw"/>
+                                    <constraint firstItem="GVB-Q1-4hP" firstAttribute="leading" secondItem="Bgm-82-mQq" secondAttribute="trailing" constant="4" id="ITk-qv-lpg"/>
+                                    <constraint firstItem="Bgm-82-mQq" firstAttribute="top" secondItem="mWk-mp-uYO" secondAttribute="top" constant="8" id="K05-PR-062"/>
+                                    <constraint firstAttribute="trailing" secondItem="GVB-Q1-4hP" secondAttribute="trailing" constant="8" id="TCM-NO-M6r"/>
+                                    <constraint firstAttribute="height" constant="45" id="Ws0-Uq-jm7"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bgm-82-mQq" secondAttribute="bottom" constant="8" id="b0Z-Dw-k4X"/>
+                                    <constraint firstItem="Bgm-82-mQq" firstAttribute="leading" secondItem="mWk-mp-uYO" secondAttribute="leading" constant="8" id="mZ9-2A-HPz"/>
+                                    <constraint firstAttribute="width" constant="125" id="qSU-rR-viK"/>
+                                    <constraint firstItem="8jY-AO-QWZ" firstAttribute="centerY" secondItem="GVB-Q1-4hP" secondAttribute="centerY" constant="5" id="uE9-zA-CN9"/>
+                                    <constraint firstItem="8jY-AO-QWZ" firstAttribute="centerX" secondItem="GVB-Q1-4hP" secondAttribute="centerX" id="wjR-1y-zZU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.88235294818878174" green="0.83529412746429443" blue="0.7921568751335144" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -319,18 +390,24 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ooE-JX-FCE" secondAttribute="trailing" constant="-20" id="Jnl-cO-awc"/>
                             <constraint firstItem="ooE-JX-FCE" firstAttribute="top" secondItem="SQG-oH-2hI" secondAttribute="topMargin" constant="20" id="JzK-Oz-Nz1"/>
                             <constraint firstItem="lrd-8o-RCn" firstAttribute="top" secondItem="ooE-JX-FCE" secondAttribute="bottom" id="MB8-vX-ZO4"/>
+                            <constraint firstItem="mWk-mp-uYO" firstAttribute="leading" secondItem="zgF-1U-peV" secondAttribute="trailing" id="MY5-GG-tVm"/>
                             <constraint firstItem="McA-mS-Y1O" firstAttribute="leading" secondItem="lrd-8o-RCn" secondAttribute="trailing" id="NqE-Jl-WQV"/>
                             <constraint firstItem="lrd-8o-RCn" firstAttribute="leading" secondItem="SQG-oH-2hI" secondAttribute="leadingMargin" constant="-20" id="O9r-L3-fYl"/>
                             <constraint firstItem="LpU-VM-NEc" firstAttribute="top" secondItem="lrd-8o-RCn" secondAttribute="bottom" id="PbA-8Q-N0k"/>
                             <constraint firstItem="r1h-Jc-ngf" firstAttribute="top" secondItem="McA-mS-Y1O" secondAttribute="bottom" constant="1" id="QJs-Gl-5Xt"/>
+                            <constraint firstItem="McA-mS-Y1O" firstAttribute="top" secondItem="mWk-mp-uYO" secondAttribute="bottom" id="VT9-ql-yJn"/>
                             <constraint firstItem="LpU-VM-NEc" firstAttribute="top" secondItem="r1h-Jc-ngf" secondAttribute="bottom" id="XLE-ox-iEK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Pn4-jZ-8rQ" secondAttribute="trailing" constant="-20" id="b8N-Ec-BdA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="McA-mS-Y1O" secondAttribute="trailing" constant="-20" id="eQg-pO-avv"/>
                             <constraint firstItem="ooE-JX-FCE" firstAttribute="leading" secondItem="SQG-oH-2hI" secondAttribute="leadingMargin" constant="-20" id="gQj-Dc-Sl8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="r1h-Jc-ngf" secondAttribute="trailing" constant="-20" id="jUI-TS-RHf"/>
+                            <constraint firstItem="McA-mS-Y1O" firstAttribute="top" secondItem="zgF-1U-peV" secondAttribute="bottom" id="jjI-SS-OAm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="r1h-Jc-ngf" secondAttribute="trailing" constant="-20" id="nZz-ON-kDh"/>
                             <constraint firstItem="Pn4-jZ-8rQ" firstAttribute="leading" secondItem="SQG-oH-2hI" secondAttribute="leadingMargin" constant="-20" id="ogb-tr-tjr"/>
+                            <constraint firstItem="mWk-mp-uYO" firstAttribute="top" secondItem="zgF-1U-peV" secondAttribute="top" id="ozK-5C-tzs"/>
+                            <constraint firstItem="zgF-1U-peV" firstAttribute="leading" secondItem="lrd-8o-RCn" secondAttribute="trailing" id="rf0-sp-NeW"/>
                             <constraint firstItem="r1h-Jc-ngf" firstAttribute="leading" secondItem="lrd-8o-RCn" secondAttribute="trailing" id="vnQ-qt-oMh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mWk-mp-uYO" secondAttribute="trailing" constant="-20" id="wdY-Pp-laa"/>
                             <constraint firstItem="r1h-Jc-ngf" firstAttribute="trailing" secondItem="McA-mS-Y1O" secondAttribute="trailing" id="weC-Mi-HqU"/>
                         </constraints>
                         <variation key="default">
@@ -342,14 +419,21 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="cost" destination="aVq-KX-wvb" id="Auv-XA-1zl"/>
+                        <outlet property="cellHighlight" destination="lrd-8o-RCn" id="ikC-41-T5G"/>
+                        <outlet property="costLabel" destination="aVq-KX-wvb" id="fnr-Ss-Vyi"/>
                         <outlet property="costView" destination="McA-mS-Y1O" id="zA5-tO-gaf"/>
                         <outlet property="costViewHeight" destination="xdd-yl-DlD" id="Ltw-Nz-Ouq"/>
+                        <outlet property="dateView" destination="mWk-mp-uYO" id="cRs-cu-FzV"/>
+                        <outlet property="dateViewHeight" destination="Ws0-Uq-jm7" id="TVn-Dm-vDW"/>
+                        <outlet property="dateViewWidth" destination="qSU-rR-viK" id="Ver-yr-pwB"/>
+                        <outlet property="dayLabel" destination="8jY-AO-QWZ" id="CvK-AD-kFr"/>
                         <outlet property="dollarSign" destination="iKK-Ty-ygp" id="pOa-5u-834"/>
                         <outlet property="keyboardHeight" destination="OfF-Tu-ele" id="D6O-1e-tUa"/>
                         <outlet property="keyboardView" destination="r1h-Jc-ngf" id="Lda-Za-XFf"/>
                         <outlet property="navigationBar" destination="ooE-JX-FCE" id="436-Od-GGW"/>
+                        <outlet property="noteView" destination="zgF-1U-peV" id="cwo-Uh-jOc"/>
                         <outlet property="statusBarHeight" destination="RFv-2Y-TG9" id="MU8-DR-YbL"/>
+                        <outlet property="timeLabel" destination="Bgm-82-mQq" id="4rI-HC-Pk6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wbw-63-jgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -380,8 +464,10 @@
     </scenes>
     <resources>
         <image name="Add" width="42" height="42"/>
+        <image name="Calendar" width="64" height="64"/>
         <image name="Exit" width="42" height="42"/>
         <image name="Menu" width="42" height="42"/>
+        <image name="Note" width="64" height="64"/>
         <image name="Save" width="42" height="42"/>
     </resources>
 </document>

@@ -21,35 +21,63 @@ class AddViewController: UIViewController {
     @IBOutlet weak var statusBarHeight: NSLayoutConstraint!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
+    @IBOutlet weak var cellHighlight: UIView!
+    
     @IBOutlet weak var costView: UIView!
     @IBOutlet weak var costViewHeight: NSLayoutConstraint!
     @IBOutlet weak var dollarSign: UILabel!
-    @IBOutlet weak var cost: UILabel!
+    @IBOutlet weak var costLabel: UILabel!
+    var cost: Double = 0
     
     @IBOutlet weak var keyboardView: UIView!
     @IBOutlet weak var keyboardHeight: NSLayoutConstraint!
 
+    @IBOutlet weak var noteView: UIView!
+    @IBOutlet weak var dateView: UIView!
+    @IBOutlet weak var dateViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var dateViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var dayLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Set navigation bar tite font, size, & color
+        let attributes = [NSFontAttributeName : UIFont(name: "Comfortaa", size: 28)!]
+        self.navigationBar.titleTextAttributes = attributes
+        
         //Set size of cost view & numbers keyboard
-        let halfViewHeight = 5*(view.bounds.height - statusBarHeight.constant - navigationBar.bounds.height)/9
-        costViewHeight.constant = halfViewHeight/CGFloat(4)
-        keyboardHeight.constant = halfViewHeight - costViewHeight.constant
+        let totalHeight = view.bounds.height - statusBarHeight.constant - navigationBar.bounds.height
+        let bottomViewHeight = 5*(totalHeight)/9
+        costViewHeight.constant = bottomViewHeight/CGFloat(4)
+        keyboardHeight.constant = bottomViewHeight - costViewHeight.constant
         costView.updateConstraintsIfNeeded()
         keyboardView.updateConstraintsIfNeeded()
         self.view.layoutIfNeeded()
         costView.layoutIfNeeded()
         keyboardView.layoutIfNeeded()
-        
-        //Adjust font size of dollar sign & cost to fit iPhone 6S
-        cost.font = UIFont(name: "Comfortaa", size: 50)
+            //Adjust font size of dollar sign & cost to fit iPhone 6S
+        costLabel.font = UIFont(name: "Comfortaa", size: 50)
         dollarSign.font = UIFont(name: "Comfortaa", size: 50)
         
-        //Set navigation bar tite font, size, & color
-        let attributes = [NSFontAttributeName : UIFont(name: "Comfortaa", size: 28)!]
-        self.navigationBar.titleTextAttributes = attributes
+        //Arrange note view & date view
+        let topViewHeight = totalHeight - bottomViewHeight
+//        let totalWidth = view.bounds.width - cellHighlight.bounds.width
+        dateViewHeight.constant = topViewHeight*0.19
+        dateView.updateConstraintsIfNeeded()
+        noteView.updateConstraintsIfNeeded()
+        self.view.layoutIfNeeded()
+        dateView.layoutIfNeeded()
+        costView.layoutIfNeeded()
+            //set up date view
+        let todaysDate = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let dateComponents = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond], fromDate: todaysDate)
+        dayLabel.text = "\(dateComponents.day)"
+        calendar.dateFromComponents(dateComponents)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "hh:mm aa"
+        timeLabel.text = dateFormatter.stringFromDate(todaysDate)
         
         //set up keyboard
         let columnSpace = CGFloat(1)
@@ -129,27 +157,94 @@ class AddViewController: UIViewController {
         return image
     }
     
+//    var decimalMode: Bool = false
+//    var numOfDecTyped: Int = 0
+    
     func typeCost(sender: UIButton){
+        //works but is not pretty
         if sender.tag == 11 { //delete last character
-            if cost.text?.characters.count > 1{
-                cost.text = String(cost.text!.characters.dropLast())
-            } else if cost.text != "0"{
-                cost.text = "0"
+            if costLabel.text?.characters.count > 1{ //delete one character
+                costLabel.text = String(costLabel.text!.characters.dropLast())
+            } else if costLabel.text != "0"{ //delete last digit
+                costLabel.text = "0"
             }
         } else{
-            if cost.text == "0"{
-                cost.text = ""
+            var charTyped = ""
+            if sender.tag == 10{ //type decimal point
+                charTyped = "."
+                if let costTyped = costLabel.text{
+                    if !costTyped.containsString("."){
+                        //no more than 1 decimal point
+                        let prev = costLabel.text ?? ""
+                        costLabel.text = prev + charTyped
+                    }
+                }
+            }else{ //type number
+                if costLabel.text == "0"{ //no 0 in front of cost
+                    costLabel.text = ""
+                }
+                if let costTyped = costLabel.text{
+                    if costTyped.characters.count < 14{ //no longer than 14 digits
+                        var charTyped = "\(sender.tag)"
+                        if costTyped.containsString("."){
+                            let arr = costTyped.characters.split{$0 == "."}.map(String.init)
+                            if arr.count > 1{
+                                if arr[1].characters.count >= 2{ //no more than 2 decimal places
+                                    charTyped = ""
+                                }
+                            }
+                        }
+                        costLabel.text = costTyped + charTyped
+                    }
+                }
             }
-            var charToAdd = ""
-            switch sender.tag{
-            case 10: //.
-                charToAdd = "."
-            default:
-                charToAdd = "\(sender.tag)"
-            }
-            let prev = cost.text ?? ""
-            cost.text = prev + charToAdd
         }
+        
+        //        //simplfying attempt...seeming like a fail
+        //        switch sender.tag{
+        //        case 10: //decimal point
+        //            if let costTyped = costLabel.text{
+        //                if !costTyped.containsString("."){ //cannot type no more than one "."
+        //                    decimalMode = true
+        //                    costLabel.text = costLabel.text! + "."
+        //                }
+        //            }
+        //        case 11: //backspace
+        //            if decimalMode{
+        //                if costLabel.text!.characters.last == "."{ //delete "."
+        //                    costLabel.text = String(costLabel.text!.characters.dropLast())
+        //                    decimalMode = false
+        //                    numOfDecTyped = 0
+        //                } else if numOfDecTyped > 0{
+        //                    switch numOfDecTyped{
+        //                    case 0:
+        //                    case 1:
+        //                    case 2:
+        //                    default:
+        //                    }
+        //                }
+        //            }else{
+        //                cost = cost%10
+        //            }
+        //            costLabel.text = "\(cost)"
+        //        default: //number
+        //            let num = Double(sender.tag)
+        //            if decimalMode{
+        //                switch numOfDecTyped {
+        //                case 0:
+        //                    cost = cost + num/10
+        //                    numOfDecTyped++
+        //                case 1:
+        //                    cost = cost + num/100
+        //                    numOfDecTyped++
+        //                default:
+        //                    print("numOfDecTyped is >=2")
+        //                }
+        //            }else{
+        //                cost = cost*10 + num
+        //            }
+        //            costLabel.text = "\(cost)"
+        //        }
     }
     
     private func fontToFitHeight(label: UILabel) -> UIFont {
