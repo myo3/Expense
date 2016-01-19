@@ -18,27 +18,32 @@ class AddViewController: UIViewController {
     var offWhite: UIColor = UIColor(netHex: 0xFBF9F7)
     
     //Views & Constraints
-    @IBOutlet weak var statusBarHeight: NSLayoutConstraint!
-    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet private weak var statusBarHeight: NSLayoutConstraint!
+    @IBOutlet private weak var navigationBar: UINavigationBar!
     
-    @IBOutlet weak var cellHighlight: UIView!
+    @IBOutlet private weak var cellHighlight: UIView!
     
-    @IBOutlet weak var costView: UIView!
-    @IBOutlet weak var costViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var dollarSign: UILabel!
-    @IBOutlet weak var costLabel: UILabel!
+    @IBOutlet private weak var costView: UIView!
+    @IBOutlet private weak var costViewHeight: NSLayoutConstraint!
+    @IBOutlet private weak var dollarSign: UILabel!
+    @IBOutlet private weak var costLabel: UILabel!
     var cost: Double = 0
     
-    @IBOutlet weak var keyboardView: UIView!
-    @IBOutlet weak var keyboardHeight: NSLayoutConstraint!
+    @IBOutlet private weak var keyboardView: UIView!
+    @IBOutlet private weak var keyboardHeight: NSLayoutConstraint!
 
-    @IBOutlet weak var noteView: UIView!
-    @IBOutlet weak var dateView: UIView!
-    @IBOutlet weak var dateViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var dateViewWidth: NSLayoutConstraint!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var dayLabel: UILabel!
-
+    @IBOutlet private weak var noteView: UIView!
+    @IBOutlet weak var noteLabel: UILabel!
+    
+    @IBOutlet private weak var dateView: UIView!
+    @IBOutlet private weak var dateViewHeight: NSLayoutConstraint!
+    @IBOutlet private weak var dateViewWidth: NSLayoutConstraint!
+    @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet private weak var dayLabel: UILabel!
+    
+    //Expense components
+    var note: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -143,6 +148,25 @@ class AddViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func typedNote(unwindSegue: UIStoryboardSegue){
+        let typeNoteVC = unwindSegue.sourceViewController as! TypeNoteViewController
+        //Update expense component
+        if typeNoteVC.note == ""{
+            self.note = "Add a note..."
+        }else{
+            self.note = typeNoteVC.note
+        }
+        //Update AddVC's view
+        noteLabel.text = self.note
+    }
+    
+    @IBAction func cancelTypeNote(unwindSegue: UIStoryboardSegue){
+    }
+    
+    @IBAction func selectDate(sender: UITapGestureRecognizer) {
+        print("Date view tapped")
+    }
     func imageWithColor(color: UIColor) -> UIImage{
         let rect = CGRectMake(0, 0, 1, 1)
         UIGraphicsBeginImageContext(rect.size)
@@ -287,14 +311,30 @@ class AddViewController: UIViewController {
         return label.font.fontWithSize(fontSizeAverage)
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "typeNoteSegue"{
+            let typeNoteVC = segue.destinationViewController as! TypeNoteViewController
+            
+            //generate snapshot of window
+            let window: UIWindow! = UIApplication.sharedApplication().keyWindow
+            let windowImage = capture(window)
+            typeNoteVC.backgroundImage = windowImage
+            typeNoteVC.noteboxHeightFromTopConstant = statusBarHeight.constant + navigationBar.bounds.height + 20
+        }
     }
-    */
+    
+    func capture(window: UIWindow) -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(window.frame.width, window.frame.height), window.opaque, UIScreen.mainScreen().scale)
+        window.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
 
 }

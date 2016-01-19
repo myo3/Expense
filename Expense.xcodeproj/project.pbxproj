@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD3EACF91C4E8DF000D864D3 /* TypeNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3EACF81C4E8DF000D864D3 /* TypeNoteViewController.swift */; };
 		DD3F4C991C3E9F2D00F9980E /* SummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F4C981C3E9F2D00F9980E /* SummaryTableViewController.swift */; };
 		DD3F4CA41C3EA5BA00F9980E /* Comfortaa_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD3F4CA11C3EA5BA00F9980E /* Comfortaa_Bold.ttf */; };
 		DD3F4CA51C3EA5BA00F9980E /* Comfortaa_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD3F4CA21C3EA5BA00F9980E /* Comfortaa_Regular.ttf */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		0FB5A0B512B9A5AEDEF5B2D5 /* Pods_Expense.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expense.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD3EACF81C4E8DF000D864D3 /* TypeNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeNoteViewController.swift; sourceTree = "<group>"; };
 		DD3F4C981C3E9F2D00F9980E /* SummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryTableViewController.swift; sourceTree = "<group>"; };
 		DD3F4CA11C3EA5BA00F9980E /* Comfortaa_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa_Bold.ttf; path = Expense/Resources/Comfortaa_Bold.ttf; sourceTree = "<group>"; };
 		DD3F4CA21C3EA5BA00F9980E /* Comfortaa_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa_Regular.ttf; path = Expense/Resources/Comfortaa_Regular.ttf; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				DDFB320E1C4A0C0C0089C649 /* AddViewController.swift */,
+				DD3EACF81C4E8DF000D864D3 /* TypeNoteViewController.swift */,
 			);
 			name = AddViewController;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				DD3F4C991C3E9F2D00F9980E /* SummaryTableViewController.swift in Sources */,
 				DD75ABC31C3E992400457005 /* ViewController.swift in Sources */,
 				DD75ABC11C3E992400457005 /* AppDelegate.swift in Sources */,
+				DD3EACF91C4E8DF000D864D3 /* TypeNoteViewController.swift in Sources */,
 				DD75ABC91C3E992400457005 /* Expense.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

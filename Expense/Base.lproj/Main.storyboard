@@ -21,6 +21,7 @@
             <string>Comfortaa</string>
             <string>Comfortaa</string>
             <string>Comfortaa</string>
+            <string>Comfortaa</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -317,7 +318,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgF-1U-peV" userLabel="NoteView">
-                                <rect key="frame" x="10" y="219" width="465" height="45"/>
+                                <rect key="frame" x="10" y="219" width="450" height="45"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Note" translatesAutoresizingMaskIntoConstraints="NO" id="Wc3-6a-MxU">
                                         <rect key="frame" x="8" y="8" width="29" height="29"/>
@@ -327,13 +328,14 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a note..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Crh-yE-9xg">
-                                        <rect key="frame" x="45" y="8" width="420" height="29"/>
+                                        <rect key="frame" x="45" y="8" width="405" height="29"/>
                                         <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="20"/>
                                         <color key="textColor" red="0.60784316062927246" green="0.54901963472366333" blue="0.45882353186607361" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="Crh-yE-9xg" firstAttribute="top" secondItem="zgF-1U-peV" secondAttribute="top" constant="8" id="5vm-p7-daO"/>
                                     <constraint firstAttribute="trailing" secondItem="Crh-yE-9xg" secondAttribute="trailing" id="60I-OI-VwA"/>
@@ -343,31 +345,35 @@
                                     <constraint firstAttribute="bottom" secondItem="Crh-yE-9xg" secondAttribute="bottom" constant="8" id="n4I-ig-A7Y"/>
                                     <constraint firstItem="Crh-yE-9xg" firstAttribute="leading" secondItem="Wc3-6a-MxU" secondAttribute="trailing" constant="8" id="tAi-Wf-tGp"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="VBt-N4-7D8" appends="YES" id="qUk-hO-Rsi"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWk-mp-uYO" userLabel="DateView">
-                                <rect key="frame" x="475" y="219" width="125" height="45"/>
+                                <rect key="frame" x="460" y="219" width="140" height="45"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="GVB-Q1-4hP">
-                                        <rect key="frame" x="88" y="8" width="29" height="29"/>
+                                        <rect key="frame" x="103" y="8" width="29" height="29"/>
                                         <color key="tintColor" red="0.60784316062927246" green="0.54901963472366333" blue="0.45882353186607361" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="GVB-Q1-4hP" secondAttribute="height" multiplier="1:1" id="IYQ-mi-0xR"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jY-AO-QWZ">
-                                        <rect key="frame" x="93.5" y="16" width="17.5" height="23.5"/>
+                                        <rect key="frame" x="108.5" y="16" width="17.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="21"/>
                                         <color key="textColor" red="0.60784316062927246" green="0.54901963472366333" blue="0.45882353186607361" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:14 AM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgm-82-mQq">
-                                        <rect key="frame" x="8" y="8" width="76" height="29"/>
+                                        <rect key="frame" x="8" y="8" width="91" height="29"/>
                                         <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="21"/>
                                         <color key="textColor" red="0.60784316062927246" green="0.54901963472366333" blue="0.45882353186607361" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="GVB-Q1-4hP" secondAttribute="bottom" constant="8" id="2yH-wB-wOb"/>
                                     <constraint firstItem="GVB-Q1-4hP" firstAttribute="top" secondItem="mWk-mp-uYO" secondAttribute="top" constant="8" id="EBN-ch-PXw"/>
@@ -377,10 +383,13 @@
                                     <constraint firstAttribute="height" constant="45" id="Ws0-Uq-jm7"/>
                                     <constraint firstAttribute="bottom" secondItem="Bgm-82-mQq" secondAttribute="bottom" constant="8" id="b0Z-Dw-k4X"/>
                                     <constraint firstItem="Bgm-82-mQq" firstAttribute="leading" secondItem="mWk-mp-uYO" secondAttribute="leading" constant="8" id="mZ9-2A-HPz"/>
-                                    <constraint firstAttribute="width" constant="125" id="qSU-rR-viK"/>
+                                    <constraint firstAttribute="width" constant="140" id="qSU-rR-viK"/>
                                     <constraint firstItem="8jY-AO-QWZ" firstAttribute="centerY" secondItem="GVB-Q1-4hP" secondAttribute="centerY" constant="5" id="uE9-zA-CN9"/>
                                     <constraint firstItem="8jY-AO-QWZ" firstAttribute="centerX" secondItem="GVB-Q1-4hP" secondAttribute="centerX" id="wjR-1y-zZU"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="648-ac-z5s" appends="YES" id="nYe-nd-gBU"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.88235294818878174" green="0.83529412746429443" blue="0.7921568751335144" alpha="1" colorSpace="calibratedRGB"/>
@@ -431,14 +440,152 @@
                         <outlet property="keyboardHeight" destination="OfF-Tu-ele" id="D6O-1e-tUa"/>
                         <outlet property="keyboardView" destination="r1h-Jc-ngf" id="Lda-Za-XFf"/>
                         <outlet property="navigationBar" destination="ooE-JX-FCE" id="436-Od-GGW"/>
+                        <outlet property="noteLabel" destination="Crh-yE-9xg" id="XrL-dc-NGX"/>
                         <outlet property="noteView" destination="zgF-1U-peV" id="cwo-Uh-jOc"/>
                         <outlet property="statusBarHeight" destination="RFv-2Y-TG9" id="MU8-DR-YbL"/>
                         <outlet property="timeLabel" destination="Bgm-82-mQq" id="4rI-HC-Pk6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wbw-63-jgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VBt-N4-7D8" userLabel="Note Tap Gesture Recognizer">
+                    <connections>
+                        <segue destination="Ecd-HJ-2nQ" kind="presentation" identifier="typeNoteSegue" id="wWn-V9-zgc"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="648-ac-z5s" userLabel="Date Gesture Recognizer">
+                    <connections>
+                        <action selector="selectDate:" destination="EgV-dx-MqZ" id="1WL-c0-hCu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2064" y="324"/>
+        </scene>
+        <!--Type Note View Controller-->
+        <scene sceneID="G9n-TM-sJs">
+            <objects>
+                <viewController id="Ecd-HJ-2nQ" customClass="TypeNoteViewController" customModule="Expense" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YF9-Tr-CHn"/>
+                        <viewControllerLayoutGuide type="bottom" id="u2p-aR-apL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r1c-dv-G8K">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vEv-hA-sVE">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MO8-ar-3o2" userLabel="Full Note View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0a-vc-eVC" userLabel="Notebox View">
+                                        <rect key="frame" x="15" y="75" width="570" height="150"/>
+                                        <subviews>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTF-Ad-aTp">
+                                                <rect key="frame" x="0.0" y="0.0" width="570" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="IRD-xp-h5e"/>
+                                                </constraints>
+                                                <items>
+                                                    <barButtonItem image="Exit" id="MVV-Jm-onf" userLabel="Exit">
+                                                        <color key="tintColor" red="0.086274512112140656" green="0.77254903316497803" blue="0.61103510856628418" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <segue destination="UJ7-iP-tXo" kind="unwind" identifier="cancelTypeNoteSegue" unwindAction="cancelTypeNote:" id="4bF-Az-Ztv"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fnz-KN-XsT"/>
+                                                    <barButtonItem image="Save" id="fTx-el-x7d" userLabel="Done">
+                                                        <color key="tintColor" red="0.086274512112140656" green="0.77254903316497803" blue="0.61103510856628418" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <segue destination="UJ7-iP-tXo" kind="unwind" identifier="doneTypeNoteSegue" unwindAction="typedNote:" id="aKW-S7-Rsg"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                </items>
+                                                <color key="tintColor" red="0.086274512112140656" green="0.77254903316497803" blue="0.61103510856628418" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </toolbar>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKq-RD-vGw" userLabel="Note Textfield View ">
+                                                <rect key="frame" x="0.0" y="45" width="570" height="105"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUm-i8-DOV" userLabel="highlightColor">
+                                                        <rect key="frame" x="0.0" y="0.0" width="5" height="105"/>
+                                                        <color key="backgroundColor" red="0.086274512112140656" green="0.77254903316497803" blue="0.61103510856628418" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="5" id="pmS-If-eUC"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type a note..." minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Nr0-6Z-muO">
+                                                        <rect key="frame" x="20" y="0.0" width="550" height="105"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.086274512110000007" green="0.77254903320000001" blue="0.61103510859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.36078432202339172" green="0.32549020648002625" blue="0.27450981736183167" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="25"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                        <connections>
+                                                            <action selector="doneTexfieldPressed:" destination="Ecd-HJ-2nQ" eventType="editingDidEndOnExit" id="hYM-iU-nrI"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Nr0-6Z-muO" secondAttribute="trailing" id="C0N-Jl-yzF"/>
+                                                    <constraint firstItem="Nr0-6Z-muO" firstAttribute="top" secondItem="aKq-RD-vGw" secondAttribute="top" id="CWh-iP-5lU"/>
+                                                    <constraint firstAttribute="bottom" secondItem="UUm-i8-DOV" secondAttribute="bottom" id="HEv-ah-1Bx"/>
+                                                    <constraint firstItem="Nr0-6Z-muO" firstAttribute="leading" secondItem="UUm-i8-DOV" secondAttribute="trailing" constant="15" id="Y4Y-tl-vAA"/>
+                                                    <constraint firstItem="UUm-i8-DOV" firstAttribute="leading" secondItem="aKq-RD-vGw" secondAttribute="leading" id="YYv-d7-kSu"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Nr0-6Z-muO" secondAttribute="bottom" id="oaJ-os-M0B"/>
+                                                    <constraint firstItem="UUm-i8-DOV" firstAttribute="top" secondItem="aKq-RD-vGw" secondAttribute="top" id="xI5-Ng-uad"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.88235294818878174" green="0.83529412746429443" blue="0.7921568751335144" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="tTF-Ad-aTp" secondAttribute="trailing" id="32b-zL-3s8"/>
+                                            <constraint firstAttribute="height" constant="150" id="Bgu-Z6-taz"/>
+                                            <constraint firstItem="tTF-Ad-aTp" firstAttribute="leading" secondItem="R0a-vc-eVC" secondAttribute="leading" id="BiE-8L-BJG"/>
+                                            <constraint firstItem="aKq-RD-vGw" firstAttribute="leading" secondItem="R0a-vc-eVC" secondAttribute="leading" id="GZn-xd-1io"/>
+                                            <constraint firstItem="aKq-RD-vGw" firstAttribute="top" secondItem="tTF-Ad-aTp" secondAttribute="bottom" constant="1" id="Prc-qC-S1G"/>
+                                            <constraint firstItem="tTF-Ad-aTp" firstAttribute="top" secondItem="R0a-vc-eVC" secondAttribute="top" id="pf0-wG-n1d"/>
+                                            <constraint firstAttribute="bottom" secondItem="aKq-RD-vGw" secondAttribute="bottom" id="sST-do-TSM"/>
+                                            <constraint firstAttribute="trailing" secondItem="aKq-RD-vGw" secondAttribute="trailing" id="vg5-dX-8re"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.36078432202339172" green="0.32549020648002625" blue="0.27450981736183167" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="R0a-vc-eVC" firstAttribute="centerX" secondItem="MO8-ar-3o2" secondAttribute="centerX" id="8w8-ng-PeL"/>
+                                    <constraint firstItem="R0a-vc-eVC" firstAttribute="leading" secondItem="MO8-ar-3o2" secondAttribute="leading" constant="15" id="Bhi-Kv-3Vc"/>
+                                    <constraint firstItem="R0a-vc-eVC" firstAttribute="top" secondItem="MO8-ar-3o2" secondAttribute="top" constant="75" id="MnP-XX-pUL"/>
+                                    <constraint firstAttribute="trailing" secondItem="R0a-vc-eVC" secondAttribute="trailing" constant="15" id="gbS-do-qBL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MO8-ar-3o2" firstAttribute="leading" secondItem="r1c-dv-G8K" secondAttribute="leadingMargin" constant="-20" id="6iL-RB-lmU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vEv-hA-sVE" secondAttribute="trailing" constant="-20" id="FbQ-gE-I5x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MO8-ar-3o2" secondAttribute="trailing" constant="-20" id="M7E-lw-TDs"/>
+                            <constraint firstItem="vEv-hA-sVE" firstAttribute="leading" secondItem="r1c-dv-G8K" secondAttribute="leadingMargin" constant="-20" id="UcR-MM-NRY"/>
+                            <constraint firstItem="vEv-hA-sVE" firstAttribute="top" secondItem="r1c-dv-G8K" secondAttribute="topMargin" id="a3S-B1-Ocj"/>
+                            <constraint firstItem="u2p-aR-apL" firstAttribute="top" secondItem="MO8-ar-3o2" secondAttribute="bottom" id="fOx-cm-gwJ"/>
+                            <constraint firstItem="u2p-aR-apL" firstAttribute="top" secondItem="vEv-hA-sVE" secondAttribute="bottom" id="hvA-O6-Dhx"/>
+                            <constraint firstItem="MO8-ar-3o2" firstAttribute="top" secondItem="r1c-dv-G8K" secondAttribute="topMargin" id="mrC-au-i1j"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="vEv-hA-sVE" id="rg9-CY-X1V"/>
+                        <outlet property="noteBoxView" destination="R0a-vc-eVC" id="aIl-eG-BDd"/>
+                        <outlet property="noteTextField" destination="Nr0-6Z-muO" id="CQW-ia-i5w"/>
+                        <outlet property="noteboxHeight" destination="Bgu-Z6-taz" id="nYl-gA-21w"/>
+                        <outlet property="noteboxHeightFromTop" destination="MnP-XX-pUL" id="ugj-0L-Apn"/>
+                        <outlet property="toolbar" destination="tTF-Ad-aTp" id="5sG-Rh-ycZ"/>
+                        <outlet property="toolbarHeight" destination="IRD-xp-h5e" id="6jc-BN-ALy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QZq-CZ-Eck" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="UJ7-iP-tXo" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2762" y="324"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g5Y-tL-9HA">
