@@ -482,7 +482,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MO8-ar-3o2" userLabel="Full Note View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0a-vc-eVC" userLabel="Notebox View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0a-vc-eVC" userLabel="Notebox View" customClass="NoteboxView" customModule="Expense" customModuleProvider="target">
                                         <rect key="frame" x="15" y="75" width="570" height="150"/>
                                         <subviews>
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTF-Ad-aTp">

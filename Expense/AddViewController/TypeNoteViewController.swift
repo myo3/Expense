@@ -44,6 +44,19 @@ class TypeNoteViewController: UIViewController {
         self.view.layoutIfNeeded()
         noteBoxView.layoutIfNeeded()
         
+//        //Round notebox corners
+//        let maskLayer = CAShapeLayer(layer: noteBoxView.layer)
+//        let roundedPath = UIBezierPath(roundedRect: maskLayer.bounds, byRoundingCorners: UIRectCorner.AllCorners, cornerRadii: CGSizeMake(16, 16))
+//        maskLayer.fillColor = UIColor.whiteColor().CGColor
+//        maskLayer.backgroundColor = UIColor.clearColor().CGColor
+//        maskLayer.path = CGPath(roundedPath)
+//        
+//        //Don't add masks to layers already in the hierarchy!
+//        UIView *superview = [self.view superview];
+//        [self.view removeFromSuperview];
+//        self.view.layer.mask = maskLayer;
+//        [superview addSubview:self.view];
+        
         //Place toolbar
         toolbarHeight.constant = noteboxHeight.constant/4
         toolbar.updateConstraintsIfNeeded()

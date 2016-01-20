@@ -22,6 +22,7 @@
 		DD75ABE41C3E992500457005 /* ExpenseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75ABE31C3E992500457005 /* ExpenseUITests.swift */; };
 		DD79D4B31C501AB5009E4C13 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79D4B21C501AB5009E4C13 /* PopAnimator.swift */; };
 		DD79D4B51C50207D009E4C13 /* AllExpensesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79D4B41C50207D009E4C13 /* AllExpensesCell.swift */; };
+		DD7DA1D71C502A5D009A2B41 /* NoteboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7DA1D61C502A5D009A2B41 /* NoteboxView.swift */; };
 		DDB591001C47E98800D08FEF /* SummaryHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */; };
 		DDB591021C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */; };
 		DDFB320F1C4A0C0C0089C649 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFB320E1C4A0C0C0089C649 /* AddViewController.swift */; };
@@ -67,6 +68,7 @@
 		DD75ABE51C3E992500457005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD79D4B21C501AB5009E4C13 /* PopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopAnimator.swift; path = AddViewController/PopAnimator.swift; sourceTree = "<group>"; };
 		DD79D4B41C50207D009E4C13 /* AllExpensesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllExpensesCell.swift; path = SummaryTableView/AllExpensesCell.swift; sourceTree = "<group>"; };
+		DD7DA1D61C502A5D009A2B41 /* NoteboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteboxView.swift; path = AddViewController/NoteboxView.swift; sourceTree = "<group>"; };
 		DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryHeaderTableViewCell.swift; path = SummaryTableView/SummaryHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryDetailTableViewCell.swift; path = SummaryTableView/SummaryDetailTableViewCell.swift; sourceTree = "<group>"; };
 		DDFB320E1C4A0C0C0089C649 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = AddViewController/AddViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				DDFB320E1C4A0C0C0089C649 /* AddViewController.swift */,
 				DD3EACF81C4E8DF000D864D3 /* TypeNoteViewController.swift */,
 				DD79D4B21C501AB5009E4C13 /* PopAnimator.swift */,
+				DD7DA1D61C502A5D009A2B41 /* NoteboxView.swift */,
 			);
 			name = AddViewController;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				DDB591021C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift in Sources */,
 				DDB591001C47E98800D08FEF /* SummaryHeaderTableViewCell.swift in Sources */,
 				DD3F4C991C3E9F2D00F9980E /* SummaryTableViewController.swift in Sources */,
+				DD7DA1D71C502A5D009A2B41 /* NoteboxView.swift in Sources */,
 				DD75ABC11C3E992400457005 /* AppDelegate.swift in Sources */,
 				DD3EACF91C4E8DF000D864D3 /* TypeNoteViewController.swift in Sources */,
 				DD75ABC91C3E992400457005 /* Expense.xcdatamodeld in Sources */,

@@ -16,8 +16,6 @@ extension AddViewController: UIViewControllerTransitioningDelegate {
         UIViewControllerAnimatedTransitioning? {
             
             transition.originFrame = noteView.superview!.convertRect(noteView.frame, toView: nil)
-            //selectedImage!.superview!.convertRect(selectedImage!.frame, toView: nil)
-            
             transition.presenting = true
             
             return transition
