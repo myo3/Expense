@@ -235,7 +235,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pn4-jZ-8rQ" userLabel="statusBarBackgroundView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
-                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.98039215803146362" green="0.97254902124404907" blue="0.96078431606292725" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="RFv-2Y-TG9"/>
@@ -243,6 +243,9 @@
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ooE-JX-FCE">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.98039215803146362" green="0.97254902124404907" blue="0.96078431606292725" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.98039215803146362" green="0.97254902124404907" blue="0.96078431606292725" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.98039215803146362" green="0.97254902124404907" blue="0.96078431606292725" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="28"/>
                                 </textAttributes>
@@ -442,6 +445,7 @@
                         <outlet property="navigationBar" destination="ooE-JX-FCE" id="436-Od-GGW"/>
                         <outlet property="noteLabel" destination="Crh-yE-9xg" id="XrL-dc-NGX"/>
                         <outlet property="noteView" destination="zgF-1U-peV" id="cwo-Uh-jOc"/>
+                        <outlet property="statusBarBackgroundView" destination="Pn4-jZ-8rQ" id="MHm-Wn-BKs"/>
                         <outlet property="statusBarHeight" destination="RFv-2Y-TG9" id="MU8-DR-YbL"/>
                         <outlet property="timeLabel" destination="Bgm-82-mQq" id="4rI-HC-Pk6"/>
                     </connections>
@@ -472,7 +476,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vEv-hA-sVE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vEv-hA-sVE">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MO8-ar-3o2" userLabel="Full Note View">
@@ -551,7 +555,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.36078432202339172" green="0.32549020648002625" blue="0.27450981736183167" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="R0a-vc-eVC" firstAttribute="centerX" secondItem="MO8-ar-3o2" secondAttribute="centerX" id="8w8-ng-PeL"/>
                                     <constraint firstItem="R0a-vc-eVC" firstAttribute="leading" secondItem="MO8-ar-3o2" secondAttribute="leading" constant="15" id="Bhi-Kv-3Vc"/>
@@ -574,6 +578,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="vEv-hA-sVE" id="rg9-CY-X1V"/>
+                        <outlet property="fullNoteView" destination="MO8-ar-3o2" id="ePO-yg-HqR"/>
                         <outlet property="noteBoxView" destination="R0a-vc-eVC" id="aIl-eG-BDd"/>
                         <outlet property="noteTextField" destination="Nr0-6Z-muO" id="CQW-ia-i5w"/>
                         <outlet property="noteboxHeight" destination="Bgu-Z6-taz" id="nYl-gA-21w"/>
@@ -595,6 +600,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e6H-jY-mEJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.98039215803146362" green="0.97254902124404907" blue="0.96078431606292725" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.98039215803146362" green="0.97254902124404907" blue="0.96078431606292725" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.98039215803146362" green="0.97254902124404907" blue="0.96078431606292725" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                         </textAttributes>

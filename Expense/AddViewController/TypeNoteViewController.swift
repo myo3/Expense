@@ -10,9 +10,12 @@ import UIKit
 
 class TypeNoteViewController: UIViewController {
 
-    var backgroundImage: UIImage?
-    @IBOutlet private weak var backgroundView: UIImageView!
+    @IBOutlet weak var fullNoteView: UIView!
+    var fullNoteViewColor: UIColor?
     
+    @IBOutlet private weak var backgroundView: UIImageView!
+    var backgroundImage: UIImage?
+
     @IBOutlet private weak var noteBoxView: UIView!
     @IBOutlet private weak var noteboxHeightFromTop: NSLayoutConstraint!
     @IBOutlet private weak var noteboxHeight: NSLayoutConstraint!
@@ -30,10 +33,8 @@ class TypeNoteViewController: UIViewController {
         //Get rid of top border of toolbar
         toolbar.clipsToBounds = true
         
-        //Round noteboxView's corners
-        noteBoxView.layer.cornerRadius = 10
-        
         //Set backgroudn image to Add VC's view
+        backgroundView.hidden = true
         backgroundView.image = backgroundImage
         
         //Place notebox
@@ -48,11 +49,26 @@ class TypeNoteViewController: UIViewController {
         toolbar.updateConstraintsIfNeeded()
         noteBoxView.layoutIfNeeded()
         toolbar.layoutIfNeeded()
+        
+        //Pull up keyboard
+        noteTextField.becomeFirstResponder()
     }
     
     override func viewDidAppear(animated: Bool) {
-        noteTextField.becomeFirstResponder()
+        //Show background image
+        backgroundView.hidden = false
+        
+        //Dim background
+        let transluescentColor = fullNoteViewColor?.colorWithAlphaComponent(0.8)
+        fullNoteView.backgroundColor = transluescentColor
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        backgroundView.hidden = true
+        fullNoteView.backgroundColor = UIColor.clearColor()
+
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

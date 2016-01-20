@@ -8,6 +8,27 @@
 
 import UIKit
 
+extension AddViewController: UIViewControllerTransitioningDelegate {
+    func animationControllerForPresentedController(
+        presented: UIViewController,
+        presentingController presenting: UIViewController,
+        sourceController source: UIViewController) ->
+        UIViewControllerAnimatedTransitioning? {
+            
+            transition.originFrame = noteView.superview!.convertRect(noteView.frame, toView: nil)
+            //selectedImage!.superview!.convertRect(selectedImage!.frame, toView: nil)
+            
+            transition.presenting = true
+            
+            return transition
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.presenting = false
+        return transition
+    }
+    
+}
 class AddViewController: UIViewController {
 
     //Colors
@@ -18,6 +39,7 @@ class AddViewController: UIViewController {
     var offWhite: UIColor = UIColor(netHex: 0xFBF9F7)
     
     //Views & Constraints
+    @IBOutlet weak var statusBarBackgroundView: UIView!
     @IBOutlet private weak var statusBarHeight: NSLayoutConstraint!
     @IBOutlet private weak var navigationBar: UINavigationBar!
     
@@ -41,13 +63,16 @@ class AddViewController: UIViewController {
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var dayLabel: UILabel!
     
+    //Animatoin
+    let transition = PopAnimator()
+    
     //Expense components
     var note: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Set navigation bar tite font, size, & color
+        //Set navigation bar tite font
         let attributes = [NSFontAttributeName : UIFont(name: "Comfortaa", size: 28)!]
         self.navigationBar.titleTextAttributes = attributes
         
@@ -320,11 +345,17 @@ class AddViewController: UIViewController {
         if segue.identifier == "typeNoteSegue"{
             let typeNoteVC = segue.destinationViewController as! TypeNoteViewController
             
+            //animation
+            typeNoteVC.transitioningDelegate = self
+            
             //generate snapshot of window
             let window: UIWindow! = UIApplication.sharedApplication().keyWindow
             let windowImage = capture(window)
             typeNoteVC.backgroundImage = windowImage
             typeNoteVC.noteboxHeightFromTopConstant = statusBarHeight.constant + navigationBar.bounds.height + 20
+            
+            //pass on color
+            typeNoteVC.fullNoteViewColor = fontColor
         }
     }
     
