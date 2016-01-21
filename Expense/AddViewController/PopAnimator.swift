@@ -14,6 +14,7 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     let duration    = 0.3
     var presenting  = true
     var originFrame = CGRect.zero
+    var backgroundTintColor: UIColor?
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?)-> NSTimeInterval {
         return duration
@@ -50,7 +51,12 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             herbView.clipsToBounds = true
         }
         
+        let backgroundTint = UIView(frame: finalFrame)
+        backgroundTint.backgroundColor = backgroundTintColor
+        backgroundTint.alpha = presenting ? 0 : 0.8
+        
         containerView.addSubview(toView)
+        containerView.addSubview(backgroundTint)
         containerView.bringSubviewToFront(herbView)
         
         UIView.animateWithDuration(duration, animations: {
@@ -59,17 +65,18 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             
             herbView.center = CGPoint(x: CGRectGetMidX(finalFrame),
                 y: CGRectGetMidY(finalFrame))
+            backgroundTint.alpha = self.presenting ? 0.8 : 0
             }, completion: {_ in
                 transitionContext.completeTransition(true)
         })
-        //        UIView.animateWithDuration(duration, delay: 0.0, options: .CurveEaseInOut, animations: {            herbView.transform = self.presenting ?
-        //                CGAffineTransformIdentity : scaleTransform
-        //
-        //            herbView.center = CGPoint(x: CGRectGetMidX(finalFrame),
-        //                y: CGRectGetMidY(finalFrame))
-        //            }, completion: {_ in
-        //                transitionContext.completeTransition(true)
-        //        })
+//        UIView.animateWithDuration(duration, delay: 0.0, options: .CurveEaseOut, animations: {            herbView.transform = self.presenting ?
+//            CGAffineTransformIdentity : scaleTransform
+//            
+//            herbView.center = CGPoint(x: CGRectGetMidX(finalFrame),
+//                y: CGRectGetMidY(finalFrame))
+//            }, completion: {_ in
+//                transitionContext.completeTransition(true)
+//        })
         
         //        UIView.animateWithDuration(duration, delay:0.0,
         //            usingSpringWithDamping: 0.0,
@@ -81,7 +88,7 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         //
         //                herbView.center = CGPoint(x: CGRectGetMidX(finalFrame),
         //                    y: CGRectGetMidY(finalFrame))
-        //                
+        //
         //            }, completion:{_ in
         //                transitionContext.completeTransition(true)
         //        })

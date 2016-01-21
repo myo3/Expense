@@ -16,6 +16,7 @@ extension AddViewController: UIViewControllerTransitioningDelegate {
         UIViewControllerAnimatedTransitioning? {
             
             transition.originFrame = noteView.superview!.convertRect(noteView.frame, toView: nil)
+            transition.backgroundTintColor = fontColor
             transition.presenting = true
             
             return transition
