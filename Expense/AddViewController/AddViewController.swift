@@ -83,6 +83,8 @@ class AddViewController: UIViewController {
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var dayLabel: UILabel!
     
+    @IBOutlet weak var functionLabel: UILabel!
+    
     //Animation
     let popTransition = PopAnimator()
     let riseTransition = RiseAnimator()
@@ -187,6 +189,9 @@ class AddViewController: UIViewController {
         for button in keyboardButtons{
             keyboardView.addSubview(button)
         }
+        
+        //bring function label to front
+        functionLabel.superview?.bringSubviewToFront(functionLabel)
         
     }
 

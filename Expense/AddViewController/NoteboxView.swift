@@ -30,7 +30,7 @@ class NoteboxView: UIView {
             mask.frame = bounds
             
             //Set corner size
-            let cornerSize = mask.bounds.height/15
+            let cornerSize = mask.bounds.height/19
             //Create path
             let roundedPath = UIBezierPath(roundedRect: mask.bounds, byRoundingCorners: UIRectCorner.AllCorners, cornerRadii: CGSizeMake(cornerSize, cornerSize))
             

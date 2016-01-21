@@ -27,6 +27,7 @@
 		DDB591001C47E98800D08FEF /* SummaryHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */; };
 		DDB591021C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */; };
 		DDC2741E1C509DF20072A95A /* RiseAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2741D1C509DF20072A95A /* RiseAnimator.swift */; };
+		DDC274201C50C3A60072A95A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC2741F1C50C3A60072A95A /* MapKit.framework */; };
 		DDFB320F1C4A0C0C0089C649 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFB320E1C4A0C0C0089C649 /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryHeaderTableViewCell.swift; path = SummaryTableView/SummaryHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryDetailTableViewCell.swift; path = SummaryTableView/SummaryDetailTableViewCell.swift; sourceTree = "<group>"; };
 		DDC2741D1C509DF20072A95A /* RiseAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RiseAnimator.swift; path = AddViewController/RiseAnimator.swift; sourceTree = "<group>"; };
+		DDC2741F1C50C3A60072A95A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DDFB320E1C4A0C0C0089C649 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = AddViewController/AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC274201C50C3A60072A95A /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +109,7 @@
 		362277AED35A7EE1FFEB92F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDC2741F1C50C3A60072A95A /* MapKit.framework */,
 				0FB5A0B512B9A5AEDEF5B2D5 /* Pods_Expense.framework */,
 			);
 			name = Frameworks;
@@ -286,6 +290,11 @@
 					DD75ABBC1C3E992400457005 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = D2FXV4LXGX;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					DD75ABD31C3E992500457005 = {
 						CreatedOnToolsVersion = 7.2;
