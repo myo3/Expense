@@ -26,11 +26,11 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let toView =
         transitionContext.viewForKey(UITransitionContextToViewKey)!
         
-        let herbView = presenting ? toView : transitionContext.viewForKey(UITransitionContextFromViewKey)!
+        let noteView = presenting ? toView : transitionContext.viewForKey(UITransitionContextFromViewKey)!
         
         // calculate the scale factor you need to apply on each axis as you animate between each view
-        let initialFrame = presenting ? originFrame : herbView.frame
-        let finalFrame = presenting ? herbView.frame : originFrame
+        let initialFrame = presenting ? originFrame : noteView.frame
+        let finalFrame = presenting ? noteView.frame : originFrame
         
         let xScaleFactor = presenting ?
             initialFrame.width / finalFrame.width :
@@ -44,28 +44,29 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let scaleTransform = CGAffineTransformMakeScale(xScaleFactor, yScaleFactor)
         
         if presenting {
-            herbView.transform = scaleTransform
-            herbView.center = CGPoint(
+            noteView.transform = scaleTransform
+            noteView.center = CGPoint(
                 x: CGRectGetMidX(initialFrame),
                 y: CGRectGetMidY(initialFrame))
-            herbView.clipsToBounds = true
+            noteView.clipsToBounds = true
         }
         
-        let backgroundTint = UIView(frame: finalFrame)
+        //Overlay background tint
+        let mainScreenFrame = UIScreen.mainScreen().bounds
+        let backgroundTint = UIView(frame: mainScreenFrame)
         backgroundTint.backgroundColor = backgroundTintColor
         backgroundTint.alpha = presenting ? 0 : 0.8
         
         containerView.addSubview(toView)
         containerView.addSubview(backgroundTint)
-        containerView.bringSubviewToFront(herbView)
+        containerView.bringSubviewToFront(noteView)
         
         UIView.animateWithDuration(duration, animations: {
-            herbView.transform = self.presenting ?
-                CGAffineTransformIdentity : scaleTransform
-            
-            herbView.center = CGPoint(x: CGRectGetMidX(finalFrame),
-                y: CGRectGetMidY(finalFrame))
             backgroundTint.alpha = self.presenting ? 0.8 : 0
+            noteView.transform = self.presenting ?
+                CGAffineTransformIdentity : scaleTransform
+            noteView.center = CGPoint(x: CGRectGetMidX(finalFrame),
+                y: CGRectGetMidY(finalFrame))
             }, completion: {_ in
                 transitionContext.completeTransition(true)
         })

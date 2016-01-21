@@ -274,7 +274,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1h-Jc-ngf" userLabel="Keyboard">
-                                <rect key="frame" x="10" y="349" width="590" height="251"/>
+                                <rect key="frame" x="10" y="349" width="570" height="251"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="251" id="OfF-Tu-ele"/>
                                 </constraints>
@@ -412,7 +412,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Pn4-jZ-8rQ" secondAttribute="trailing" constant="-20" id="b8N-Ec-BdA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="McA-mS-Y1O" secondAttribute="trailing" constant="-20" id="eQg-pO-avv"/>
                             <constraint firstItem="ooE-JX-FCE" firstAttribute="leading" secondItem="SQG-oH-2hI" secondAttribute="leadingMargin" constant="-20" id="gQj-Dc-Sl8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="r1h-Jc-ngf" secondAttribute="trailing" constant="-20" id="jUI-TS-RHf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="r1h-Jc-ngf" secondAttribute="trailing" id="jUI-TS-RHf"/>
                             <constraint firstItem="McA-mS-Y1O" firstAttribute="top" secondItem="zgF-1U-peV" secondAttribute="bottom" id="jjI-SS-OAm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="r1h-Jc-ngf" secondAttribute="trailing" constant="-20" id="nZz-ON-kDh"/>
                             <constraint firstItem="Pn4-jZ-8rQ" firstAttribute="leading" secondItem="SQG-oH-2hI" secondAttribute="leadingMargin" constant="-20" id="ogb-tr-tjr"/>
@@ -453,26 +453,127 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wbw-63-jgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="VBt-N4-7D8" userLabel="Note Tap Gesture Recognizer">
                     <connections>
-                        <segue destination="Ecd-HJ-2nQ" kind="presentation" identifier="typeNoteSegue" id="wWn-V9-zgc"/>
+                        <segue destination="Ecd-HJ-2nQ" kind="presentation" identifier="noteSegue" id="wWn-V9-zgc"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="648-ac-z5s" userLabel="Date Gesture Recognizer">
                     <connections>
                         <action selector="selectDate:" destination="EgV-dx-MqZ" id="1WL-c0-hCu"/>
+                        <segue destination="bkP-u9-Gg6" kind="presentation" identifier="dateSegue" id="On3-kA-lhh"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2064" y="324"/>
         </scene>
-        <!--Type Note View Controller-->
+        <!--Date View Controller-->
+        <scene sceneID="pAg-Sa-ORh">
+            <objects>
+                <viewController id="bkP-u9-Gg6" customClass="DateViewController" customModule="Expense" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Jm-Al-t48"/>
+                        <viewControllerLayoutGuide type="bottom" id="GDy-5J-UIF"/>
+                    </layoutGuides>
+                    <view key="view" tag="2" contentMode="scaleToFill" id="tzm-LG-1Pu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iUl-YU-WHC" userLabel="Background View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kg1-Kb-7Nq" userLabel="Full Note View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ntU-QQ-2L4" userLabel="dateBox View">
+                                        <rect key="frame" x="0.0" y="313" width="600" height="287"/>
+                                        <subviews>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="LV3-Tq-w5M">
+                                                <rect key="frame" x="0.0" y="15" width="600" height="302"/>
+                                                <color key="tintColor" red="0.086274512112140656" green="0.77254903316497803" blue="0.61103510856628418" alpha="1" colorSpace="calibratedRGB"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="475038476.22073001">
+                                                    <!--2016-01-21 03:07:56 +0000-->
+                                                </date>
+                                            </datePicker>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1d-rh-xxZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="TBN-M8-G52"/>
+                                                </constraints>
+                                                <items>
+                                                    <barButtonItem image="Exit" id="WEL-rh-iiV" userLabel="Exit">
+                                                        <color key="tintColor" red="0.086274512110000007" green="0.77254903320000001" blue="0.61103510859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <segue destination="KOW-tI-rZv" kind="unwind" identifier="cancelDateSegue" unwindAction="cancelDate:" id="oHB-st-Wh6"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4Ot-8T-5KB"/>
+                                                    <barButtonItem image="Save" id="Bv3-DA-DyV" userLabel="Done">
+                                                        <color key="tintColor" red="0.086274512110000007" green="0.77254903320000001" blue="0.61103510859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <segue destination="KOW-tI-rZv" kind="unwind" identifier="addDateSegue" unwindAction="addDate:" id="J8p-Kr-ulQ"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                </items>
+                                                <color key="tintColor" red="0.086274512110000007" green="0.77254903320000001" blue="0.61103510859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </toolbar>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.88235294819999999" green="0.83529412749999998" blue="0.79215687509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="LV3-Tq-w5M" secondAttribute="bottom" constant="-30" id="3W7-6n-zAT"/>
+                                            <constraint firstAttribute="height" constant="287" id="4bZ-k2-392"/>
+                                            <constraint firstItem="LV3-Tq-w5M" firstAttribute="leading" secondItem="ntU-QQ-2L4" secondAttribute="leading" id="6ON-iN-V0T"/>
+                                            <constraint firstAttribute="trailing" secondItem="LV3-Tq-w5M" secondAttribute="trailing" id="E1K-Ba-cOe"/>
+                                            <constraint firstItem="LV3-Tq-w5M" firstAttribute="top" secondItem="e1d-rh-xxZ" secondAttribute="bottom" constant="-29" id="Ut3-BR-XnA"/>
+                                            <constraint firstItem="e1d-rh-xxZ" firstAttribute="leading" secondItem="ntU-QQ-2L4" secondAttribute="leading" id="Znd-wm-1tz"/>
+                                            <constraint firstAttribute="trailing" secondItem="e1d-rh-xxZ" secondAttribute="trailing" id="aZ5-72-7Tt"/>
+                                            <constraint firstItem="e1d-rh-xxZ" firstAttribute="top" secondItem="ntU-QQ-2L4" secondAttribute="top" id="wlr-Ao-9vf"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ntU-QQ-2L4" secondAttribute="trailing" id="cfH-kK-Mhe"/>
+                                    <constraint firstAttribute="bottom" secondItem="ntU-QQ-2L4" secondAttribute="bottom" id="pkA-JY-1Vl"/>
+                                    <constraint firstItem="ntU-QQ-2L4" firstAttribute="leading" secondItem="Kg1-Kb-7Nq" secondAttribute="leading" id="w5h-xO-gOZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iUl-YU-WHC" firstAttribute="top" secondItem="tzm-LG-1Pu" secondAttribute="topMargin" id="8i0-Ic-2Ig"/>
+                            <constraint firstItem="GDy-5J-UIF" firstAttribute="top" secondItem="iUl-YU-WHC" secondAttribute="bottom" id="G6p-Qy-tq4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kg1-Kb-7Nq" secondAttribute="trailing" constant="-20" id="K4c-yU-GFg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iUl-YU-WHC" secondAttribute="trailing" constant="-20" id="Q9P-pr-vN6"/>
+                            <constraint firstItem="GDy-5J-UIF" firstAttribute="top" secondItem="Kg1-Kb-7Nq" secondAttribute="bottom" id="b7M-Oe-bli"/>
+                            <constraint firstItem="iUl-YU-WHC" firstAttribute="leading" secondItem="tzm-LG-1Pu" secondAttribute="leadingMargin" constant="-20" id="dSL-TU-6L4"/>
+                            <constraint firstItem="Kg1-Kb-7Nq" firstAttribute="leading" secondItem="tzm-LG-1Pu" secondAttribute="leadingMargin" constant="-20" id="hpo-ZQ-Bdg"/>
+                            <constraint firstItem="Kg1-Kb-7Nq" firstAttribute="top" secondItem="tzm-LG-1Pu" secondAttribute="topMargin" id="nAB-tS-5nA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="iUl-YU-WHC" id="6dl-on-IcP"/>
+                        <outlet property="dateBoxHeight" destination="4bZ-k2-392" id="GAe-ug-WZz"/>
+                        <outlet property="dateBoxView" destination="ntU-QQ-2L4" id="48d-tD-UBM"/>
+                        <outlet property="datePicker" destination="LV3-Tq-w5M" id="pQe-iq-Pen"/>
+                        <outlet property="fullNoteView" destination="Kg1-Kb-7Nq" id="tub-KD-Y9a"/>
+                        <outlet property="toolbar" destination="e1d-rh-xxZ" id="U1T-uL-ZkK"/>
+                        <outlet property="toolbarHeight" destination="TBN-M8-G52" id="24K-qm-4VV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fpN-NF-h8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KOW-tI-rZv" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2819" y="-143"/>
+        </scene>
+        <!--Note View Controller-->
         <scene sceneID="G9n-TM-sJs">
             <objects>
-                <viewController id="Ecd-HJ-2nQ" customClass="TypeNoteViewController" customModule="Expense" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ecd-HJ-2nQ" customClass="NoteViewController" customModule="Expense" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YF9-Tr-CHn"/>
                         <viewControllerLayoutGuide type="bottom" id="u2p-aR-apL"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="r1c-dv-G8K">
+                    <view key="view" tag="1" contentMode="scaleToFill" id="r1c-dv-G8K">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -494,14 +595,14 @@
                                                     <barButtonItem image="Exit" id="MVV-Jm-onf" userLabel="Exit">
                                                         <color key="tintColor" red="0.086274512112140656" green="0.77254903316497803" blue="0.61103510856628418" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
-                                                            <segue destination="UJ7-iP-tXo" kind="unwind" identifier="cancelTypeNoteSegue" unwindAction="cancelTypeNote:" id="4bF-Az-Ztv"/>
+                                                            <segue destination="UJ7-iP-tXo" kind="unwind" identifier="cancelNoteSegue" unwindAction="cancelNote:" id="4bF-Az-Ztv"/>
                                                         </connections>
                                                     </barButtonItem>
                                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fnz-KN-XsT"/>
                                                     <barButtonItem image="Save" id="fTx-el-x7d" userLabel="Done">
                                                         <color key="tintColor" red="0.086274512112140656" green="0.77254903316497803" blue="0.61103510856628418" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
-                                                            <segue destination="UJ7-iP-tXo" kind="unwind" identifier="doneTypeNoteSegue" unwindAction="typedNote:" id="aKW-S7-Rsg"/>
+                                                            <segue destination="UJ7-iP-tXo" kind="unwind" identifier="addNoteSegue" unwindAction="addNote:" id="aKW-S7-Rsg"/>
                                                         </connections>
                                                     </barButtonItem>
                                                 </items>
@@ -590,7 +691,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZq-CZ-Eck" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="UJ7-iP-tXo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2762" y="324"/>
+            <point key="canvasLocation" x="2819" y="560"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g5Y-tL-9HA">

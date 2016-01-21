@@ -15,16 +15,37 @@ extension AddViewController: UIViewControllerTransitioningDelegate {
         sourceController source: UIViewController) ->
         UIViewControllerAnimatedTransitioning? {
             
-            transition.originFrame = noteView.superview!.convertRect(noteView.frame, toView: nil)
-            transition.backgroundTintColor = fontColor
-            transition.presenting = true
-            
-            return transition
+            switch presented.view.tag{
+            case 1: //NoteVC
+                popTransition.originFrame = noteView.superview!.convertRect(noteView.frame, toView: nil)
+                popTransition.backgroundTintColor = fontColor
+                popTransition.presenting = true
+                
+                return popTransition
+            case 2:
+                riseTransition.backgroundTintColor = fontColor
+                riseTransition.presenting = true
+                return riseTransition
+            default:
+                return nil
+            }
+
     }
     
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.presenting = false
-        return transition
+        
+        switch dismissed.view.tag{
+        case 1: //NoteVC
+            popTransition.presenting = false
+            return popTransition
+        case 2:
+            riseTransition.presenting = false
+            return riseTransition
+//            return nil
+        default:
+            return nil
+        }
+
     }
     
 }
@@ -62,11 +83,13 @@ class AddViewController: UIViewController {
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var dayLabel: UILabel!
     
-    //Animatoin
-    let transition = PopAnimator()
+    //Animation
+    let popTransition = PopAnimator()
+    let riseTransition = RiseAnimator()
     
     //Expense components
     var note: String?
+    var date: NSDate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,7 +128,7 @@ class AddViewController: UIViewController {
         dayLabel.text = "\(dateComponents.day)"
         calendar.dateFromComponents(dateComponents)
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "hh:mm aa"
+        dateFormatter.dateFormat = "h:mm aa"
         timeLabel.text = dateFormatter.stringFromDate(todaysDate)
         
         //set up keyboard
@@ -172,20 +195,37 @@ class AddViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancelDate(unwindSegue: UIStoryboardSegue){
+    }
     
-    @IBAction func typedNote(unwindSegue: UIStoryboardSegue){
-        let typeNoteVC = unwindSegue.sourceViewController as! TypeNoteViewController
+    @IBAction func addDate(unwindSegue: UIStoryboardSegue){
+        let dateVC = unwindSegue.sourceViewController as! DateViewController
+        self.date = dateVC.date
+        
+        //Update AddVC's date view
+        let date = self.date
+        let calendar = NSCalendar.currentCalendar()
+        let dateComponents = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond], fromDate: date!)
+        dayLabel.text = "\(dateComponents.day)"
+        calendar.dateFromComponents(dateComponents)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "h:mm aa"
+        timeLabel.text = dateFormatter.stringFromDate(date!)
+    }
+    
+    @IBAction func addNote(unwindSegue: UIStoryboardSegue){
+        let noteVC = unwindSegue.sourceViewController as! NoteViewController
         //Update expense component
-        if typeNoteVC.note == ""{
+        if noteVC.note == ""{
             self.note = "Add a note..."
         }else{
-            self.note = typeNoteVC.note
+            self.note = noteVC.note
         }
-        //Update AddVC's view
+        //Update AddVC's note view
         noteLabel.text = self.note
     }
     
-    @IBAction func cancelTypeNote(unwindSegue: UIStoryboardSegue){
+    @IBAction func cancelNote(unwindSegue: UIStoryboardSegue){
     }
     
     @IBAction func selectDate(sender: UITapGestureRecognizer) {
@@ -341,20 +381,32 @@ class AddViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "typeNoteSegue"{
-            let typeNoteVC = segue.destinationViewController as! TypeNoteViewController
+        if segue.identifier == "noteSegue"{
+            let noteVC = segue.destinationViewController as! NoteViewController
             
             //animation
-            typeNoteVC.transitioningDelegate = self
+            noteVC.transitioningDelegate = self
             
             //generate snapshot of window
             let window: UIWindow! = UIApplication.sharedApplication().keyWindow
             let windowImage = capture(window)
-            typeNoteVC.backgroundImage = windowImage
-            typeNoteVC.noteboxHeightFromTopConstant = statusBarHeight.constant + navigationBar.bounds.height + 20
+            noteVC.backgroundImage = windowImage
+            noteVC.noteboxHeightFromTopConstant = statusBarHeight.constant + navigationBar.bounds.height + 20
             
             //pass on color
-            typeNoteVC.fullNoteViewColor = fontColor
+            noteVC.fullNoteViewColor = fontColor
+        } else if segue.identifier == "dateSegue"{
+            let dateVC = segue.destinationViewController as! DateViewController
+            //animation
+            dateVC.transitioningDelegate = self
+            
+            //generate snapshot of window
+            let window: UIWindow! = UIApplication.sharedApplication().keyWindow
+            let windowImage = capture(window)
+            dateVC.backgroundImage = windowImage
+            
+            //pass on color
+            dateVC.fullNoteViewColor = fontColor
         }
     }
     
