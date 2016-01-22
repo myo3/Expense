@@ -44,12 +44,6 @@ class DateViewController: UIViewController {
         self.view.layoutIfNeeded()
         dateBoxView.layoutIfNeeded()
         
-        //Place toolbar
-        toolbarHeight.constant = view.bounds.height/12
-        toolbar.updateConstraintsIfNeeded()
-        dateBoxView.layoutIfNeeded()
-        toolbar.layoutIfNeeded()
-        
     }
     
     override func viewDidAppear(animated: Bool) {

@@ -80,6 +80,7 @@ class AddViewController: UIViewController {
     
     @IBOutlet private weak var keyboardView: UIView!
     @IBOutlet private weak var keyboardHeight: NSLayoutConstraint!
+    var keyboardButtons = [UIButton]()
 
     @IBOutlet private weak var noteView: UIView!
     @IBOutlet weak var noteLabel: UILabel!
@@ -151,7 +152,6 @@ class AddViewController: UIViewController {
         let buttonHeight = (keyboardView.bounds.height-(4*columnSpace))/4
         let rowSpace = CGFloat(1)
         let buttonWidth = (keyboardView.bounds.width-(2*rowSpace))/3
-        var keyboardButtons = [UIButton]()
         for i in 0...11{
             let button = UIButton(frame: CGRectMake(0, 0, buttonWidth, buttonHeight))
             switch i{
@@ -412,6 +412,7 @@ class AddViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let space = CGFloat(20)
         if segue.identifier == "noteSegue"{
             let noteVC = segue.destinationViewController as! NoteViewController
             
@@ -423,11 +424,11 @@ class AddViewController: UIViewController {
             let windowImage = capture(window)
             noteVC.backgroundImage = windowImage
             
-            //Arrange notebox
-            noteVC.noteboxHeightFromTopConstant = statusBarHeight.constant + navigationBar.bounds.height + 20
-            
             //pass on background color tint
             noteVC.fullViewColor = fontColor
+            
+            //Arrange notebox
+            noteVC.noteboxHeightFromTopConstant = statusBarHeight.constant + navigationBar.bounds.height + space
         } else if segue.identifier == "dateSegue"{
             let dateVC = segue.destinationViewController as! DateViewController
             //animation
@@ -453,6 +454,11 @@ class AddViewController: UIViewController {
             
             //pass on background color tint
             categoryVC.fullViewColor = fontColor
+            
+            //Arrange functionCategoryView
+            categoryVC.functionCategoryHeightFromTopConstant = statusBarHeight.constant + navigationBar.bounds.height + space
+            categoryVC.functionCategoryHeightFromBottomConstant =
+            keyboardButtons[0].frame.height + space
         }
     }
     

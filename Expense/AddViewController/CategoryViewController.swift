@@ -8,15 +8,25 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController {
+class CategoryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var backgroundView: UIImageView!
     var backgroundImage: UIImage?
     
     @IBOutlet weak var fullView: UIView!
     var fullViewColor: UIColor?
-
+    
+    
+    @IBOutlet weak var functionCategoryView: RoundCornersView!
+    @IBOutlet weak var functionCategoryHeightFromTop: NSLayoutConstraint!
+    var functionCategoryHeightFromTopConstant: CGFloat?
+    @IBOutlet weak var functionCategoryHeightFromBottom: NSLayoutConstraint!
+    var functionCategoryHeightFromBottomConstant: CGFloat?
+    
     @IBOutlet weak var toolbar: UIToolbar!
+    
+    @IBOutlet weak var functionPicker: UIPickerView!
+    var function: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +38,19 @@ class CategoryViewController: UIViewController {
         backgroundView.hidden = true
         backgroundView.image = backgroundImage
         
-        // Do any additional setup after loading the view.
+        //Place notebox
+        functionCategoryHeightFromTop.constant = functionCategoryHeightFromTopConstant ?? functionCategoryHeightFromTop.constant
+        functionCategoryHeightFromBottom.constant = functionCategoryHeightFromBottomConstant ?? functionCategoryHeightFromBottom.constant
+        functionCategoryView.updateConstraintsIfNeeded()
+        self.view.layoutIfNeeded()
+        functionCategoryView.layoutIfNeeded()
+        
+        //Connect data
+        self.functionPicker.delegate = self
+        self.functionPicker.dataSource = self
+        
+        //Input data into array
+        function = ["Personal", "Social", "Work", "Family"]
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +73,26 @@ class CategoryViewController: UIViewController {
         
     }
     
+    // The number of columns of data
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return function.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return function[row]
+    }
+    
+    // Catpure the picker view selection
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // This method is triggered whenever the user makes a change to the picker selection.
+        // The parameter named row and component represents what was selected.
+    }
     /*
     // MARK: - Navigation
 

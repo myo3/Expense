@@ -601,12 +601,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6GR-QI-ext" userLabel="Function &amp; Category View" customClass="RoundCornersView" customModule="Expense" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="75" width="570" height="450"/>
+                                        <rect key="frame" x="15" y="75" width="570" height="495"/>
                                         <subviews>
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WL3-6l-lNb">
-                                                <rect key="frame" x="0.0" y="0.0" width="570" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="570" height="56"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="bF2-F4-vV5"/>
+                                                    <constraint firstAttribute="height" constant="56" id="bF2-F4-vV5"/>
                                                 </constraints>
                                                 <items>
                                                     <barButtonItem image="Exit" id="e3Y-Md-LnD" userLabel="Exit">
@@ -627,7 +627,7 @@
                                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </toolbar>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxJ-cs-6Y7">
-                                                <rect key="frame" x="0.0" y="45" width="570" height="53"/>
+                                                <rect key="frame" x="0.0" y="57" width="570" height="53"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="53" id="w3M-gQ-kU3"/>
                                                 </constraints>
@@ -635,7 +635,6 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.88235294819999999" green="0.83529412749999998" blue="0.79215687509999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="450" id="ElN-BL-PvS"/>
                                             <constraint firstItem="zxJ-cs-6Y7" firstAttribute="leading" secondItem="6GR-QI-ext" secondAttribute="leading" id="IM5-Q8-Zhf"/>
                                             <constraint firstItem="WL3-6l-lNb" firstAttribute="top" secondItem="6GR-QI-ext" secondAttribute="top" id="fhB-v7-5Ne"/>
                                             <constraint firstAttribute="trailing" secondItem="zxJ-cs-6Y7" secondAttribute="trailing" id="siR-xO-cFa"/>
@@ -648,6 +647,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="6GR-QI-ext" firstAttribute="leading" secondItem="DEW-tb-arP" secondAttribute="leading" constant="15" id="Cti-3g-yMn"/>
+                                    <constraint firstAttribute="bottom" secondItem="6GR-QI-ext" secondAttribute="bottom" constant="30" id="IXH-Om-Jiv"/>
                                     <constraint firstAttribute="trailing" secondItem="6GR-QI-ext" secondAttribute="trailing" constant="15" id="Itb-Se-8Zr"/>
                                     <constraint firstItem="6GR-QI-ext" firstAttribute="top" secondItem="DEW-tb-arP" secondAttribute="top" constant="75" id="Iyj-Hz-AUn"/>
                                     <constraint firstItem="6GR-QI-ext" firstAttribute="centerX" secondItem="DEW-tb-arP" secondAttribute="centerX" id="LCg-Wa-4VX"/>
@@ -669,6 +669,10 @@
                     <connections>
                         <outlet property="backgroundView" destination="s0p-j7-bEg" id="sGo-n6-Z4P"/>
                         <outlet property="fullView" destination="DEW-tb-arP" id="0DI-35-ody"/>
+                        <outlet property="functionCategoryHeightFromBottom" destination="IXH-Om-Jiv" id="LZO-du-3dw"/>
+                        <outlet property="functionCategoryHeightFromTop" destination="Iyj-Hz-AUn" id="LrT-bZ-G4c"/>
+                        <outlet property="functionCategoryView" destination="6GR-QI-ext" id="712-Lb-miG"/>
+                        <outlet property="functionPicker" destination="zxJ-cs-6Y7" id="aEf-uJ-vnE"/>
                         <outlet property="toolbar" destination="WL3-6l-lNb" id="NXR-AN-Nth"/>
                     </connections>
                 </viewController>
@@ -699,16 +703,16 @@
                                         <rect key="frame" x="0.0" y="313" width="600" height="287"/>
                                         <subviews>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="LV3-Tq-w5M">
-                                                <rect key="frame" x="0.0" y="15" width="600" height="302"/>
+                                                <rect key="frame" x="0.0" y="27" width="600" height="290"/>
                                                 <color key="tintColor" red="0.086274512112140656" green="0.77254903316497803" blue="0.61103510856628418" alpha="1" colorSpace="calibratedRGB"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="475038476.22073001">
                                                     <!--2016-01-21 03:07:56 +0000-->
                                                 </date>
                                             </datePicker>
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1d-rh-xxZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="TBN-M8-G52"/>
+                                                    <constraint firstAttribute="height" constant="56" id="TBN-M8-G52"/>
                                                 </constraints>
                                                 <items>
                                                     <barButtonItem image="Exit" id="WEL-rh-iiV" userLabel="Exit">
@@ -799,9 +803,9 @@
                                         <rect key="frame" x="15" y="75" width="570" height="150"/>
                                         <subviews>
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTF-Ad-aTp">
-                                                <rect key="frame" x="0.0" y="0.0" width="570" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="570" height="56"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="IRD-xp-h5e"/>
+                                                    <constraint firstAttribute="height" constant="56" id="IRD-xp-h5e"/>
                                                 </constraints>
                                                 <items>
                                                     <barButtonItem image="Exit" id="MVV-Jm-onf" userLabel="Exit">
@@ -822,17 +826,17 @@
                                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </toolbar>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKq-RD-vGw" userLabel="Note Textfield View ">
-                                                <rect key="frame" x="0.0" y="45" width="570" height="105"/>
+                                                <rect key="frame" x="0.0" y="57" width="570" height="93"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUm-i8-DOV" userLabel="highlightColor">
-                                                        <rect key="frame" x="0.0" y="0.0" width="5" height="105"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="5" height="93"/>
                                                         <color key="backgroundColor" red="0.086274512112140656" green="0.77254903316497803" blue="0.61103510856628418" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="5" id="pmS-If-eUC"/>
                                                         </constraints>
                                                     </view>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type a note..." minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Nr0-6Z-muO">
-                                                        <rect key="frame" x="20" y="0.0" width="550" height="105"/>
+                                                        <rect key="frame" x="20" y="0.0" width="550" height="93"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" red="0.086274512110000007" green="0.77254903320000001" blue="0.61103510859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="textColor" red="0.36078432202339172" green="0.32549020648002625" blue="0.27450981736183167" alpha="1" colorSpace="calibratedRGB"/>

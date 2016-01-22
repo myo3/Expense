@@ -44,12 +44,6 @@ class NoteViewController: UIViewController {
         self.view.layoutIfNeeded()
         noteBoxView.layoutIfNeeded()
         
-        //Place toolbar
-        toolbarHeight.constant = noteboxHeight.constant/4
-        toolbar.updateConstraintsIfNeeded()
-        noteBoxView.layoutIfNeeded()
-        toolbar.layoutIfNeeded()
-        
         //Pull up keyboard
         noteTextField.becomeFirstResponder()
     }
