@@ -83,7 +83,12 @@ class AddViewController: UIViewController {
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var dayLabel: UILabel!
     
+    @IBOutlet weak var categoryFunctionView: NoteboxView!
+    @IBOutlet weak var categoryFunctionViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var categoryViewSpace: NSLayoutConstraint!
     @IBOutlet weak var functionLabel: UILabel!
+    
+    @IBOutlet weak var locationView: NoteboxView!
     
     //Animation
     let popTransition = PopAnimator()
@@ -192,7 +197,13 @@ class AddViewController: UIViewController {
         
         //bring function label to front
         functionLabel.superview?.bringSubviewToFront(functionLabel)
-        
+        //Make category view little less than 1/2 width
+        let totalWidthSpace = categoryFunctionView.frame.width + locationView.frame.width
+        categoryFunctionViewWidth.constant = totalWidthSpace*0.4
+        categoryFunctionView.updateConstraintsIfNeeded()
+        self.view.layoutIfNeeded()
+        categoryFunctionView.layoutIfNeeded()
+
     }
 
     override func didReceiveMemoryWarning() {

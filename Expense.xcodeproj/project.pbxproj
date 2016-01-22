@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD1602FC1C51B6EB00FDBA1A /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1602FB1C51B6EB00FDBA1A /* CategoryViewController.swift */; };
 		DD3EACF91C4E8DF000D864D3 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3EACF81C4E8DF000D864D3 /* NoteViewController.swift */; };
 		DD3F4C991C3E9F2D00F9980E /* SummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F4C981C3E9F2D00F9980E /* SummaryTableViewController.swift */; };
 		DD3F4CA41C3EA5BA00F9980E /* Comfortaa_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD3F4CA11C3EA5BA00F9980E /* Comfortaa_Bold.ttf */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		0FB5A0B512B9A5AEDEF5B2D5 /* Pods_Expense.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expense.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1602FB1C51B6EB00FDBA1A /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryViewController.swift; path = AddViewController/CategoryViewController.swift; sourceTree = "<group>"; };
 		DD3EACF81C4E8DF000D864D3 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteViewController.swift; path = AddViewController/NoteViewController.swift; sourceTree = "<group>"; };
 		DD3F4C981C3E9F2D00F9980E /* SummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryTableViewController.swift; path = SummaryTableView/SummaryTableViewController.swift; sourceTree = "<group>"; };
 		DD3F4CA11C3EA5BA00F9980E /* Comfortaa_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa_Bold.ttf; path = Expense/Resources/Comfortaa_Bold.ttf; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				DD79D4B21C501AB5009E4C13 /* PopAnimator.swift */,
 				DD7DA1D61C502A5D009A2B41 /* NoteboxView.swift */,
 				DD7DA1D81C5080F3009A2B41 /* DateViewController.swift */,
+				DD1602FB1C51B6EB00FDBA1A /* CategoryViewController.swift */,
 			);
 			name = AddViewController;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			files = (
 				DD79D4B51C50207D009E4C13 /* AllExpensesCell.swift in Sources */,
 				DD3F4CAE1C3EC27400F9980E /* Expense.swift in Sources */,
+				DD1602FC1C51B6EB00FDBA1A /* CategoryViewController.swift in Sources */,
 				DDFB320F1C4A0C0C0089C649 /* AddViewController.swift in Sources */,
 				DD79D4B31C501AB5009E4C13 /* PopAnimator.swift in Sources */,
 				DD7DA1D91C5080F3009A2B41 /* DateViewController.swift in Sources */,
