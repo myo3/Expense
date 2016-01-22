@@ -23,6 +23,8 @@
 		DD79D4B51C50207D009E4C13 /* AllExpensesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79D4B41C50207D009E4C13 /* AllExpensesCell.swift */; };
 		DD7DA1D71C502A5D009A2B41 /* RoundCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7DA1D61C502A5D009A2B41 /* RoundCornersView.swift */; };
 		DD7DA1D91C5080F3009A2B41 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7DA1D81C5080F3009A2B41 /* DateViewController.swift */; };
+		DD9786361C526E35002FC135 /* ExpensesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9786351C526E35002FC135 /* ExpensesModel.swift */; };
+		DD9786381C5273A1002FC135 /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9786371C5273A1002FC135 /* ThemeColors.swift */; };
 		DDA93D561C51BE74005677B8 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D551C51BE74005677B8 /* CategoryViewController.swift */; };
 		DDA93D581C51BF24005677B8 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D571C51BF24005677B8 /* NoteViewController.swift */; };
 		DDA93D5A1C51BF46005677B8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D591C51BF46005677B8 /* AddViewController.swift */; };
@@ -76,6 +78,8 @@
 		DD79D4B41C50207D009E4C13 /* AllExpensesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllExpensesCell.swift; path = SummaryTableView/AllExpensesCell.swift; sourceTree = "<group>"; };
 		DD7DA1D61C502A5D009A2B41 /* RoundCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundCornersView.swift; path = AddViewController/RoundCornersView.swift; sourceTree = "<group>"; };
 		DD7DA1D81C5080F3009A2B41 /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateViewController.swift; path = AddViewController/DateViewController.swift; sourceTree = "<group>"; };
+		DD9786351C526E35002FC135 /* ExpensesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpensesModel.swift; sourceTree = "<group>"; };
+		DD9786371C5273A1002FC135 /* ThemeColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
 		DDA93D551C51BE74005677B8 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryViewController.swift; path = AddViewController/CategoryViewController.swift; sourceTree = "<group>"; };
 		DDA93D571C51BF24005677B8 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteViewController.swift; path = AddViewController/NoteViewController.swift; sourceTree = "<group>"; };
 		DDA93D591C51BF46005677B8 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = AddViewController/AddViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				DD8F08E81C403CA4002DC80E /* SummaryTableView */,
 				DD75ABC41C3E992400457005 /* Main.storyboard */,
 				DD3F4CAD1C3EC27400F9980E /* Expense.swift */,
+				DD9786351C526E35002FC135 /* ExpensesModel.swift */,
+				DD9786371C5273A1002FC135 /* ThemeColors.swift */,
 				DD75ABCA1C3E992400457005 /* Assets.xcassets */,
 				DD8F08E71C403C85002DC80E /* Not Using */,
 			);
@@ -376,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDA93D581C51BF24005677B8 /* NoteViewController.swift in Sources */,
+				DD9786381C5273A1002FC135 /* ThemeColors.swift in Sources */,
 				DD79D4B51C50207D009E4C13 /* AllExpensesCell.swift in Sources */,
 				DDA93D5A1C51BF46005677B8 /* AddViewController.swift in Sources */,
 				DDA93D601C51F5FA005677B8 /* CategoryCollectionViewCell.swift in Sources */,
@@ -387,6 +394,7 @@
 				DDA93D5E1C51F373005677B8 /* TestCollectionViewController.swift in Sources */,
 				DDB591021C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift in Sources */,
 				DDB591001C47E98800D08FEF /* SummaryHeaderTableViewCell.swift in Sources */,
+				DD9786361C526E35002FC135 /* ExpensesModel.swift in Sources */,
 				DDC2741E1C509DF20072A95A /* RiseAnimator.swift in Sources */,
 				DD3F4C991C3E9F2D00F9980E /* SummaryTableViewController.swift in Sources */,
 				DD7DA1D71C502A5D009A2B41 /* RoundCornersView.swift in Sources */,

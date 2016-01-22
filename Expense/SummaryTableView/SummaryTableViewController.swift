@@ -8,33 +8,11 @@
 
 import UIKit
 
-enum Day: String{
-    case Mon, Tue, Wed, Thu, Fri, Sat, Sun
-}
-
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        assert(red >= 0 && red <= 255, "Invalid red component")
-        assert(green >= 0 && green <= 255, "Invalid green component")
-        assert(blue >= 0 && blue <= 255, "Invalid blue component")
-        
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-    }
-    
-    convenience init(netHex:Int) {
-        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
-    }
-}
-
 class SummaryTableViewController:  UITableViewController {
     
+    private let themeColors = ThemeColors()
     var dayOfWeek: [Day] = [Day]()
     var totalSpentPerDay: [Double] = [Double]()
-    var colorOfDay: [Day: UIColor] = [ .Mon: UIColor(netHex:0x7BD33E), .Tue: UIColor(netHex: 0x3DCDCC), .Wed: UIColor(netHex: 0xFD8E62), .Thu: UIColor(netHex: 0xA364D8), .Fri: UIColor(netHex: 0xE2679A), .Sat: UIColor(netHex: 0xF2DA5E), .Sun: UIColor(netHex: 0xEE6E5D)]
-    var themeColor: UIColor = UIColor(netHex: 0x1CCCAC)
-    var backgroundColor: UIColor = UIColor(netHex: 0xE7DDD4)
-    var fontColor: UIColor = UIColor(netHex: 0x6F6559)
-    var fontHightlightColor: UIColor = UIColor(netHex: 0xAB9D89)
     
     var expandedCellPaths: [NSIndexPath] = [NSIndexPath]()
     var normalCellHeight: CGFloat = 76
@@ -62,7 +40,7 @@ class SummaryTableViewController:  UITableViewController {
         //Make seperator brown & skinny
         tableView.separatorInset = UIEdgeInsetsZero
         tableView.layoutMargins = UIEdgeInsetsZero
-        self.tableView.separatorColor = backgroundColor
+        self.tableView.separatorColor = themeColors.getBackgroundColor()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -71,7 +49,7 @@ class SummaryTableViewController:  UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         //Set navigation bar tite font, size, & color
-        let attributes = [NSFontAttributeName : UIFont(name: "Comfortaa", size: 38)!, NSForegroundColorAttributeName : themeColor]
+        let attributes = [NSFontAttributeName : UIFont(name: "Comfortaa", size: 38)!, NSForegroundColorAttributeName : themeColors.getThemeTintColor()]
         self.navigationController!.navigationBar.titleTextAttributes = attributes
     }
 
@@ -109,7 +87,7 @@ class SummaryTableViewController:  UITableViewController {
     }
     
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = backgroundColor
+        view.tintColor = themeColors.getBackgroundColor()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -123,19 +101,19 @@ class SummaryTableViewController:  UITableViewController {
             SummaryHeaderTableViewCell
             let day = dayOfWeek[indexPath.section]
             header.dayOfWeek.text = day.rawValue.uppercaseString
-            header.dayOfWeek.backgroundColor = colorOfDay[day]
+            header.dayOfWeek.backgroundColor = themeColors.getColorOfDay(day)
             header.totalCost.text = "$\(totalSpentPerDay[indexPath.section])"
-            header.totalCostView.backgroundColor = colorOfDay[day]
+            header.totalCostView.backgroundColor = header.dayOfWeek.backgroundColor
             header.selectionStyle = .None
             return header
         } else{
             let detail = tableView.dequeueReusableCellWithIdentifier("detailCell") as! SummaryDetailTableViewCell
             let day = dayOfWeek[indexPath.row]
-            detail.color.backgroundColor = colorOfDay[day]
+            detail.color.backgroundColor = themeColors.getColorOfDay(day)
             detail.selectedBackgroundView = UIView(frame: CGRect.zero)
-            detail.selectedBackgroundView?.backgroundColor = colorOfDay[day]
+            detail.selectedBackgroundView?.backgroundColor = detail.color.backgroundColor
             detail.category.image = UIImage(named: "General")
-            detail.category.tintColor = fontHightlightColor
+            detail.category.tintColor = themeColors.getFontColor(Shade.Light)
             detail.category.contentMode = .ScaleAspectFit
             detail.function.text = "Social"
             detail.cost.text = "$5"
@@ -169,14 +147,7 @@ class SummaryTableViewController:  UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "addExpense" {
-            let destinationVC = segue.destinationViewController as! AddViewController
-            //Pass on theme colors
-            destinationVC.themeColor = self.themeColor
-            destinationVC.backgroundColor = self.backgroundColor
-            destinationVC.fontColor = self.fontColor
-            destinationVC.fontHightlightColor = self.fontHightlightColor
-        }
+
     }
     
     @IBAction func cancelAddExpense(unwindSegue: UIStoryboardSegue){

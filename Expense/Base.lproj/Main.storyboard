@@ -657,27 +657,27 @@
                                                     <constraint firstAttribute="height" constant="196" id="ZU8-Aw-DYr"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bvm-NM-hoF">
-                                                    <size key="itemSize" width="80" height="120"/>
+                                                    <size key="itemSize" width="85" height="92"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="3WP-My-raq" customClass="CategoryCollectionViewCell" customModule="Expense" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="85" height="92"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="85" height="92"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transport" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="4aM-Jf-5xc">
-                                                                    <rect key="frame" x="8" y="73" width="64" height="19"/>
+                                                                    <rect key="frame" x="8" y="73" width="69" height="19"/>
                                                                     <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="17"/>
                                                                     <color key="textColor" red="0.36078432199999999" green="0.32549020649999999" blue="0.27450981740000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="General" translatesAutoresizingMaskIntoConstraints="NO" id="lpR-qa-KJF">
-                                                                    <rect key="frame" x="8" y="8" width="64" height="64"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Transport" translatesAutoresizingMaskIntoConstraints="NO" id="lpR-qa-KJF">
+                                                                    <rect key="frame" x="10" y="8" width="64" height="64"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="lpR-qa-KJF" secondAttribute="height" multiplier="1:1" id="Dha-sy-TYa"/>
                                                                     </constraints>
@@ -1035,5 +1035,6 @@
         <image name="Menu" width="42" height="42"/>
         <image name="Note" width="64" height="64"/>
         <image name="Save" width="42" height="42"/>
+        <image name="Transport" width="64" height="64"/>
     </resources>
 </document>

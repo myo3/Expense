@@ -10,6 +10,8 @@ import UIKit
 
 class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    private let themeColors = ThemeColors()
+    
     @IBOutlet private weak var backgroundView: UIImageView!
     var backgroundImage: UIImage?
     
@@ -25,15 +27,15 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     var functionCategoryHeightFromBottomConstant: CGFloat?
     
     @IBOutlet private weak var functionPicker: AKPickerView!
-    var themeColor: UIColor?
     var functions: [String] = ["Personal", "Social", "Work", "Family"]
     @IBOutlet private weak var functionPickerHeight: NSLayoutConstraint!
     var function: String? //Data
     
     
-    var categories: [String] = ["General", "Personal", "House", "Food", "Transport", "Clothes", "Fun", "Misc"]
-    @IBOutlet weak var categoryView: UICollectionView!
-    @IBOutlet weak var categoryViewHeight: NSLayoutConstraint!
+    var categories: [[String]] = [["General", "Personal", "House", "Food"], ["Transport", "Clothes", "Fun", "Misc"]]
+    
+    @IBOutlet private weak var categoryView: UICollectionView!
+    @IBOutlet private weak var categoryViewHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +60,7 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
         
         functionPicker.font = UIFont(name: "Comfortaa", size: 20)!
         functionPicker.highlightedFont = UIFont(name: "Comfortaa", size: 20)!
-        functionPicker.backgroundColor = themeColor
+        functionPicker.backgroundColor = themeColors.getThemeTintColor()
         functionPicker.interitemSpacing = CGFloat(10)
         functionPicker.pickerViewStyle = .Wheel
         functionPicker.maskDisabled = true
@@ -104,21 +106,20 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return categories.count
     }
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return categories.count
+        return categories[0].count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CategoryCollectionViewCell
-        cell.categoryLabel.text = categories[indexPath.row]
-        cell.categoryImageView.image = UIImage(named: categories[indexPath.row])
+        cell.categoryLabel.text = categories[indexPath.section][indexPath.row]
+        cell.categoryImageView.image = UIImage(named: categories[indexPath.section][indexPath.row])
         cell.backgroundColor = UIColor.redColor()
-        cell
         // Configure the cell
         
         return cell
@@ -128,30 +129,24 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-            let width = categoryView.frame.width/4 //90
-            print(width)
-            let labelHeight = CGFloat(20)
-            let height = width + labelHeight
-            //categoryView.frame.height/2 //100
-            print(height)
-            return CGSize(width: width, height: height)
+            return CGSize(width: (collectionView.frame.width-CGFloat(5*4))/4, height: (collectionView.frame.height-CGFloat(3*4))/2)
     }
     
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-            return UIEdgeInsetsZero
+            return UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
     }
     
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat{
-            return CGFloat(0)
+            return CGFloat(4)
     }
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat{
-            return CGFloat(0)
+            return CGFloat(4)
     }
     // MARK: - AKPickerViewDataSource
     
@@ -173,7 +168,7 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     func pickerView(pickerView: AKPickerView, configureLabel label: UILabel, forItem item: Int) {
         label.textColor = fullViewColor
         label.highlightedTextColor = UIColor.whiteColor()
-        label.backgroundColor = themeColor
+        label.backgroundColor = functionPicker.backgroundColor
     }
     
     func pickerView(pickerView: AKPickerView, marginForItem item: Int) -> CGSize {

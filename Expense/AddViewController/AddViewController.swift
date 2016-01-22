@@ -8,65 +8,13 @@
 
 import UIKit
 
-extension AddViewController: UIViewControllerTransitioningDelegate {
-    func animationControllerForPresentedController(
-        presented: UIViewController,
-        presentingController presenting: UIViewController,
-        sourceController source: UIViewController) ->
-        UIViewControllerAnimatedTransitioning? {
-            
-            switch presented.view.tag{
-            case 1: //NoteVC
-                popTransition.originFrame = noteView.superview!.convertRect(noteView.frame, toView: nil)
-                popTransition.backgroundTintColor = fontColor
-                popTransition.presenting = true
-                
-                return popTransition
-            case 2: //DateVC
-                riseTransition.backgroundTintColor = fontColor
-                riseTransition.presenting = true
-                return riseTransition
-            case 3: //CategoryVC
-                popTransition.originFrame = categoryIcon.superview!.convertRect(categoryIcon.frame, toView: nil)
-                popTransition.backgroundTintColor = fontColor
-                popTransition.presenting = true
-                return popTransition
-            default:
-                return nil
-            }
-
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        switch dismissed.view.tag{
-        case 1: //NoteVC
-            popTransition.presenting = false
-            return popTransition
-        case 2:
-            riseTransition.presenting = false
-            return riseTransition
-        case 3:
-            popTransition.presenting = false
-            return popTransition
-        default:
-            return nil
-        }
-
-    }
-    
-}
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UIViewControllerTransitioningDelegate{
 
     //Colors
-    var themeColor: UIColor = UIColor(netHex: 0x1CCCAC)
-    var backgroundColor: UIColor = UIColor(netHex: 0xE7DDD4)
-    var fontColor: UIColor = UIColor(netHex: 0x6F6559)
-    var fontHightlightColor: UIColor = UIColor(netHex: 0xAB9D89)
-    var offWhite: UIColor = UIColor(netHex: 0xFBF9F7)
+    private let themeColors = ThemeColors()
     
     //Views & Constraints
-    @IBOutlet weak var statusBarBackgroundView: UIView!
+    @IBOutlet private weak var statusBarBackgroundView: UIView!
     @IBOutlet private weak var statusBarHeight: NSLayoutConstraint!
     @IBOutlet private weak var navigationBar: UINavigationBar!
     
@@ -83,7 +31,7 @@ class AddViewController: UIViewController {
     var keyboardButtons = [UIButton]()
 
     @IBOutlet private weak var noteView: UIView!
-    @IBOutlet weak var noteLabel: UILabel!
+    @IBOutlet private weak var noteLabel: UILabel!
     
     @IBOutlet private weak var dateView: UIView!
     @IBOutlet private weak var dateViewHeight: NSLayoutConstraint!
@@ -91,23 +39,23 @@ class AddViewController: UIViewController {
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var dayLabel: UILabel!
     
-    @IBOutlet weak var categoryFunctionView: UIView!
-    @IBOutlet weak var categoryFunctionViewWidth: NSLayoutConstraint!
-    @IBOutlet weak var categoryViewSpace: NSLayoutConstraint!
-    @IBOutlet weak var functionLabel: UILabel!
-    @IBOutlet weak var functionLabelDistanceFromLeft: NSLayoutConstraint!
+    @IBOutlet private weak var categoryFunctionView: UIView!
+    @IBOutlet private weak var categoryFunctionViewWidth: NSLayoutConstraint!
+    @IBOutlet private weak var categoryViewSpace: NSLayoutConstraint!
+    @IBOutlet private weak var functionLabel: UILabel!
+    @IBOutlet private weak var functionLabelDistanceFromLeft: NSLayoutConstraint!
     
-    @IBOutlet weak var categoryIcon: UIImageView!
+    @IBOutlet private weak var categoryIcon: UIImageView!
     
-    @IBOutlet weak var locationView: RoundCornersView!
+    @IBOutlet private weak var locationView: RoundCornersView!
     
     //Animation
-    let popTransition = PopAnimator()
-    let riseTransition = RiseAnimator()
+    private let popTransition = PopAnimator()
+    private let riseTransition = RiseAnimator()
     
     //Expense components
-    var note: String?
-    var date: NSDate?
+    private var note: String?
+    private var date: NSDate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -167,10 +115,10 @@ class AddViewController: UIViewController {
             }
             button.titleLabel?.font = UIFont(name: "Comfortaa", size: 40)
             button.titleLabel?.textAlignment = .Center
-            button.setTitleColor(fontHightlightColor, forState: .Normal)
-            button.backgroundColor = offWhite
-            button.setTitleColor(offWhite, forState: .Highlighted)
-            button.setBackgroundImage(imageWithColor(fontHightlightColor), forState: .Highlighted)
+            button.setTitleColor(themeColors.getFontColor(Shade.Light), forState: .Normal)
+            button.backgroundColor = themeColors.getViewBackgroundColor()
+            button.setTitleColor(button.backgroundColor, forState: .Highlighted)
+            button.setBackgroundImage(imageWithColor(button.titleColorForState(.Normal)!), forState: .Highlighted)
             button.addTarget(self, action: "typeCost:", forControlEvents: .TouchUpInside)
             button.tag = i
             keyboardButtons.append(button)
@@ -417,6 +365,8 @@ class AddViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let space = CGFloat(20)
+        let fullViewColor = themeColors.getFontColor(Shade.Dark)
+        
         if segue.identifier == "noteSegue"{
             let noteVC = segue.destinationViewController as! NoteViewController
             
@@ -428,11 +378,12 @@ class AddViewController: UIViewController {
             let windowImage = capture(window)
             noteVC.backgroundImage = windowImage
             
-            //pass on background color tint
-            noteVC.fullViewColor = fontColor
-            
             //Arrange notebox
             noteVC.noteboxHeightFromTopConstant = statusBarHeight.constant + navigationBar.bounds.height + space
+            
+            //pass on color
+            noteVC.fullViewColor = fullViewColor
+            
         } else if segue.identifier == "dateSegue"{
             let dateVC = segue.destinationViewController as! DateViewController
             //animation
@@ -443,8 +394,8 @@ class AddViewController: UIViewController {
             let windowImage = capture(window)
             dateVC.backgroundImage = windowImage
             
-            //pass on background color tint
-            dateVC.fullViewColor = fontColor
+            //pass on color
+            dateVC.fullViewColor = fullViewColor
         } else if segue.identifier == "categorySegue"{
             let categoryVC = segue.destinationViewController as! CategoryViewController
             
@@ -456,15 +407,62 @@ class AddViewController: UIViewController {
             let windowImage = capture(window)
             categoryVC.backgroundImage = windowImage
             
-            //pass on color
-            categoryVC.fullViewColor = fontColor
-            categoryVC.themeColor = themeColor
-            
             //Arrange functionCategoryView
             categoryVC.functionCategoryHeightFromTopConstant = statusBarHeight.constant + navigationBar.bounds.height + space
             categoryVC.functionCategoryHeightFromBottomConstant =
             keyboardButtons[0].frame.height + space
+            
+            //pass on color
+            categoryVC.fullViewColor = fullViewColor
         }
+    }
+    
+    func animationControllerForPresentedController(
+        presented: UIViewController,
+        presentingController presenting: UIViewController,
+        sourceController source: UIViewController) ->
+        UIViewControllerAnimatedTransitioning? {
+            switch presented.view.tag{
+            case 1: //NoteVC
+                popTransition.originFrame = noteView.superview!.convertRect(noteView.frame, toView: nil)
+                let noteVC = presented as! NoteViewController
+                popTransition.backgroundTintColor = noteVC.fullViewColor
+                popTransition.presenting = true
+                
+                return popTransition
+            case 2: //DateVC
+                let dateVC = presented as! DateViewController
+                riseTransition.backgroundTintColor = dateVC.fullViewColor
+                riseTransition.presenting = true
+                return riseTransition
+            case 3: //CategoryVC
+                popTransition.originFrame = categoryIcon.superview!.convertRect(categoryIcon.frame, toView: nil)
+                let categoryVC = presented as! CategoryViewController
+                popTransition.backgroundTintColor = categoryVC.fullViewColor
+                popTransition.presenting = true
+                return popTransition
+            default:
+                return nil
+            }
+            
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        switch dismissed.view.tag{
+        case 1: //NoteVC
+            popTransition.presenting = false
+            return popTransition
+        case 2:
+            riseTransition.presenting = false
+            return riseTransition
+        case 3:
+            popTransition.presenting = false
+            return popTransition
+        default:
+            return nil
+        }
+        
     }
     
     func capture(window: UIWindow) -> UIImage{

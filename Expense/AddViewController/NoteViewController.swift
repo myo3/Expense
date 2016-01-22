@@ -9,7 +9,7 @@
 import UIKit
 
 class NoteViewController: UIViewController {
-
+    
     @IBOutlet weak var fullView: UIView!
     var fullViewColor: UIColor?
     
