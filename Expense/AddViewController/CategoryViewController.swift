@@ -22,6 +22,7 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     var fullViewColor: UIColor?
 
     @IBOutlet private weak var toolbar: UIToolbar!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
 
     @IBOutlet private weak var functionCategoryView: RoundCornersView!
     @IBOutlet private weak var functionCategoryHeightFromTop: NSLayoutConstraint!
@@ -36,11 +37,16 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     @IBOutlet private weak var categoryViewHeight: NSLayoutConstraint!
     private var categories: [[Category]] = [[Category]]()
     
+    //Auto-selected items
+    var currentFunction: Function?
+    var currentCategory: Category?
+    
     //Data
     var function: Function?
     var category: Category?
     var subcategory: Subcategory?
     
+    private var intailizedCategory: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,9 +76,6 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
         functionPicker.maskDisabled = true
         functionPicker.reloadData()
         
-        //Set function to auto-selected element
-        function = expensesOrganizer.getFunction(0)
-        
         //Set up categories array
         let rows = 2
         let columns = 4
@@ -88,16 +91,14 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
             categories.append(rowList)
         }
         
-        //Set up categoryView
-        categoryViewHeight.constant = 108.25*2//(functionCategoryView.frame.height - categoryView.frame.minY)*0.4
-        categoryView.updateConstraintsIfNeeded()
-        self.view.layoutIfNeeded()
-        categoryView.layoutIfNeeded()
-        
-        //Set up collectionview
-        categoryView.backgroundColor = toolbar.barTintColor
+        //Set up category view
+        categoryView.backgroundColor = themeColors.getViewBackgroundColor()
         categoryView.delegate = self
         categoryView.dataSource = self
+        
+        //Set function & category to auto-selected element
+        function = currentFunction
+        category = currentCategory
 
     }
 
@@ -135,38 +136,84 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CategoryCollectionViewCell
-        cell.categoryLabel.text = categories[indexPath.section][indexPath.row].rawValue
-        cell.categoryImageView.image = UIImage(named: categories[indexPath.section][indexPath.row].rawValue)
-        cell.backgroundColor = UIColor.redColor()
         // Configure the cell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("categoryCell", forIndexPath: indexPath) as! CategoryCollectionViewCell
+        let category = categories[indexPath.section][indexPath.row]
+        self.roundView(cell)
+        cell.categoryImageView.image = UIImage(named: categories[indexPath.section][indexPath.row].rawValue)
+        cell.categoryLabel.text = category.rawValue
+        if cell.selected {
+            cell.backgroundColor = themeColors.getColorOfCategory(category)
+            cell.categoryImageView.tintColor = themeColors.getViewBackgroundColor()
+        }else{
+            cell.backgroundColor = themeColors.getViewBackgroundColor()
+            cell.categoryImageView.tintColor = themeColors.getColorOfCategory(category)
+        }
+        cell.categoryLabel.textColor = cell.categoryImageView.tintColor
         
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let category = categories[indexPath.section][indexPath.row]
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CategoryCollectionViewCell
+        cell.backgroundColor = themeColors.getColorOfCategory(category)
+        cell.categoryImageView.tintColor = themeColors.getViewBackgroundColor()
+        cell.categoryLabel.textColor = cell.categoryImageView.tintColor
+        self.category = category
+
+    }
+    
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        let category = categories[indexPath.section][indexPath.row]
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CategoryCollectionViewCell
+        cell.backgroundColor = themeColors.getViewBackgroundColor()
+        cell.categoryImageView.tintColor = themeColors.getColorOfCategory(category)
+        cell.categoryLabel.textColor = cell.categoryImageView.tintColor
+    }
+    
+    func roundView(view: UIView){
+        //Set corner size
+        let cornerSize = CGFloat(7)//CGFloat(11.7105263157895)
+        
+        //Create path
+        let maskPath = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: UIRectCorner.AllCorners, cornerRadii: CGSizeMake(cornerSize, cornerSize))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = view.bounds
+        maskLayer.path = maskPath.CGPath
+        view.layer.mask = maskLayer
+        
+    }
+    
     // MARK: UICollectionViewFlowLayoutDelegate
+    
+    let collectViewCellSpace = CGFloat(5)
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-            return CGSize(width: (collectionView.frame.width-CGFloat(5*4))/4, height: (collectionView.frame.height-CGFloat(3*4))/2)
+            let interItemSpace = self.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAtIndex: indexPath.section)
+            let insetSectSpace = collectViewCellSpace
+            return CGSize(width: (collectionView.frame.width-CGFloat(5*interItemSpace))/4, height: (collectionView.frame.height-CGFloat(3*(insetSectSpace)))/2)
     }
     
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+            return UIEdgeInsets(top: collectViewCellSpace, left: collectViewCellSpace, bottom: 0, right: collectViewCellSpace)
     }
     
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat{
-            return CGFloat(4)
+            return collectViewCellSpace
     }
-    func collectionView(collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat{
-            return CGFloat(4)
-    }
+    
+//    func collectionView(collectionView: UICollectionView,
+//        layout collectionViewLayout: UICollectionViewLayout,
+//        minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat{
+//            return CGFloat(4)
+//    }
+    
     // MARK: - AKPickerViewDataSource
     
     func numberOfItemsInPickerView(pickerView: AKPickerView) -> Int {

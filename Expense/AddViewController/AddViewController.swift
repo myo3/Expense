@@ -46,6 +46,7 @@ class AddViewController: UIViewController, UIViewControllerTransitioningDelegate
     @IBOutlet private weak var functionLabelDistanceFromLeft: NSLayoutConstraint!
     
     @IBOutlet private weak var categoryIcon: UIImageView!
+    @IBOutlet weak var categoryLabel: UILabel!
     
     @IBOutlet private weak var locationView: RoundCornersView!
     
@@ -57,9 +58,15 @@ class AddViewController: UIViewController, UIViewControllerTransitioningDelegate
     private var note: String?
     private var date: NSDate?
     private var function: Function?
+    private var category: Category?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set auto-elements
+        date = NSDate()
+        function = .Personal
+        category = .General
         
         //Set navigation bar tite font
         let attributes = [NSFontAttributeName : UIFont(name: "Comfortaa", size: 28)!]
@@ -175,6 +182,10 @@ class AddViewController: UIViewController, UIViewControllerTransitioningDelegate
         let categoryVC = unwindSegue.sourceViewController as! CategoryViewController
         function = categoryVC.function
         functionLabel.text = function?.rawValue
+        category = categoryVC.category
+        categoryLabel.text = category?.rawValue
+        categoryIcon.image = UIImage(named: categoryLabel.text!)
+        categoryIcon.tintColor = themeColors.getColorOfCategory(category!)
     }
     
     @IBAction func cancelCategory(unwindSegue: UIStoryboardSegue){
@@ -416,6 +427,11 @@ class AddViewController: UIViewController, UIViewControllerTransitioningDelegate
             
             //pass on color
             categoryVC.fullViewColor = fullViewColor
+            
+            //pass on auto-selected category & function
+            categoryVC.currentFunction = function
+            categoryVC.currentCategory = category
+
         }
     }
     

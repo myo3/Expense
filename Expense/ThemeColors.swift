@@ -38,12 +38,14 @@ class ThemeColors: NSObject {
     
     //Color
     var colorPalette: [Color: UIColor] = [.Green : UIColor(netHex:0x7BD33E), .Teal : UIColor(netHex: 0x3DCDCC), .Orange : UIColor(netHex: 0xFD8E62), .Purple : UIColor(netHex: 0xA364D8), .Pink : UIColor(netHex: 0xE2679A), .Yellow : UIColor(netHex: 0xF2DA5E), .Red : UIColor(netHex: 0xEE6E5D), .Blue : UIColor(netHex: 0x0D9FD8), .Turquiose : UIColor(netHex: 0x1CCCAC), .Beige : UIColor(netHex: 0xE7DDD4), .Dark_Brown : UIColor(netHex: 0x6F6559), .Light_Brown : UIColor(netHex: 0xAB9D89), .White : UIColor.whiteColor(), .Off_White : UIColor(netHex: 0xFBF9F7)]
-    private var colorOfDay: [Day: UIColor] = [Day: UIColor]()
     private var themeTintColor: UIColor?
     private var backgroundColor: UIColor?
     private var fontDarkColor: UIColor? //fontColor
     private var fontLightColor: UIColor? //fontHightlightColor
     private var viewBackgroundColor: UIColor? //offWhite
+    
+    private var colorOfDay: [Day: UIColor] = [Day: UIColor]()
+    private var colorOfCategory: [Category: UIColor] = [Category: UIColor]()
     
     override init() {
         //set up theme colors
@@ -57,7 +59,7 @@ class ThemeColors: NSObject {
         
          colorOfDay = [.Mon: colorPalette[.Green]!, .Tue: colorPalette[.Teal]!, .Wed: colorPalette[.Orange]!, .Thu: colorPalette[.Purple]!, .Fri: colorPalette[.Pink]!, .Sat: colorPalette[.Yellow]!, .Sun: colorPalette[.Red]!]
 
-        
+        colorOfCategory = [.General: colorPalette[.Teal]!, .Personal: colorPalette[.Green]!, .House: colorPalette[.Orange]!, .Food: colorPalette[.Red]!, .Transport: colorPalette[.Blue]!, .Clothes: colorPalette[.Purple]!, .Fun: colorPalette[.Pink]!, .Misc: colorPalette[.Yellow]!]
     }
     
     func getThemeTintColor() -> UIColor{
@@ -82,6 +84,10 @@ class ThemeColors: NSObject {
     
     func getColorOfDay(day: Day) -> UIColor{
         return colorOfDay[day]!
+    }
+    
+    func getColorOfCategory(category: Category) -> UIColor{
+        return colorOfCategory[category]!
     }
     
 }
