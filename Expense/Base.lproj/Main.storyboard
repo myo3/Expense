@@ -25,7 +25,6 @@
             <string>Comfortaa</string>
             <string>Comfortaa</string>
             <string>Comfortaa</string>
-            <string>Comfortaa</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -398,10 +397,10 @@
                                     <outletCollection property="gestureRecognizers" destination="648-ac-z5s" appends="YES" id="nYe-nd-gBU"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kC-cX-q70" userLabel="Category &amp; Function View" customClass="NoteboxView" customModule="Expense" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kC-cX-q70" userLabel="Category &amp; Function View">
                                 <rect key="frame" x="18" y="74" width="145" height="137"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPi-Yk-TKX" userLabel="Category View" customClass="NoteboxView" customModule="Expense" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPi-Yk-TKX" userLabel="Category View" customClass="RoundCornersView" customModule="Expense" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="137" height="137"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K66-PH-R4l">
@@ -411,7 +410,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="General" translatesAutoresizingMaskIntoConstraints="NO" id="9qi-If-Tdd">
-                                                <rect key="frame" x="36.5" y="17" width="64" height="64"/>
+                                                <rect key="frame" x="36" y="17" width="64" height="64"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="9qi-If-Tdd" secondAttribute="height" multiplier="1:1" id="TEW-Na-i8T"/>
                                                 </constraints>
@@ -450,17 +449,17 @@
                                     <outletCollection property="gestureRecognizers" destination="1pw-Cd-sJr" appends="YES" id="zc2-He-9Zx"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXa-JS-uCe" userLabel="Location View" customClass="NoteboxView" customModule="Expense" customModuleProvider="target">
-                                <rect key="frame" x="168" y="74" width="412" height="137"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXa-JS-uCe" userLabel="Location View" customClass="RoundCornersView" customModule="Expense" customModuleProvider="target">
+                                <rect key="frame" x="168" y="74" width="418" height="137"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Paf-lU-0vc">
-                                        <rect key="frame" x="0.0" y="0.0" width="412" height="101"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="418" height="101"/>
                                     </mapView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vg4-bs-V72" userLabel="Toolbar View">
-                                        <rect key="frame" x="0.0" y="101" width="412" height="36"/>
+                                        <rect key="frame" x="0.0" y="101" width="418" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEj-3y-osa">
-                                                <rect key="frame" x="374" y="3" width="30" height="30"/>
+                                                <rect key="frame" x="380" y="3" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="mEj-3y-osa" secondAttribute="height" multiplier="1:1" id="Mim-mT-Avp"/>
                                                 </constraints>
@@ -512,6 +511,7 @@
                             <constraint firstItem="mWk-mp-uYO" firstAttribute="leading" secondItem="zgF-1U-peV" secondAttribute="trailing" id="MY5-GG-tVm"/>
                             <constraint firstItem="McA-mS-Y1O" firstAttribute="leading" secondItem="lrd-8o-RCn" secondAttribute="trailing" id="NqE-Jl-WQV"/>
                             <constraint firstItem="lrd-8o-RCn" firstAttribute="leading" secondItem="SQG-oH-2hI" secondAttribute="leadingMargin" constant="-20" id="O9r-L3-fYl"/>
+                            <constraint firstItem="eXa-JS-uCe" firstAttribute="trailing" secondItem="SQG-oH-2hI" secondAttribute="trailingMargin" constant="6" id="OyG-hT-Yil"/>
                             <constraint firstItem="LpU-VM-NEc" firstAttribute="top" secondItem="lrd-8o-RCn" secondAttribute="bottom" id="PbA-8Q-N0k"/>
                             <constraint firstItem="r1h-Jc-ngf" firstAttribute="top" secondItem="McA-mS-Y1O" secondAttribute="bottom" constant="1" id="QJs-Gl-5Xt"/>
                             <constraint firstItem="McA-mS-Y1O" firstAttribute="top" secondItem="mWk-mp-uYO" secondAttribute="bottom" id="VT9-ql-yJn"/>
@@ -531,9 +531,14 @@
                             <constraint firstItem="r1h-Jc-ngf" firstAttribute="leading" secondItem="lrd-8o-RCn" secondAttribute="trailing" id="vnQ-qt-oMh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mWk-mp-uYO" secondAttribute="trailing" constant="-20" id="wdY-Pp-laa"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ETo-5v-s3x"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="categoryFunctionView" destination="5kC-cX-q70" id="YZj-ib-wDu"/>
+                        <outlet property="categoryFunctionView" destination="5kC-cX-q70" id="t9I-l2-QIF"/>
                         <outlet property="categoryFunctionViewWidth" destination="PPP-uM-jOW" id="b31-Kw-u0v"/>
                         <outlet property="categoryViewSpace" destination="wuM-1x-Om4" id="PQT-xB-Fw6"/>
                         <outlet property="cellHighlight" destination="lrd-8o-RCn" id="ikC-41-T5G"/>
@@ -577,10 +582,10 @@
             </objects>
             <point key="canvasLocation" x="2064" y="324"/>
         </scene>
-        <!--View Controller-->
+        <!--Category View Controller-->
         <scene sceneID="faU-3z-fjd">
             <objects>
-                <viewController id="YtH-g4-xRl" sceneMemberID="viewController">
+                <viewController id="YtH-g4-xRl" customClass="CategoryViewController" customModule="Expense" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aAy-n5-6p8"/>
                         <viewControllerLayoutGuide type="bottom" id="O1l-EP-Kaf"/>
@@ -615,66 +620,23 @@
                                                 <color key="tintColor" red="0.086274512110000007" green="0.77254903320000001" blue="0.61103510859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </toolbar>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mSE-L3-VZ7" userLabel="Subcategory Table View">
-                                                <rect key="frame" x="0.0" y="246" width="570" height="204"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jEd-Cm-6iw">
-                                                        <rect key="frame" x="0.0" y="28" width="570" height="44"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jEd-Cm-6iw" id="JGH-1I-V0f">
-                                                            <rect key="frame" x="0.0" y="0.0" width="570" height="43.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </tableViewCellContentView>
-                                                    </tableViewCell>
-                                                </prototypes>
-                                            </tableView>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxJ-cs-6Y7">
                                                 <rect key="frame" x="0.0" y="45" width="570" height="53"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="53" id="w3M-gQ-kU3"/>
                                                 </constraints>
                                             </pickerView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j3i-Xu-VBL" userLabel="Category">
-                                                <rect key="frame" x="0.0" y="99" width="570" height="145"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agP-2y-AYc">
-                                                        <rect key="frame" x="259" y="30" width="64" height="64"/>
-                                                        <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="17"/>
-                                                        <inset key="titleEdgeInsets" minX="0.0" minY="50" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="General" backgroundImage="General">
-                                                            <color key="titleColor" red="0.086274512112140656" green="0.77254903316497803" blue="0.61103510856628418" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.88235294819999999" green="0.83529412749999998" blue="0.79215687509999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="j3i-Xu-VBL" firstAttribute="top" secondItem="WL3-6l-lNb" secondAttribute="bottom" constant="1" id="1qP-Xa-6Su"/>
-                                            <constraint firstItem="j3i-Xu-VBL" firstAttribute="top" secondItem="zxJ-cs-6Y7" secondAttribute="bottom" constant="1" id="3s4-sf-LXT"/>
-                                            <constraint firstAttribute="trailing" secondItem="mSE-L3-VZ7" secondAttribute="trailing" id="8yU-ws-fvu"/>
-                                            <constraint firstAttribute="trailing" secondItem="j3i-Xu-VBL" secondAttribute="trailing" id="9jC-Vh-sGg"/>
-                                            <constraint firstItem="mSE-L3-VZ7" firstAttribute="top" secondItem="j3i-Xu-VBL" secondAttribute="bottom" constant="1" id="9li-rA-Ii3"/>
                                             <constraint firstAttribute="height" constant="450" id="ElN-BL-PvS"/>
                                             <constraint firstItem="zxJ-cs-6Y7" firstAttribute="leading" secondItem="6GR-QI-ext" secondAttribute="leading" id="IM5-Q8-Zhf"/>
-                                            <constraint firstItem="mSE-L3-VZ7" firstAttribute="leading" secondItem="6GR-QI-ext" secondAttribute="leading" id="QvS-5G-MG1"/>
-                                            <constraint firstItem="j3i-Xu-VBL" firstAttribute="leading" secondItem="6GR-QI-ext" secondAttribute="leading" id="UIH-o0-ci8"/>
-                                            <constraint firstAttribute="bottom" secondItem="j3i-Xu-VBL" secondAttribute="bottom" id="anx-92-sry"/>
                                             <constraint firstItem="WL3-6l-lNb" firstAttribute="top" secondItem="6GR-QI-ext" secondAttribute="top" id="fhB-v7-5Ne"/>
-                                            <constraint firstAttribute="bottom" secondItem="mSE-L3-VZ7" secondAttribute="bottom" id="gW8-9t-wQx"/>
                                             <constraint firstAttribute="trailing" secondItem="zxJ-cs-6Y7" secondAttribute="trailing" id="siR-xO-cFa"/>
                                             <constraint firstItem="WL3-6l-lNb" firstAttribute="leading" secondItem="6GR-QI-ext" secondAttribute="leading" id="suZ-rw-XAR"/>
                                             <constraint firstAttribute="trailing" secondItem="WL3-6l-lNb" secondAttribute="trailing" id="tB4-97-3DX"/>
                                             <constraint firstItem="zxJ-cs-6Y7" firstAttribute="top" secondItem="WL3-6l-lNb" secondAttribute="bottom" constant="1" id="yMy-Ne-iGB"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="1qP-Xa-6Su"/>
-                                                <exclude reference="anx-92-sry"/>
-                                            </mask>
-                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -789,7 +751,7 @@
                         <outlet property="dateBoxHeight" destination="4bZ-k2-392" id="GAe-ug-WZz"/>
                         <outlet property="dateBoxView" destination="ntU-QQ-2L4" id="48d-tD-UBM"/>
                         <outlet property="datePicker" destination="LV3-Tq-w5M" id="pQe-iq-Pen"/>
-                        <outlet property="fullNoteView" destination="Kg1-Kb-7Nq" id="tub-KD-Y9a"/>
+                        <outlet property="fullView" destination="Kg1-Kb-7Nq" id="dvE-jA-Xbz"/>
                         <outlet property="toolbar" destination="e1d-rh-xxZ" id="U1T-uL-ZkK"/>
                         <outlet property="toolbarHeight" destination="TBN-M8-G52" id="24K-qm-4VV"/>
                     </connections>
@@ -817,7 +779,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MO8-ar-3o2" userLabel="Full Note View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0a-vc-eVC" userLabel="Notebox View" customClass="NoteboxView" customModule="Expense" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0a-vc-eVC" userLabel="Notebox View" customClass="RoundCornersView" customModule="Expense" customModuleProvider="target">
                                         <rect key="frame" x="15" y="75" width="570" height="150"/>
                                         <subviews>
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTF-Ad-aTp">
@@ -913,7 +875,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="vEv-hA-sVE" id="rg9-CY-X1V"/>
-                        <outlet property="fullNoteView" destination="MO8-ar-3o2" id="ePO-yg-HqR"/>
+                        <outlet property="fullView" destination="MO8-ar-3o2" id="EiF-Qd-Izf"/>
                         <outlet property="noteBoxView" destination="R0a-vc-eVC" id="aIl-eG-BDd"/>
                         <outlet property="noteTextField" destination="Nr0-6Z-muO" id="CQW-ia-i5w"/>
                         <outlet property="noteboxHeight" destination="Bgu-Z6-taz" id="nYl-gA-21w"/>

@@ -83,12 +83,12 @@ class AddViewController: UIViewController {
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var dayLabel: UILabel!
     
-    @IBOutlet weak var categoryFunctionView: NoteboxView!
+    @IBOutlet weak var categoryFunctionView: UIView!
     @IBOutlet weak var categoryFunctionViewWidth: NSLayoutConstraint!
     @IBOutlet weak var categoryViewSpace: NSLayoutConstraint!
     @IBOutlet weak var functionLabel: UILabel!
     
-    @IBOutlet weak var locationView: NoteboxView!
+    @IBOutlet weak var locationView: RoundCornersView!
     
     //Animation
     let popTransition = PopAnimator()
@@ -410,7 +410,7 @@ class AddViewController: UIViewController {
             noteVC.noteboxHeightFromTopConstant = statusBarHeight.constant + navigationBar.bounds.height + 20
             
             //pass on color
-            noteVC.fullNoteViewColor = fontColor
+            noteVC.fullViewColor = fontColor
         } else if segue.identifier == "dateSegue"{
             let dateVC = segue.destinationViewController as! DateViewController
             //animation
@@ -422,7 +422,7 @@ class AddViewController: UIViewController {
             dateVC.backgroundImage = windowImage
             
             //pass on color
-            dateVC.fullNoteViewColor = fontColor
+            dateVC.fullViewColor = fontColor
         }
     }
     

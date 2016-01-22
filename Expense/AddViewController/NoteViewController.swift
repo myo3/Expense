@@ -10,13 +10,13 @@ import UIKit
 
 class NoteViewController: UIViewController {
 
-    @IBOutlet weak var fullNoteView: UIView!
-    var fullNoteViewColor: UIColor?
+    @IBOutlet weak var fullView: UIView!
+    var fullViewColor: UIColor?
     
     @IBOutlet private weak var backgroundView: UIImageView!
     var backgroundImage: UIImage?
 
-    @IBOutlet private weak var noteBoxView: UIView!
+    @IBOutlet private weak var noteBoxView: RoundCornersView!
     @IBOutlet private weak var noteboxHeightFromTop: NSLayoutConstraint!
     @IBOutlet private weak var noteboxHeight: NSLayoutConstraint!
     var noteboxHeightFromTopConstant: CGFloat?
@@ -59,13 +59,13 @@ class NoteViewController: UIViewController {
         backgroundView.hidden = false
         
         //Dim background (to match animation)
-        let transluescentColor = fullNoteViewColor?.colorWithAlphaComponent(0.8)
-        fullNoteView.backgroundColor = transluescentColor
+        let transluescentColor = fullViewColor?.colorWithAlphaComponent(0.8)
+        fullView.backgroundColor = transluescentColor
     }
     
     override func viewWillDisappear(animated: Bool) {
         backgroundView.hidden = true
-        fullNoteView.backgroundColor = UIColor.clearColor()
+        fullView.backgroundColor = UIColor.clearColor()
 
     }
 

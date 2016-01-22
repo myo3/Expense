@@ -9,7 +9,9 @@
 import UIKit
 
 class CategoryViewController: UIViewController {
-
+    
+    var backgroundColor: UIColor?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

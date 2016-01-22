@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NoteboxView: UIView {
+class RoundCornersView: UIView {
 
     /*
     // Only override drawRect: if you perform custom drawing.
