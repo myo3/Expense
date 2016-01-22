@@ -95,6 +95,8 @@ class AddViewController: UIViewController {
     @IBOutlet weak var categoryFunctionViewWidth: NSLayoutConstraint!
     @IBOutlet weak var categoryViewSpace: NSLayoutConstraint!
     @IBOutlet weak var functionLabel: UILabel!
+    @IBOutlet weak var functionLabelDistanceFromLeft: NSLayoutConstraint!
+    
     @IBOutlet weak var categoryIcon: UIImageView!
     
     @IBOutlet weak var locationView: RoundCornersView!
@@ -208,6 +210,7 @@ class AddViewController: UIViewController {
         //Make category view little less than 1/2 width
         let totalWidthSpace = categoryFunctionView.frame.width + locationView.frame.width
         categoryFunctionViewWidth.constant = totalWidthSpace*0.4
+        functionLabelDistanceFromLeft.constant = categoryFunctionView.bounds.width/3
         categoryFunctionView.updateConstraintsIfNeeded()
         self.view.layoutIfNeeded()
         categoryFunctionView.layoutIfNeeded()
@@ -220,7 +223,8 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func addCategory(unwindSegue: UIStoryboardSegue){
-        
+        let categoryVC = unwindSegue.sourceViewController as! CategoryViewController
+        functionLabel.text = categoryVC.function
     }
     
     @IBAction func cancelCategory(unwindSegue: UIStoryboardSegue){
@@ -452,8 +456,9 @@ class AddViewController: UIViewController {
             let windowImage = capture(window)
             categoryVC.backgroundImage = windowImage
             
-            //pass on background color tint
+            //pass on color
             categoryVC.fullViewColor = fontColor
+            categoryVC.themeColor = themeColor
             
             //Arrange functionCategoryView
             categoryVC.functionCategoryHeightFromTopConstant = statusBarHeight.constant + navigationBar.bounds.height + space

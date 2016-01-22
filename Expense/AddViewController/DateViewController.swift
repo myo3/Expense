@@ -11,21 +11,21 @@ import UIKit
 class DateViewController: UIViewController {
 
 
-    @IBOutlet weak var fullView: UIView!
+    @IBOutlet private weak var fullView: UIView!
     var fullViewColor: UIColor?
     
     @IBOutlet private weak var backgroundView: UIImageView!
     var backgroundImage: UIImage?
     
-    @IBOutlet weak var dateBoxView: UIView!
-    @IBOutlet weak var dateBoxHeight: NSLayoutConstraint!
+    @IBOutlet private weak var dateBoxView: UIView!
+    @IBOutlet private weak var dateBoxHeight: NSLayoutConstraint!
     var dateBoxHeightFromTopConstant: CGFloat?
     
-    @IBOutlet weak var toolbar: UIToolbar!
-    @IBOutlet weak var toolbarHeight: NSLayoutConstraint!
+    @IBOutlet private weak var toolbar: UIToolbar!
+    @IBOutlet private weak var toolbarHeight: NSLayoutConstraint!
     
     
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var datePicker: UIDatePicker!
     var date: NSDate?
     
     override func viewDidLoad() {

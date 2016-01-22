@@ -26,6 +26,7 @@
 		DDA93D561C51BE74005677B8 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D551C51BE74005677B8 /* CategoryViewController.swift */; };
 		DDA93D581C51BF24005677B8 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D571C51BF24005677B8 /* NoteViewController.swift */; };
 		DDA93D5A1C51BF46005677B8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D591C51BF46005677B8 /* AddViewController.swift */; };
+		DDA93D5C1C51D3C6005677B8 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D5B1C51D3C6005677B8 /* AKPickerView.swift */; };
 		DDB591001C47E98800D08FEF /* SummaryHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */; };
 		DDB591021C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */; };
 		DDC2741E1C509DF20072A95A /* RiseAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2741D1C509DF20072A95A /* RiseAnimator.swift */; };
@@ -76,6 +77,7 @@
 		DDA93D551C51BE74005677B8 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryViewController.swift; path = AddViewController/CategoryViewController.swift; sourceTree = "<group>"; };
 		DDA93D571C51BF24005677B8 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteViewController.swift; path = AddViewController/NoteViewController.swift; sourceTree = "<group>"; };
 		DDA93D591C51BF46005677B8 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = AddViewController/AddViewController.swift; sourceTree = "<group>"; };
+		DDA93D5B1C51D3C6005677B8 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKPickerView.swift; path = AddViewController/AKPickerView.swift; sourceTree = "<group>"; };
 		DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryHeaderTableViewCell.swift; path = SummaryTableView/SummaryHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryDetailTableViewCell.swift; path = SummaryTableView/SummaryDetailTableViewCell.swift; sourceTree = "<group>"; };
 		DDC2741D1C509DF20072A95A /* RiseAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RiseAnimator.swift; path = AddViewController/RiseAnimator.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		DDFB320D1C4A0BEB0089C649 /* AddViewController */ = {
 			isa = PBXGroup;
 			children = (
+				DDA93D5B1C51D3C6005677B8 /* AKPickerView.swift */,
 				DDA93D591C51BF46005677B8 /* AddViewController.swift */,
 				DDA93D571C51BF24005677B8 /* NoteViewController.swift */,
 				DDA93D551C51BE74005677B8 /* CategoryViewController.swift */,
@@ -371,6 +374,7 @@
 				DDA93D5A1C51BF46005677B8 /* AddViewController.swift in Sources */,
 				DD3F4CAE1C3EC27400F9980E /* Expense.swift in Sources */,
 				DDA93D561C51BE74005677B8 /* CategoryViewController.swift in Sources */,
+				DDA93D5C1C51D3C6005677B8 /* AKPickerView.swift in Sources */,
 				DD79D4B31C501AB5009E4C13 /* PopAnimator.swift in Sources */,
 				DD7DA1D91C5080F3009A2B41 /* DateViewController.swift in Sources */,
 				DDB591021C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift in Sources */,

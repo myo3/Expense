@@ -437,6 +437,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="dzp-Zy-IKe" firstAttribute="leading" secondItem="5kC-cX-q70" secondAttribute="leading" constant="26" id="LGP-Sm-A1q"/>
                                     <constraint firstAttribute="width" constant="145" id="PPP-uM-jOW"/>
                                     <constraint firstItem="QPi-Yk-TKX" firstAttribute="top" secondItem="5kC-cX-q70" secondAttribute="top" id="dEY-lj-gHX"/>
                                     <constraint firstAttribute="bottom" secondItem="QPi-Yk-TKX" secondAttribute="bottom" id="fBu-jS-wJY"/>
@@ -552,6 +553,7 @@
                         <outlet property="dayLabel" destination="8jY-AO-QWZ" id="CvK-AD-kFr"/>
                         <outlet property="dollarSign" destination="iKK-Ty-ygp" id="pOa-5u-834"/>
                         <outlet property="functionLabel" destination="dzp-Zy-IKe" id="b3K-fM-T4c"/>
+                        <outlet property="functionLabelDistanceFromLeft" destination="LGP-Sm-A1q" id="ola-w4-l9h"/>
                         <outlet property="keyboardHeight" destination="OfF-Tu-ele" id="D6O-1e-tUa"/>
                         <outlet property="keyboardView" destination="r1h-Jc-ngf" id="Lda-Za-XFf"/>
                         <outlet property="locationView" destination="eXa-JS-uCe" id="Kxe-XS-4bv"/>
@@ -626,22 +628,29 @@
                                                 <color key="tintColor" red="0.086274512110000007" green="0.77254903320000001" blue="0.61103510859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </toolbar>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxJ-cs-6Y7">
-                                                <rect key="frame" x="0.0" y="57" width="570" height="53"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Van-vn-EiX" userLabel="functionPicker" customClass="AKPickerView" customModule="Expense" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="57" width="570" height="45"/>
+                                                <color key="backgroundColor" red="0.086274512110000007" green="0.77254903320000001" blue="0.61103510859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="53" id="w3M-gQ-kU3"/>
+                                                    <constraint firstAttribute="height" constant="45" id="Gjh-Va-xaU"/>
                                                 </constraints>
-                                            </pickerView>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.88235294819999999" green="0.83529412749999998" blue="0.79215687509999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="zxJ-cs-6Y7" firstAttribute="leading" secondItem="6GR-QI-ext" secondAttribute="leading" id="IM5-Q8-Zhf"/>
+                                            <constraint firstAttribute="bottom" secondItem="Van-vn-EiX" secondAttribute="bottom" constant="185" id="CLL-Sk-Tcf"/>
+                                            <constraint firstAttribute="trailing" secondItem="Van-vn-EiX" secondAttribute="trailing" id="TLn-wh-4G7"/>
                                             <constraint firstItem="WL3-6l-lNb" firstAttribute="top" secondItem="6GR-QI-ext" secondAttribute="top" id="fhB-v7-5Ne"/>
-                                            <constraint firstAttribute="trailing" secondItem="zxJ-cs-6Y7" secondAttribute="trailing" id="siR-xO-cFa"/>
+                                            <constraint firstItem="Van-vn-EiX" firstAttribute="leading" secondItem="6GR-QI-ext" secondAttribute="leading" id="k6b-JR-pNX"/>
+                                            <constraint firstItem="Van-vn-EiX" firstAttribute="top" secondItem="WL3-6l-lNb" secondAttribute="bottom" constant="1" id="qGg-Ks-Afl"/>
                                             <constraint firstItem="WL3-6l-lNb" firstAttribute="leading" secondItem="6GR-QI-ext" secondAttribute="leading" id="suZ-rw-XAR"/>
                                             <constraint firstAttribute="trailing" secondItem="WL3-6l-lNb" secondAttribute="trailing" id="tB4-97-3DX"/>
-                                            <constraint firstItem="zxJ-cs-6Y7" firstAttribute="top" secondItem="WL3-6l-lNb" secondAttribute="bottom" constant="1" id="yMy-Ne-iGB"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="CLL-Sk-Tcf"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -672,14 +681,15 @@
                         <outlet property="functionCategoryHeightFromBottom" destination="IXH-Om-Jiv" id="LZO-du-3dw"/>
                         <outlet property="functionCategoryHeightFromTop" destination="Iyj-Hz-AUn" id="LrT-bZ-G4c"/>
                         <outlet property="functionCategoryView" destination="6GR-QI-ext" id="712-Lb-miG"/>
-                        <outlet property="functionPicker" destination="zxJ-cs-6Y7" id="aEf-uJ-vnE"/>
+                        <outlet property="functionPicker" destination="Van-vn-EiX" id="ZZB-f6-BNM"/>
+                        <outlet property="functionPickerHeight" destination="Gjh-Va-xaU" id="ezc-Tj-AOe"/>
                         <outlet property="toolbar" destination="WL3-6l-lNb" id="NXR-AN-Nth"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQe-u2-5ht" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Urd-iq-cdd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2819" y="-734"/>
+            <point key="canvasLocation" x="2819" y="-530"/>
         </scene>
         <!--Date View Controller-->
         <scene sceneID="pAg-Sa-ORh">
@@ -779,7 +789,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fpN-NF-h8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KOW-tI-rZv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2819" y="-85"/>
+            <point key="canvasLocation" x="2819" y="156"/>
         </scene>
         <!--Note View Controller-->
         <scene sceneID="G9n-TM-sJs">
@@ -907,7 +917,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZq-CZ-Eck" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="UJ7-iP-tXo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2819" y="560"/>
+            <point key="canvasLocation" x="2819" y="832"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g5Y-tL-9HA">

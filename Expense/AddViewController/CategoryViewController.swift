@@ -8,25 +8,29 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerViewDataSource {
     
-    @IBOutlet weak var backgroundView: UIImageView!
+    @IBOutlet private weak var backgroundView: UIImageView!
     var backgroundImage: UIImage?
     
-    @IBOutlet weak var fullView: UIView!
+    @IBOutlet private weak var fullView: UIView!
     var fullViewColor: UIColor?
-    
-    
-    @IBOutlet weak var functionCategoryView: RoundCornersView!
-    @IBOutlet weak var functionCategoryHeightFromTop: NSLayoutConstraint!
+
+    @IBOutlet private weak var functionCategoryView: RoundCornersView!
+    @IBOutlet private weak var functionCategoryHeightFromTop: NSLayoutConstraint!
     var functionCategoryHeightFromTopConstant: CGFloat?
-    @IBOutlet weak var functionCategoryHeightFromBottom: NSLayoutConstraint!
+    @IBOutlet private weak var functionCategoryHeightFromBottom: NSLayoutConstraint!
     var functionCategoryHeightFromBottomConstant: CGFloat?
     
-    @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet private weak var toolbar: UIToolbar!
     
-    @IBOutlet weak var functionPicker: UIPickerView!
-    var function: [String] = [String]()
+    @IBOutlet private weak var functionPicker: AKPickerView!
+    var themeColor: UIColor?
+    var functions: [String] = ["Personal", "Social", "Work", "Family"]
+    @IBOutlet private weak var functionPickerHeight: NSLayoutConstraint!
+    
+    //Data
+    var function: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,12 +49,20 @@ class CategoryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.view.layoutIfNeeded()
         functionCategoryView.layoutIfNeeded()
         
-        //Connect data
-        self.functionPicker.delegate = self
-        self.functionPicker.dataSource = self
+        //Set up AKPickerView
+        functionPicker.delegate = self
+        functionPicker.dataSource = self
         
-        //Input data into array
-        function = ["Personal", "Social", "Work", "Family"]
+        functionPicker.font = UIFont(name: "Comfortaa", size: 20)!
+        functionPicker.highlightedFont = UIFont(name: "Comfortaa", size: 20)!
+        functionPicker.backgroundColor = themeColor
+        functionPicker.interitemSpacing = CGFloat(10)
+        functionPicker.pickerViewStyle = .Wheel
+        functionPicker.maskDisabled = true
+        functionPicker.reloadData()
+        
+        //Set function to auto-selected element
+        function = functions[0]
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,26 +85,33 @@ class CategoryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
     }
     
-    // The number of columns of data
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
+    // MARK: - AKPickerViewDataSource
+    
+    func numberOfItemsInPickerView(pickerView: AKPickerView) -> Int {
+        return self.functions.count
     }
     
-    // The number of rows of data
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return function.count
+    func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String {
+        return self.functions[item]
     }
     
-    // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return function[row]
+    // MARK: - AKPickerViewDelegate
+    
+    func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
+        function = self.functions[item]
     }
     
-    // Catpure the picker view selection
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // This method is triggered whenever the user makes a change to the picker selection.
-        // The parameter named row and component represents what was selected.
+    //Label Customization
+    func pickerView(pickerView: AKPickerView, configureLabel label: UILabel, forItem item: Int) {
+        label.textColor = fullViewColor
+        label.highlightedTextColor = UIColor.whiteColor()
+        label.backgroundColor = themeColor
     }
+    
+    func pickerView(pickerView: AKPickerView, marginForItem item: Int) -> CGSize {
+        return CGSizeMake(10, functionPickerHeight.constant)
+    }
+    
     /*
     // MARK: - Navigation
 
