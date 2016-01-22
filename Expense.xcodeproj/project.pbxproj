@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD1602FC1C51B6EB00FDBA1A /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1602FB1C51B6EB00FDBA1A /* CategoryViewController.swift */; };
-		DD3EACF91C4E8DF000D864D3 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3EACF81C4E8DF000D864D3 /* NoteViewController.swift */; };
 		DD3F4C991C3E9F2D00F9980E /* SummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F4C981C3E9F2D00F9980E /* SummaryTableViewController.swift */; };
 		DD3F4CA41C3EA5BA00F9980E /* Comfortaa_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD3F4CA11C3EA5BA00F9980E /* Comfortaa_Bold.ttf */; };
 		DD3F4CA51C3EA5BA00F9980E /* Comfortaa_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD3F4CA21C3EA5BA00F9980E /* Comfortaa_Regular.ttf */; };
@@ -25,11 +23,13 @@
 		DD79D4B51C50207D009E4C13 /* AllExpensesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79D4B41C50207D009E4C13 /* AllExpensesCell.swift */; };
 		DD7DA1D71C502A5D009A2B41 /* RoundCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7DA1D61C502A5D009A2B41 /* RoundCornersView.swift */; };
 		DD7DA1D91C5080F3009A2B41 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7DA1D81C5080F3009A2B41 /* DateViewController.swift */; };
+		DDA93D561C51BE74005677B8 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D551C51BE74005677B8 /* CategoryViewController.swift */; };
+		DDA93D581C51BF24005677B8 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D571C51BF24005677B8 /* NoteViewController.swift */; };
+		DDA93D5A1C51BF46005677B8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D591C51BF46005677B8 /* AddViewController.swift */; };
 		DDB591001C47E98800D08FEF /* SummaryHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */; };
 		DDB591021C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */; };
 		DDC2741E1C509DF20072A95A /* RiseAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2741D1C509DF20072A95A /* RiseAnimator.swift */; };
 		DDC274201C50C3A60072A95A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC2741F1C50C3A60072A95A /* MapKit.framework */; };
-		DDFB320F1C4A0C0C0089C649 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFB320E1C4A0C0C0089C649 /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +51,6 @@
 
 /* Begin PBXFileReference section */
 		0FB5A0B512B9A5AEDEF5B2D5 /* Pods_Expense.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expense.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD1602FB1C51B6EB00FDBA1A /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryViewController.swift; path = AddViewController/CategoryViewController.swift; sourceTree = "<group>"; };
-		DD3EACF81C4E8DF000D864D3 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteViewController.swift; path = AddViewController/NoteViewController.swift; sourceTree = "<group>"; };
 		DD3F4C981C3E9F2D00F9980E /* SummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryTableViewController.swift; path = SummaryTableView/SummaryTableViewController.swift; sourceTree = "<group>"; };
 		DD3F4CA11C3EA5BA00F9980E /* Comfortaa_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa_Bold.ttf; path = Expense/Resources/Comfortaa_Bold.ttf; sourceTree = "<group>"; };
 		DD3F4CA21C3EA5BA00F9980E /* Comfortaa_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa_Regular.ttf; path = Expense/Resources/Comfortaa_Regular.ttf; sourceTree = "<group>"; };
@@ -75,11 +73,13 @@
 		DD79D4B41C50207D009E4C13 /* AllExpensesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllExpensesCell.swift; path = SummaryTableView/AllExpensesCell.swift; sourceTree = "<group>"; };
 		DD7DA1D61C502A5D009A2B41 /* RoundCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundCornersView.swift; path = AddViewController/RoundCornersView.swift; sourceTree = "<group>"; };
 		DD7DA1D81C5080F3009A2B41 /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateViewController.swift; path = AddViewController/DateViewController.swift; sourceTree = "<group>"; };
+		DDA93D551C51BE74005677B8 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryViewController.swift; path = AddViewController/CategoryViewController.swift; sourceTree = "<group>"; };
+		DDA93D571C51BF24005677B8 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteViewController.swift; path = AddViewController/NoteViewController.swift; sourceTree = "<group>"; };
+		DDA93D591C51BF46005677B8 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = AddViewController/AddViewController.swift; sourceTree = "<group>"; };
 		DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryHeaderTableViewCell.swift; path = SummaryTableView/SummaryHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryDetailTableViewCell.swift; path = SummaryTableView/SummaryDetailTableViewCell.swift; sourceTree = "<group>"; };
 		DDC2741D1C509DF20072A95A /* RiseAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RiseAnimator.swift; path = AddViewController/RiseAnimator.swift; sourceTree = "<group>"; };
 		DDC2741F1C50C3A60072A95A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		DDFB320E1C4A0C0C0089C649 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = AddViewController/AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,13 +213,13 @@
 		DDFB320D1C4A0BEB0089C649 /* AddViewController */ = {
 			isa = PBXGroup;
 			children = (
-				DDFB320E1C4A0C0C0089C649 /* AddViewController.swift */,
+				DDA93D591C51BF46005677B8 /* AddViewController.swift */,
+				DDA93D571C51BF24005677B8 /* NoteViewController.swift */,
+				DDA93D551C51BE74005677B8 /* CategoryViewController.swift */,
 				DDC2741D1C509DF20072A95A /* RiseAnimator.swift */,
-				DD3EACF81C4E8DF000D864D3 /* NoteViewController.swift */,
 				DD79D4B21C501AB5009E4C13 /* PopAnimator.swift */,
 				DD7DA1D61C502A5D009A2B41 /* RoundCornersView.swift */,
 				DD7DA1D81C5080F3009A2B41 /* DateViewController.swift */,
-				DD1602FB1C51B6EB00FDBA1A /* CategoryViewController.swift */,
 			);
 			name = AddViewController;
 			sourceTree = "<group>";
@@ -366,10 +366,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA93D581C51BF24005677B8 /* NoteViewController.swift in Sources */,
 				DD79D4B51C50207D009E4C13 /* AllExpensesCell.swift in Sources */,
+				DDA93D5A1C51BF46005677B8 /* AddViewController.swift in Sources */,
 				DD3F4CAE1C3EC27400F9980E /* Expense.swift in Sources */,
-				DD1602FC1C51B6EB00FDBA1A /* CategoryViewController.swift in Sources */,
-				DDFB320F1C4A0C0C0089C649 /* AddViewController.swift in Sources */,
+				DDA93D561C51BE74005677B8 /* CategoryViewController.swift in Sources */,
 				DD79D4B31C501AB5009E4C13 /* PopAnimator.swift in Sources */,
 				DD7DA1D91C5080F3009A2B41 /* DateViewController.swift in Sources */,
 				DDB591021C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift in Sources */,
@@ -378,7 +379,6 @@
 				DD3F4C991C3E9F2D00F9980E /* SummaryTableViewController.swift in Sources */,
 				DD7DA1D71C502A5D009A2B41 /* RoundCornersView.swift in Sources */,
 				DD75ABC11C3E992400457005 /* AppDelegate.swift in Sources */,
-				DD3EACF91C4E8DF000D864D3 /* NoteViewController.swift in Sources */,
 				DD75ABC91C3E992400457005 /* Expense.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

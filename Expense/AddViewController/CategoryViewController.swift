@@ -10,11 +10,24 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
-    var backgroundColor: UIColor?
+    @IBOutlet weak var backgroundView: UIImageView!
+    var backgroundImage: UIImage?
+    
+    @IBOutlet weak var fullView: UIView!
+    var fullViewColor: UIColor?
+
+    @IBOutlet weak var toolbar: UIToolbar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //Get rid of top border of toolbar
+        toolbar.clipsToBounds = true
+        
+        //Set backgroudn image to Add VC's view
+        backgroundView.hidden = true
+        backgroundView.image = backgroundImage
+        
         // Do any additional setup after loading the view.
     }
 
@@ -23,7 +36,21 @@ class CategoryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func viewDidAppear(animated: Bool) {
+        //Show background image
+        backgroundView.hidden = false
+        
+        //Dim background (to match animation)
+        let transluescentColor = fullViewColor?.colorWithAlphaComponent(0.8)
+        fullView.backgroundColor = transluescentColor
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        backgroundView.hidden = true
+        fullView.backgroundColor = UIColor.clearColor()
+        
+    }
+    
     /*
     // MARK: - Navigation
 

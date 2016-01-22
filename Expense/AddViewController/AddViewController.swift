@@ -22,10 +22,15 @@ extension AddViewController: UIViewControllerTransitioningDelegate {
                 popTransition.presenting = true
                 
                 return popTransition
-            case 2:
+            case 2: //DateVC
                 riseTransition.backgroundTintColor = fontColor
                 riseTransition.presenting = true
                 return riseTransition
+            case 3: //CategoryVC
+                popTransition.originFrame = categoryIcon.superview!.convertRect(categoryIcon.frame, toView: nil)
+                popTransition.backgroundTintColor = fontColor
+                popTransition.presenting = true
+                return popTransition
             default:
                 return nil
             }
@@ -41,7 +46,9 @@ extension AddViewController: UIViewControllerTransitioningDelegate {
         case 2:
             riseTransition.presenting = false
             return riseTransition
-//            return nil
+        case 3:
+            popTransition.presenting = false
+            return popTransition
         default:
             return nil
         }
@@ -87,6 +94,7 @@ class AddViewController: UIViewController {
     @IBOutlet weak var categoryFunctionViewWidth: NSLayoutConstraint!
     @IBOutlet weak var categoryViewSpace: NSLayoutConstraint!
     @IBOutlet weak var functionLabel: UILabel!
+    @IBOutlet weak var categoryIcon: UIImageView!
     
     @IBOutlet weak var locationView: RoundCornersView!
     
@@ -211,7 +219,12 @@ class AddViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func cancelDate(unwindSegue: UIStoryboardSegue){
+    @IBAction func addCategory(unwindSegue: UIStoryboardSegue){
+        
+    }
+    
+    @IBAction func cancelCategory(unwindSegue: UIStoryboardSegue){
+        
     }
     
     @IBAction func addDate(unwindSegue: UIStoryboardSegue){
@@ -229,6 +242,10 @@ class AddViewController: UIViewController {
         timeLabel.text = dateFormatter.stringFromDate(date!)
     }
     
+    @IBAction func cancelDate(unwindSegue: UIStoryboardSegue){
+        
+    }
+    
     @IBAction func addNote(unwindSegue: UIStoryboardSegue){
         let noteVC = unwindSegue.sourceViewController as! NoteViewController
         //Update expense component
@@ -242,11 +259,9 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func cancelNote(unwindSegue: UIStoryboardSegue){
+        
     }
     
-    @IBAction func selectDate(sender: UITapGestureRecognizer) {
-        print("Date view tapped")
-    }
     func imageWithColor(color: UIColor) -> UIImage{
         let rect = CGRectMake(0, 0, 1, 1)
         UIGraphicsBeginImageContext(rect.size)
@@ -407,9 +422,11 @@ class AddViewController: UIViewController {
             let window: UIWindow! = UIApplication.sharedApplication().keyWindow
             let windowImage = capture(window)
             noteVC.backgroundImage = windowImage
+            
+            //Arrange notebox
             noteVC.noteboxHeightFromTopConstant = statusBarHeight.constant + navigationBar.bounds.height + 20
             
-            //pass on color
+            //pass on background color tint
             noteVC.fullViewColor = fontColor
         } else if segue.identifier == "dateSegue"{
             let dateVC = segue.destinationViewController as! DateViewController
@@ -421,8 +438,21 @@ class AddViewController: UIViewController {
             let windowImage = capture(window)
             dateVC.backgroundImage = windowImage
             
-            //pass on color
+            //pass on background color tint
             dateVC.fullViewColor = fontColor
+        } else if segue.identifier == "categorySegue"{
+            let categoryVC = segue.destinationViewController as! CategoryViewController
+            
+            //animation
+            categoryVC.transitioningDelegate = self
+            
+            //generate snapshot of window
+            let window: UIWindow! = UIApplication.sharedApplication().keyWindow
+            let windowImage = capture(window)
+            categoryVC.backgroundImage = windowImage
+            
+            //pass on background color tint
+            categoryVC.fullViewColor = fontColor
         }
     }
     

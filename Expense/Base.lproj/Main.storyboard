@@ -540,6 +540,7 @@
                     <connections>
                         <outlet property="categoryFunctionView" destination="5kC-cX-q70" id="t9I-l2-QIF"/>
                         <outlet property="categoryFunctionViewWidth" destination="PPP-uM-jOW" id="b31-Kw-u0v"/>
+                        <outlet property="categoryIcon" destination="9qi-If-Tdd" id="XoW-xa-Dd5"/>
                         <outlet property="categoryViewSpace" destination="wuM-1x-Om4" id="PQT-xB-Fw6"/>
                         <outlet property="cellHighlight" destination="lrd-8o-RCn" id="ikC-41-T5G"/>
                         <outlet property="costLabel" destination="aVq-KX-wvb" id="fnr-Ss-Vyi"/>
@@ -570,13 +571,12 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="648-ac-z5s" userLabel="Date Gesture Recognizer">
                     <connections>
-                        <action selector="selectDate:" destination="EgV-dx-MqZ" id="1WL-c0-hCu"/>
                         <segue destination="bkP-u9-Gg6" kind="presentation" identifier="dateSegue" id="On3-kA-lhh"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="1pw-Cd-sJr" userLabel="Category &amp; Function Tap Gesture Recognizer">
                     <connections>
-                        <segue destination="YtH-g4-xRl" kind="presentation" id="fYO-wU-j86"/>
+                        <segue destination="YtH-g4-xRl" kind="presentation" identifier="categorySegue" id="fYO-wU-j86"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -590,17 +590,17 @@
                         <viewControllerLayoutGuide type="top" id="aAy-n5-6p8"/>
                         <viewControllerLayoutGuide type="bottom" id="O1l-EP-Kaf"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tcn-DE-BPd">
+                    <view key="view" tag="3" contentMode="scaleToFill" id="tcn-DE-BPd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s0p-j7-bEg" userLabel="Background View">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s0p-j7-bEg" userLabel="Background View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEW-tb-arP" userLabel="Full View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6GR-QI-ext" userLabel="Function &amp; Category View" customClass="NoteboxView" customModule="Expense" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6GR-QI-ext" userLabel="Function &amp; Category View" customClass="RoundCornersView" customModule="Expense" customModuleProvider="target">
                                         <rect key="frame" x="15" y="75" width="570" height="450"/>
                                         <subviews>
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WL3-6l-lNb">
@@ -611,10 +611,16 @@
                                                 <items>
                                                     <barButtonItem image="Exit" id="e3Y-Md-LnD" userLabel="Exit">
                                                         <color key="tintColor" red="0.086274512110000007" green="0.77254903320000001" blue="0.61103510859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <segue destination="Urd-iq-cdd" kind="unwind" identifier="cancelCategorySegue" unwindAction="cancelCategory:" id="lzd-W6-XV3"/>
+                                                        </connections>
                                                     </barButtonItem>
                                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3et-3L-dAd"/>
                                                     <barButtonItem image="Save" id="VGI-Zb-t2d" userLabel="Done">
                                                         <color key="tintColor" red="0.086274512110000007" green="0.77254903320000001" blue="0.61103510859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <segue destination="Urd-iq-cdd" kind="unwind" identifier="addCategorySegue" unwindAction="addCategory:" id="zOL-vj-9qT"/>
+                                                        </connections>
                                                     </barButtonItem>
                                                 </items>
                                                 <color key="tintColor" red="0.086274512110000007" green="0.77254903320000001" blue="0.61103510859999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -648,16 +654,26 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="O1l-EP-Kaf" firstAttribute="top" secondItem="s0p-j7-bEg" secondAttribute="bottom" id="4GG-Ym-lEA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DEW-tb-arP" secondAttribute="trailing" constant="-20" id="4NJ-eN-9I0"/>
                             <constraint firstItem="DEW-tb-arP" firstAttribute="leading" secondItem="tcn-DE-BPd" secondAttribute="leadingMargin" constant="-20" id="B5i-f6-lli"/>
+                            <constraint firstItem="s0p-j7-bEg" firstAttribute="top" secondItem="tcn-DE-BPd" secondAttribute="topMargin" id="GV5-u1-STY"/>
                             <constraint firstItem="DEW-tb-arP" firstAttribute="top" secondItem="tcn-DE-BPd" secondAttribute="topMargin" id="QbH-cj-8nt"/>
+                            <constraint firstItem="s0p-j7-bEg" firstAttribute="leading" secondItem="tcn-DE-BPd" secondAttribute="leadingMargin" constant="-20" id="XVq-gG-sHO"/>
                             <constraint firstItem="O1l-EP-Kaf" firstAttribute="top" secondItem="DEW-tb-arP" secondAttribute="bottom" id="jvV-SP-LMj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="s0p-j7-bEg" secondAttribute="trailing" constant="-20" id="oHZ-od-gvF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="s0p-j7-bEg" id="sGo-n6-Z4P"/>
+                        <outlet property="fullView" destination="DEW-tb-arP" id="0DI-35-ody"/>
+                        <outlet property="toolbar" destination="WL3-6l-lNb" id="NXR-AN-Nth"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQe-u2-5ht" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Urd-iq-cdd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2819" y="-734"/>
         </scene>
