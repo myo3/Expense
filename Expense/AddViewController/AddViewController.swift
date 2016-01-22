@@ -56,6 +56,7 @@ class AddViewController: UIViewController, UIViewControllerTransitioningDelegate
     //Expense components
     private var note: String?
     private var date: NSDate?
+    private var function: Function?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -172,7 +173,8 @@ class AddViewController: UIViewController, UIViewControllerTransitioningDelegate
     
     @IBAction func addCategory(unwindSegue: UIStoryboardSegue){
         let categoryVC = unwindSegue.sourceViewController as! CategoryViewController
-        functionLabel.text = categoryVC.function
+        function = categoryVC.function
+        functionLabel.text = function?.rawValue
     }
     
     @IBAction func cancelCategory(unwindSegue: UIStoryboardSegue){

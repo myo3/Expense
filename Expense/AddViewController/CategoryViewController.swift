@@ -10,8 +10,11 @@ import UIKit
 
 class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    //Theme colors
     private let themeColors = ThemeColors()
+    private let expensesOrganizer = ExpensesOrganizer()
     
+    //Views & layout elements
     @IBOutlet private weak var backgroundView: UIImageView!
     var backgroundImage: UIImage?
     
@@ -27,15 +30,16 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     var functionCategoryHeightFromBottomConstant: CGFloat?
     
     @IBOutlet private weak var functionPicker: AKPickerView!
-    var functions: [String] = ["Personal", "Social", "Work", "Family"]
     @IBOutlet private weak var functionPickerHeight: NSLayoutConstraint!
-    var function: String? //Data
-    
-    
-    var categories: [[String]] = [["General", "Personal", "House", "Food"], ["Transport", "Clothes", "Fun", "Misc"]]
     
     @IBOutlet private weak var categoryView: UICollectionView!
     @IBOutlet private weak var categoryViewHeight: NSLayoutConstraint!
+    private var categories: [[Category]] = [[Category]]()
+    
+    //Data
+    var function: Function?
+    var category: Category?
+    var subcategory: Subcategory?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +71,22 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
         functionPicker.reloadData()
         
         //Set function to auto-selected element
-        function = functions[0]
+        function = expensesOrganizer.getFunction(0)
+        
+        //Set up categories array
+        let rows = 2
+        let columns = 4
+        for r in 0...rows-1{
+            var rowList = [Category]()
+            for c in 0...columns-1{
+                if r == 0{
+                    rowList.append(expensesOrganizer.getCategory(c)) //first row
+                } else{
+                    rowList.append(expensesOrganizer.getCategory(4+c)) //second row
+                }
+            }
+            categories.append(rowList)
+        }
         
         //Set up categoryView
         categoryViewHeight.constant = 108.25*2//(functionCategoryView.frame.height - categoryView.frame.minY)*0.4
@@ -117,8 +136,8 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CategoryCollectionViewCell
-        cell.categoryLabel.text = categories[indexPath.section][indexPath.row]
-        cell.categoryImageView.image = UIImage(named: categories[indexPath.section][indexPath.row])
+        cell.categoryLabel.text = categories[indexPath.section][indexPath.row].rawValue
+        cell.categoryImageView.image = UIImage(named: categories[indexPath.section][indexPath.row].rawValue)
         cell.backgroundColor = UIColor.redColor()
         // Configure the cell
         
@@ -151,17 +170,17 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     // MARK: - AKPickerViewDataSource
     
     func numberOfItemsInPickerView(pickerView: AKPickerView) -> Int {
-        return self.functions.count
+        return self.expensesOrganizer.getNumOfFunctions()
     }
     
     func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String {
-        return self.functions[item]
+        return self.expensesOrganizer.getFunction(item).rawValue
     }
     
     // MARK: - AKPickerViewDelegate
     
     func pickerView(pickerView: AKPickerView, didSelectItem item: Int) {
-        function = self.functions[item]
+        function = self.expensesOrganizer.getFunction(item)
     }
     
     //Label Customization
