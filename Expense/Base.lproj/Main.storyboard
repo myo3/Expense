@@ -26,6 +26,7 @@
             <string>Comfortaa</string>
             <string>Comfortaa</string>
             <string>Comfortaa</string>
+            <string>Comfortaa</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -631,14 +632,14 @@
                                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </toolbar>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Van-vn-EiX" userLabel="functionPicker" customClass="AKPickerView" customModule="Expense" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="57" width="570" height="45"/>
+                                                <rect key="frame" x="0.0" y="56" width="570" height="45"/>
                                                 <color key="backgroundColor" red="0.086274512110000007" green="0.77254903320000001" blue="0.61103510859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="Gjh-Va-xaU"/>
                                                 </constraints>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mro-kr-GcY" userLabel="Category Collection View">
-                                                <rect key="frame" x="0.0" y="103" width="570" height="334"/>
+                                                <rect key="frame" x="0.0" y="101" width="570" height="334"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="334" id="ZU8-Aw-DYr"/>
                                                     <constraint firstAttribute="width" secondItem="mro-kr-GcY" secondAttribute="height" multiplier="285:167" id="gGI-0W-IIa"/>
@@ -702,17 +703,34 @@
                                                 </variation>
                                             </collectionView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jQe-V9-Zxz" userLabel="subCategoryView">
-                                                <rect key="frame" x="0.0" y="437" width="570" height="58"/>
+                                                <rect key="frame" x="0.0" y="436" width="570" height="59"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="separatorColor" red="0.88235294819999999" green="0.83529412749999998" blue="0.79215687509999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ye0-c5-TDz">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subCategoryCell" id="Ye0-c5-TDz" customClass="SubcategoryTableViewCell" customModule="Expense" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="570" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ye0-c5-TDz" id="nkG-jf-E21">
                                                             <rect key="frame" x="0.0" y="0.0" width="570" height="43.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subcategory" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0H-vE-zeY">
+                                                                    <rect key="frame" x="16" y="10.5" width="546" height="22.5"/>
+                                                                    <fontDescription key="fontDescription" name="Comfortaa" family="Comfortaa" pointSize="20"/>
+                                                                    <color key="textColor" red="0.60784316059999999" green="0.54901963470000004" blue="0.45882353190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" red="0.98039215800000001" green="0.97254902119999997" blue="0.96078431610000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstItem="F0H-vE-zeY" firstAttribute="centerY" secondItem="nkG-jf-E21" secondAttribute="centerY" id="Ul4-Rl-SCv"/>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="F0H-vE-zeY" secondAttribute="trailing" id="hGJ-Ml-xsZ"/>
+                                                                <constraint firstItem="F0H-vE-zeY" firstAttribute="leading" secondItem="nkG-jf-E21" secondAttribute="leadingMargin" constant="8" id="w9l-vP-Sgm"/>
+                                                            </constraints>
                                                         </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="subCategoryLabel" destination="F0H-vE-zeY" id="S8G-C8-5Lu"/>
+                                                        </connections>
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
@@ -724,15 +742,15 @@
                                             <constraint firstItem="mro-kr-GcY" firstAttribute="leading" secondItem="6GR-QI-ext" secondAttribute="leading" id="GcJ-W0-4ek"/>
                                             <constraint firstAttribute="trailing" secondItem="jQe-V9-Zxz" secondAttribute="trailing" id="JfT-pG-5uh"/>
                                             <constraint firstAttribute="trailing" secondItem="Van-vn-EiX" secondAttribute="trailing" id="TLn-wh-4G7"/>
-                                            <constraint firstItem="jQe-V9-Zxz" firstAttribute="top" secondItem="mro-kr-GcY" secondAttribute="bottom" id="aXj-2D-Ofe"/>
+                                            <constraint firstItem="jQe-V9-Zxz" firstAttribute="top" secondItem="mro-kr-GcY" secondAttribute="bottom" constant="1" id="aXj-2D-Ofe"/>
                                             <constraint firstItem="jQe-V9-Zxz" firstAttribute="leading" secondItem="6GR-QI-ext" secondAttribute="leading" id="cJ9-Ut-3TS"/>
                                             <constraint firstItem="WL3-6l-lNb" firstAttribute="top" secondItem="6GR-QI-ext" secondAttribute="top" id="fhB-v7-5Ne"/>
                                             <constraint firstItem="Van-vn-EiX" firstAttribute="leading" secondItem="6GR-QI-ext" secondAttribute="leading" id="k6b-JR-pNX"/>
-                                            <constraint firstItem="Van-vn-EiX" firstAttribute="top" secondItem="WL3-6l-lNb" secondAttribute="bottom" constant="1" id="qGg-Ks-Afl"/>
+                                            <constraint firstItem="Van-vn-EiX" firstAttribute="top" secondItem="WL3-6l-lNb" secondAttribute="bottom" id="qGg-Ks-Afl"/>
                                             <constraint firstAttribute="trailing" secondItem="mro-kr-GcY" secondAttribute="trailing" id="rxO-Q4-hae"/>
                                             <constraint firstItem="WL3-6l-lNb" firstAttribute="leading" secondItem="6GR-QI-ext" secondAttribute="leading" id="suZ-rw-XAR"/>
                                             <constraint firstAttribute="trailing" secondItem="WL3-6l-lNb" secondAttribute="trailing" id="tB4-97-3DX"/>
-                                            <constraint firstItem="mro-kr-GcY" firstAttribute="top" secondItem="Van-vn-EiX" secondAttribute="bottom" constant="1" id="w43-5E-nYf"/>
+                                            <constraint firstItem="mro-kr-GcY" firstAttribute="top" secondItem="Van-vn-EiX" secondAttribute="bottom" id="w43-5E-nYf"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -774,6 +792,7 @@
                         <outlet property="functionCategoryView" destination="6GR-QI-ext" id="712-Lb-miG"/>
                         <outlet property="functionPicker" destination="Van-vn-EiX" id="ZZB-f6-BNM"/>
                         <outlet property="functionPickerHeight" destination="Gjh-Va-xaU" id="ezc-Tj-AOe"/>
+                        <outlet property="subCategoryTableView" destination="jQe-V9-Zxz" id="Xgi-LQ-00R"/>
                         <outlet property="toolbar" destination="WL3-6l-lNb" id="NXR-AN-Nth"/>
                     </connections>
                 </viewController>

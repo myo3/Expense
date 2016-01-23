@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITableViewDataSource, UITableViewDelegate{
     
     //Theme colors
     private let themeColors = ThemeColors()
@@ -37,6 +37,8 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     @IBOutlet private weak var categoryViewHeight: NSLayoutConstraint!
     private var categories: [[Category]] = [[Category]]()
     
+    @IBOutlet weak var subCategoryTableView: UITableView!
+    
     //Auto-selected items
     var currentFunction: Function?
     var currentCategory: Category?
@@ -46,7 +48,6 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     var category: Category?
     var subcategory: Subcategory?
     
-    private var intailizedCategory: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -96,10 +97,20 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
         categoryView.delegate = self
         categoryView.dataSource = self
         
-        //Set function & category to auto-selected element
+        //Set function & category & subcategory to auto-selected element
         function = currentFunction
         category = currentCategory
-
+        subcategory = Subcategory.None
+        
+        //Set up subCategory table view
+        subCategoryTableView.dataSource = self
+        subCategoryTableView.delegate = self
+        
+        //Extend separator line
+        subCategoryTableView.separatorColor = themeColors.getBackgroundColor()
+        subCategoryTableView.separatorInset = UIEdgeInsetsZero
+        subCategoryTableView.layoutMargins = UIEdgeInsetsZero
+        subCategoryTableView.backgroundColor = themeColors.getViewBackgroundColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -122,6 +133,39 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
         
     }
     
+    // MARK: UITableViewDataSource
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return expensesOrganizer.getNumOfSubcategoriesFor(category!)
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let subcategoryCell = tableView.dequeueReusableCellWithIdentifier("subCategoryCell", forIndexPath: indexPath) as! SubcategoryTableViewCell
+        let subcategory = expensesOrganizer.getSubcategoryFor(category!, index: indexPath.row)
+        subcategoryCell.subCategoryLabel.text = expensesOrganizer.getText(subcategory.rawValue)
+        subcategoryCell.selectedBackgroundView = UIView(frame: CGRect.zero)
+        subcategoryCell.selectedBackgroundView?.backgroundColor = themeColors.getColorOfCategory(category!)
+        
+        return subcategoryCell
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        //Extend separator line
+        cell.layoutMargins = UIEdgeInsetsZero
+    }
+    
+    var indexPathSelectedCell: NSIndexPath?
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let subcategoryCell = tableView.cellForRowAtIndexPath(indexPath) as! SubcategoryTableViewCell
+        subcategoryCell.subCategoryLabel.textColor = themeColors.getViewBackgroundColor()
+        subcategory = expensesOrganizer.getSubcategoryFor(category!, index: indexPath.row)
+        indexPathSelectedCell = indexPath
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let subcategoryCell = tableView.cellForRowAtIndexPath(indexPath) as! SubcategoryTableViewCell
+        subcategoryCell.subCategoryLabel.textColor = themeColors.getFontColor(Shade.Light)
+
+    }
     // MARK: UICollectionViewDataSource
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -140,8 +184,9 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("categoryCell", forIndexPath: indexPath) as! CategoryCollectionViewCell
         let category = categories[indexPath.section][indexPath.row]
         self.roundView(cell)
-        cell.categoryImageView.image = UIImage(named: categories[indexPath.section][indexPath.row].rawValue)
-        cell.categoryLabel.text = category.rawValue
+        let categoryText = expensesOrganizer.getText(category.rawValue)
+        cell.categoryImageView.image = UIImage(named: categoryText)
+        cell.categoryLabel.text = categoryText
         if cell.selected {
             cell.backgroundColor = themeColors.getColorOfCategory(category)
             cell.categoryImageView.tintColor = themeColors.getViewBackgroundColor()
@@ -160,7 +205,17 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
         cell.backgroundColor = themeColors.getColorOfCategory(category)
         cell.categoryImageView.tintColor = themeColors.getViewBackgroundColor()
         cell.categoryLabel.textColor = cell.categoryImageView.tintColor
+        //reload tableview
+            //Deselect selected cell
+        if let indexPath = indexPathSelectedCell{
+            self.tableView(subCategoryTableView, didDeselectRowAtIndexPath: indexPath)
+        }
+        
         self.category = category
+        //Reset data
+        indexPathSelectedCell = nil
+        self.subcategory = Subcategory.None
+        subCategoryTableView.reloadData()
 
     }
     
@@ -221,7 +276,8 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     }
     
     func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String {
-        return self.expensesOrganizer.getFunction(item).rawValue
+        let function = self.expensesOrganizer.getFunction(item)
+        return self.expensesOrganizer.getText(function.rawValue)
     }
     
     // MARK: - AKPickerViewDelegate

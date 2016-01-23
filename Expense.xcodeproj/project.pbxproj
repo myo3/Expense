@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD1D22B31C52E2C900E64CE4 /* SubcategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D22B21C52E2C900E64CE4 /* SubcategoryTableViewCell.swift */; };
 		DD3F4C991C3E9F2D00F9980E /* SummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3F4C981C3E9F2D00F9980E /* SummaryTableViewController.swift */; };
 		DD3F4CA41C3EA5BA00F9980E /* Comfortaa_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD3F4CA11C3EA5BA00F9980E /* Comfortaa_Bold.ttf */; };
 		DD3F4CA51C3EA5BA00F9980E /* Comfortaa_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD3F4CA21C3EA5BA00F9980E /* Comfortaa_Regular.ttf */; };
@@ -29,7 +30,6 @@
 		DDA93D581C51BF24005677B8 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D571C51BF24005677B8 /* NoteViewController.swift */; };
 		DDA93D5A1C51BF46005677B8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D591C51BF46005677B8 /* AddViewController.swift */; };
 		DDA93D5C1C51D3C6005677B8 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D5B1C51D3C6005677B8 /* AKPickerView.swift */; };
-		DDA93D5E1C51F373005677B8 /* TestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D5D1C51F373005677B8 /* TestCollectionViewController.swift */; };
 		DDA93D601C51F5FA005677B8 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA93D5F1C51F5FA005677B8 /* CategoryCollectionViewCell.swift */; };
 		DDB591001C47E98800D08FEF /* SummaryHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */; };
 		DDB591021C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */; };
@@ -56,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		0FB5A0B512B9A5AEDEF5B2D5 /* Pods_Expense.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expense.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1D22B21C52E2C900E64CE4 /* SubcategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubcategoryTableViewCell.swift; path = AddViewController/SubcategoryTableViewCell.swift; sourceTree = "<group>"; };
 		DD3F4C981C3E9F2D00F9980E /* SummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryTableViewController.swift; path = SummaryTableView/SummaryTableViewController.swift; sourceTree = "<group>"; };
 		DD3F4CA11C3EA5BA00F9980E /* Comfortaa_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa_Bold.ttf; path = Expense/Resources/Comfortaa_Bold.ttf; sourceTree = "<group>"; };
 		DD3F4CA21C3EA5BA00F9980E /* Comfortaa_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa_Regular.ttf; path = Expense/Resources/Comfortaa_Regular.ttf; sourceTree = "<group>"; };
@@ -84,7 +85,6 @@
 		DDA93D571C51BF24005677B8 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteViewController.swift; path = AddViewController/NoteViewController.swift; sourceTree = "<group>"; };
 		DDA93D591C51BF46005677B8 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = AddViewController/AddViewController.swift; sourceTree = "<group>"; };
 		DDA93D5B1C51D3C6005677B8 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKPickerView.swift; path = AddViewController/AKPickerView.swift; sourceTree = "<group>"; };
-		DDA93D5D1C51F373005677B8 /* TestCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCollectionViewController.swift; path = AddViewController/TestCollectionViewController.swift; sourceTree = "<group>"; };
 		DDA93D5F1C51F5FA005677B8 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryCollectionViewCell.swift; path = AddViewController/CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryHeaderTableViewCell.swift; path = SummaryTableView/SummaryHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryDetailTableViewCell.swift; path = SummaryTableView/SummaryDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -243,9 +243,9 @@
 		DD97863B1C52900A002FC135 /* CategoryVC */ = {
 			isa = PBXGroup;
 			children = (
-				DDA93D5D1C51F373005677B8 /* TestCollectionViewController.swift */,
 				DDA93D551C51BE74005677B8 /* CategoryViewController.swift */,
 				DDA93D5F1C51F5FA005677B8 /* CategoryCollectionViewCell.swift */,
+				DD1D22B21C52E2C900E64CE4 /* SubcategoryTableViewCell.swift */,
 			);
 			name = CategoryVC;
 			sourceTree = "<group>";
@@ -423,10 +423,10 @@
 				DDA93D5C1C51D3C6005677B8 /* AKPickerView.swift in Sources */,
 				DD79D4B31C501AB5009E4C13 /* PopAnimator.swift in Sources */,
 				DD7DA1D91C5080F3009A2B41 /* DateViewController.swift in Sources */,
-				DDA93D5E1C51F373005677B8 /* TestCollectionViewController.swift in Sources */,
 				DDB591021C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift in Sources */,
 				DDB591001C47E98800D08FEF /* SummaryHeaderTableViewCell.swift in Sources */,
 				DD9786361C526E35002FC135 /* ExpensesOrganizer.swift in Sources */,
+				DD1D22B31C52E2C900E64CE4 /* SubcategoryTableViewCell.swift in Sources */,
 				DDC2741E1C509DF20072A95A /* RiseAnimator.swift in Sources */,
 				DD3F4C991C3E9F2D00F9980E /* SummaryTableViewController.swift in Sources */,
 				DD7DA1D71C502A5D009A2B41 /* RoundCornersView.swift in Sources */,

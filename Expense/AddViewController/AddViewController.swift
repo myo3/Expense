@@ -12,6 +12,7 @@ class AddViewController: UIViewController, UIViewControllerTransitioningDelegate
 
     //Colors
     private let themeColors = ThemeColors()
+    private let expensesOrganizer = ExpensesOrganizer()
     
     //Views & Constraints
     @IBOutlet private weak var statusBarBackgroundView: UIView!
@@ -59,6 +60,7 @@ class AddViewController: UIViewController, UIViewControllerTransitioningDelegate
     private var date: NSDate?
     private var function: Function?
     private var category: Category?
+    private var subcategory: Subcategory?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -181,11 +183,14 @@ class AddViewController: UIViewController, UIViewControllerTransitioningDelegate
     @IBAction func addCategory(unwindSegue: UIStoryboardSegue){
         let categoryVC = unwindSegue.sourceViewController as! CategoryViewController
         function = categoryVC.function
-        functionLabel.text = function?.rawValue
+        let functionText = expensesOrganizer.getText((function?.rawValue)!)
+        functionLabel.text = functionText
         category = categoryVC.category
-        categoryLabel.text = category?.rawValue
+        let categoryText = expensesOrganizer.getText((category?.rawValue)!)
+        categoryLabel.text = categoryText
         categoryIcon.image = UIImage(named: categoryLabel.text!)
         categoryIcon.tintColor = themeColors.getColorOfCategory(category!)
+        subcategory = categoryVC.subcategory
     }
     
     @IBAction func cancelCategory(unwindSegue: UIStoryboardSegue){

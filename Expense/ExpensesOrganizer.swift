@@ -21,7 +21,7 @@ enum Category: String{
 enum Subcategory: String{
     //General = none
     
-    case /*General*/None, /*Personal*/Mobile, Medical, Taxes, Insurance, Personal_Care, Gadgets, Pets, Education, Laundry, Fitness, Loan, Vouchers, Subscriptions, /*House*/Groceries, Rent, Phone, Electricity, Internet, Cable, Water, Repairs, Plants, Mortgage, Electronics, Furniture, Heating, /*Food&Drink*/Takeout, Fastfood, Dining_Out, Cafe, Drinks, /*Transport also has insurance*/ Gas, Maintenance, Public_Transport, Taxi, Car_Loan, Penalty, Flight, Parking, Car_Rental, /*Clothes*/Shoes, Clothes, Accessories, Underwear, Bags, /*Fun*/Events, Movies, Recreation, Cultural, Sports, Books, Magazines, Music, Apps, Software, TVShows, /*Misc*/Gift, Office, Charity, Lodging, Service, Toy
+    case /*General*/None, /*Personal*/Mobile, Medical, Taxes, Insurance, Personal_Care, Gadgets, Pets, Education, Laundry, Fitness, Loan, Vouchers, Subscriptions, /*House*/Groceries, Rent, Phone, Electricity, Internet, Cable, Water, Repairs, Plants, Mortgage, Electronics, Furniture, Heating, /*Food&Drink*/Takeout, Fastfood, Dining_Out, Cafe, Drinks, /*Transport also has insurance*/ Gas, Maintenance, Public_Transport, Taxi, Car_Loan, Penalty, Flight, Parking, Car_Rental, /*Clothes*/Shoes, Clothes, Accessories, Underwear, Bags, /*Fun*/Events, Movies, Recreation, Cultural, Sports, Books, Magazines, Music, Apps, Software, TV_Shows, /*Misc*/Gift, Office, Charity, Lodging, Service, Toy
 }
 
 class ExpensesOrganizer: NSObject {
@@ -29,7 +29,7 @@ class ExpensesOrganizer: NSObject {
     private var expenses: [Expense] = [Expense]()
     private var functions: [Function] = [.Personal, .Social, .Work, .Family]
     private var categories: [Category] = [.General, .Personal, .House, .Food, .Transport, .Clothes, .Fun, .Misc]
-    private var subcategories: [Category: [Subcategory]] = [.General: [.None], .Personal: [.Mobile, .Medical, .Taxes, .Insurance, .Personal_Care, .Gadgets, .Pets, .Education, .Laundry, .Fitness, .Loan, .Vouchers, .Subscriptions], .House : [.Groceries, .Rent, .Phone, .Electricity, . Internet, .Cable, .Water, .Repairs, .Plants, .Mortgage, .Electronics, .Furniture, .Heating], .Food : [.Takeout, .Fastfood, .Dining_Out, .Cafe, .Drinks], .Transport : [.Gas, .Maintenance, .Public_Transport, .Taxi, .Insurance, .Car_Loan, .Penalty, .Flight, .Parking, .Car_Rental], .Clothes: [.Shoes, .Clothes, .Accessories, .Underwear,.Bags], .Fun : [.Events, .Movies, .Recreation, .Cultural, .Sports, .Books, .Magazines, .Music, .Apps, .Software, .TVShows], .Misc : [.Gift, .Office, .Charity, .Lodging, .Service, .Toy]]
+    private var subcategories: [Category: [Subcategory]] = [.General: [.None], .Personal: [.Mobile, .Medical, .Taxes, .Insurance, .Personal_Care, .Gadgets, .Pets, .Education, .Laundry, .Fitness, .Loan, .Vouchers, .Subscriptions], .House : [.Groceries, .Rent, .Phone, .Electricity, . Internet, .Cable, .Water, .Repairs, .Plants, .Mortgage, .Electronics, .Furniture, .Heating], .Food : [.Takeout, .Fastfood, .Dining_Out, .Cafe, .Drinks], .Transport : [.Gas, .Maintenance, .Public_Transport, .Taxi, .Insurance, .Car_Loan, .Penalty, .Flight, .Parking, .Car_Rental], .Clothes: [.Shoes, .Clothes, .Accessories, .Underwear,.Bags], .Fun : [.Events, .Movies, .Recreation, .Cultural, .Sports, .Books, .Magazines, .Music, .Apps, .Software, .TV_Shows], .Misc : [.Gift, .Office, .Charity, .Lodging, .Service, .Toy]]
     
     //get count functions
     func getNumOfFunctions() -> Int{
@@ -69,5 +69,9 @@ class ExpensesOrganizer: NSObject {
     func getSubcategoryFor(category: Category, index: Int) -> Subcategory{
         let subcategoryList = subcategories[category]!
         return subcategoryList[index]
+    }
+    
+    func getText(string: String) -> String{
+        return string.stringByReplacingOccurrencesOfString("_", withString: " ")
     }
 }
