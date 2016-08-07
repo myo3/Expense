@@ -13,9 +13,11 @@ dateComponents.year
 dateComponents.hour
 dateComponents.minute
 
+let createdDate = dateComponents
 calendar.dateFromComponents(dateComponents)
 var dateFormatter = NSDateFormatter()
-dateFormatter.dateFormat = "hh:mm aa"//"EEE HH:mm aa MMM dd, yyy"
+dateFormatter.dateFormat = "h:mm"
+//"hh:mm aa"//"EEE HH:mm aa MMM dd, yyy"
 let date = dateFormatter.stringFromDate(currentDate)
 
 print("day = \(dateComponents.day)", "month = \(dateComponents.month)", "year = \(dateComponents.year)", "week of year = \(dateComponents.weekOfYear)", "hour = \(dateComponents.hour)", "minute = \(dateComponents.minute)", "second = \(dateComponents.second)", "nanosecond = \(dateComponents.nanosecond)" , separator: ", ", terminator: "")

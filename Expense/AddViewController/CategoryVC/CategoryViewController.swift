@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITableViewDataSource, UITableViewDelegate{
+class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITableViewDataSource, UITableViewDelegate {
     
     //Theme colors
     private let themeColors = ThemeColors()
@@ -137,16 +137,18 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return expensesOrganizer.getNumOfSubcategoriesFor(category!)
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let subcategoryCell = tableView.dequeueReusableCellWithIdentifier("subCategoryCell", forIndexPath: indexPath) as! SubcategoryTableViewCell
         let subcategory = expensesOrganizer.getSubcategoryFor(category!, index: indexPath.row)
-        subcategoryCell.subCategoryLabel.text = expensesOrganizer.getText(subcategory.rawValue)
+        subcategoryCell.subCategoryLabel.text = "\(indexPath.row) \(expensesOrganizer.getText(subcategory.rawValue))"
         subcategoryCell.selectedBackgroundView = UIView(frame: CGRect.zero)
         subcategoryCell.selectedBackgroundView?.backgroundColor = themeColors.getColorOfCategory(category!)
         
         return subcategoryCell
     }
     
+    // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         //Extend separator line
         cell.layoutMargins = UIEdgeInsetsZero
@@ -156,16 +158,26 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let subcategoryCell = tableView.cellForRowAtIndexPath(indexPath) as! SubcategoryTableViewCell
-        subcategoryCell.subCategoryLabel.textColor = themeColors.getViewBackgroundColor()
+        subcategoryCell.subCategoryLabel.textColor = UIColor.redColor()//themeColors.getViewBackgroundColor()
+        subcategoryCell.subCategoryLabel.text = "\(indexPath.row) didSELECTRowAtIndexPath called"
         subcategory = expensesOrganizer.getSubcategoryFor(category!, index: indexPath.row)
         indexPathSelectedCell = indexPath
+        print(indexPathSelectedCell?.row)
+        let selectedRows = subCategoryTableView.indexPathsForSelectedRows
+        for i in selectedRows! {
+            if !i.isEqual(indexPath){
+                subCategoryTableView.deselectRowAtIndexPath(i, animated: false)
+            }
+        }
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let subcategoryCell = tableView.cellForRowAtIndexPath(indexPath) as! SubcategoryTableViewCell
         subcategoryCell.subCategoryLabel.textColor = themeColors.getFontColor(Shade.Light)
-
+        subcategoryCell.subCategoryLabel.text = "\(indexPath.row) didDESELECTRowAtIndexPath called"
+        
     }
+    
     // MARK: UICollectionViewDataSource
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -207,16 +219,16 @@ class CategoryViewController: UIViewController, AKPickerViewDelegate, AKPickerVi
         cell.categoryLabel.textColor = cell.categoryImageView.tintColor
         //reload tableview
             //Deselect selected cell
-        if let indexPath = indexPathSelectedCell{
-            self.tableView(subCategoryTableView, didDeselectRowAtIndexPath: indexPath)
+        if let indP = indexPathSelectedCell{
+            self.tableView(subCategoryTableView, didDeselectRowAtIndexPath: indP)
         }
         
         self.category = category
+        
         //Reset data
         indexPathSelectedCell = nil
         self.subcategory = Subcategory.None
         subCategoryTableView.reloadData()
-
     }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {

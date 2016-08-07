@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class AddViewController: UIViewController, UIViewControllerTransitioningDelegate{
 
@@ -50,6 +51,8 @@ class AddViewController: UIViewController, UIViewControllerTransitioningDelegate
     @IBOutlet weak var categoryLabel: UILabel!
     
     @IBOutlet private weak var locationView: RoundCornersView!
+
+    @IBOutlet weak var mapView: MKMapView!
     
     //Animation
     private let popTransition = PopAnimator()
@@ -172,6 +175,10 @@ class AddViewController: UIViewController, UIViewControllerTransitioningDelegate
         categoryFunctionView.updateConstraintsIfNeeded()
         self.view.layoutIfNeeded()
         categoryFunctionView.layoutIfNeeded()
+        
+        //set current location
+        let locationManager = CLLocationManager()
+        locationManager.requestWhenInUseAuthorization()
 
     }
 

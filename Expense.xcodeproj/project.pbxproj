@@ -56,7 +56,7 @@
 
 /* Begin PBXFileReference section */
 		0FB5A0B512B9A5AEDEF5B2D5 /* Pods_Expense.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expense.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD1D22B21C52E2C900E64CE4 /* SubcategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubcategoryTableViewCell.swift; path = AddViewController/SubcategoryTableViewCell.swift; sourceTree = "<group>"; };
+		DD1D22B21C52E2C900E64CE4 /* SubcategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubcategoryTableViewCell.swift; path = AddViewController/CategoryVC/SubcategoryTableViewCell.swift; sourceTree = "<group>"; };
 		DD3F4C981C3E9F2D00F9980E /* SummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryTableViewController.swift; path = SummaryTableView/SummaryTableViewController.swift; sourceTree = "<group>"; };
 		DD3F4CA11C3EA5BA00F9980E /* Comfortaa_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa_Bold.ttf; path = Expense/Resources/Comfortaa_Bold.ttf; sourceTree = "<group>"; };
 		DD3F4CA21C3EA5BA00F9980E /* Comfortaa_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa_Regular.ttf; path = Expense/Resources/Comfortaa_Regular.ttf; sourceTree = "<group>"; };
@@ -75,20 +75,20 @@
 		DD75ABDF1C3E992500457005 /* ExpenseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpenseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD75ABE31C3E992500457005 /* ExpenseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseUITests.swift; sourceTree = "<group>"; };
 		DD75ABE51C3E992500457005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD79D4B21C501AB5009E4C13 /* PopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopAnimator.swift; path = AddViewController/PopAnimator.swift; sourceTree = "<group>"; };
+		DD79D4B21C501AB5009E4C13 /* PopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopAnimator.swift; path = "AddViewController/VC Transitions/PopAnimator.swift"; sourceTree = "<group>"; };
 		DD79D4B41C50207D009E4C13 /* AllExpensesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllExpensesCell.swift; path = SummaryTableView/AllExpensesCell.swift; sourceTree = "<group>"; };
-		DD7DA1D61C502A5D009A2B41 /* RoundCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundCornersView.swift; path = AddViewController/RoundCornersView.swift; sourceTree = "<group>"; };
-		DD7DA1D81C5080F3009A2B41 /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateViewController.swift; path = AddViewController/DateViewController.swift; sourceTree = "<group>"; };
+		DD7DA1D61C502A5D009A2B41 /* RoundCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundCornersView.swift; path = "AddViewController/Custom Views/RoundCornersView.swift"; sourceTree = "<group>"; };
+		DD7DA1D81C5080F3009A2B41 /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateViewController.swift; path = "AddViewController/Simple VC/DateViewController.swift"; sourceTree = "<group>"; };
 		DD9786351C526E35002FC135 /* ExpensesOrganizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpensesOrganizer.swift; sourceTree = "<group>"; };
 		DD9786371C5273A1002FC135 /* ThemeColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
-		DDA93D551C51BE74005677B8 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryViewController.swift; path = AddViewController/CategoryViewController.swift; sourceTree = "<group>"; };
-		DDA93D571C51BF24005677B8 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteViewController.swift; path = AddViewController/NoteViewController.swift; sourceTree = "<group>"; };
+		DDA93D551C51BE74005677B8 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryViewController.swift; path = AddViewController/CategoryVC/CategoryViewController.swift; sourceTree = "<group>"; };
+		DDA93D571C51BF24005677B8 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteViewController.swift; path = "AddViewController/Simple VC/NoteViewController.swift"; sourceTree = "<group>"; };
 		DDA93D591C51BF46005677B8 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = AddViewController/AddViewController.swift; sourceTree = "<group>"; };
-		DDA93D5B1C51D3C6005677B8 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKPickerView.swift; path = AddViewController/AKPickerView.swift; sourceTree = "<group>"; };
-		DDA93D5F1C51F5FA005677B8 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryCollectionViewCell.swift; path = AddViewController/CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDA93D5B1C51D3C6005677B8 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKPickerView.swift; path = "AddViewController/Custom Views/AKPickerView.swift"; sourceTree = "<group>"; };
+		DDA93D5F1C51F5FA005677B8 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryCollectionViewCell.swift; path = AddViewController/CategoryVC/CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDB590FF1C47E98800D08FEF /* SummaryHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryHeaderTableViewCell.swift; path = SummaryTableView/SummaryHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		DDB591011C47E9CB00D08FEF /* SummaryDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryDetailTableViewCell.swift; path = SummaryTableView/SummaryDetailTableViewCell.swift; sourceTree = "<group>"; };
-		DDC2741D1C509DF20072A95A /* RiseAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RiseAnimator.swift; path = AddViewController/RiseAnimator.swift; sourceTree = "<group>"; };
+		DDC2741D1C509DF20072A95A /* RiseAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RiseAnimator.swift; path = "AddViewController/VC Transitions/RiseAnimator.swift"; sourceTree = "<group>"; };
 		DDC2741F1C50C3A60072A95A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -222,13 +222,13 @@
 			name = SummaryTableView;
 			sourceTree = "<group>";
 		};
-		DD9786391C528FC9002FC135 /* VCAnimators */ = {
+		DD9786391C528FC9002FC135 /* VC Transitions */ = {
 			isa = PBXGroup;
 			children = (
 				DDC2741D1C509DF20072A95A /* RiseAnimator.swift */,
 				DD79D4B21C501AB5009E4C13 /* PopAnimator.swift */,
 			);
-			name = VCAnimators;
+			name = "VC Transitions";
 			sourceTree = "<group>";
 		};
 		DD97863A1C528FE6002FC135 /* Custom Views */ = {
@@ -266,7 +266,7 @@
 				DD97863C1C529032002FC135 /* SimpleVC */,
 				DD97863B1C52900A002FC135 /* CategoryVC */,
 				DD97863A1C528FE6002FC135 /* Custom Views */,
-				DD9786391C528FC9002FC135 /* VCAnimators */,
+				DD9786391C528FC9002FC135 /* VC Transitions */,
 			);
 			name = AddViewController;
 			sourceTree = "<group>";
