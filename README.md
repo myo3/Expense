@@ -1,5 +1,5 @@
 # Expense
->###*CUAppDev Training Program Winter 2016*
+>###*CUAppDev Training Program Winter 2015-2016*
 
 ## Description
 This is one of the apps I developed after participating in the *CUAppDev Training Program*. Inspired by Wally, this app is designed to make keeping track of your spending easier, cleaner, and a bit more colorful!
